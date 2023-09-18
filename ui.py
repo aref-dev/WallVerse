@@ -36,7 +36,7 @@ class UserInterface(customtkinter.CTk):
         self.home_info.grid(row=1, column=0, columnspan=2, padx=100, pady=20, sticky="EW")
 
         self.auto_set_btn = customtkinter.CTkButton(
-            self.tabview.tab("Home"), text="Set as Wallpaper", command=self.set_wallpaper)
+            self.tabview.tab("Home"), text="Set as Wallpaper", command=self.set_wallpaper_auto)
         self.auto_set_btn.grid(row=3, column=0, columnspan=2, padx=100, pady=10, sticky="EW")
 
         # Quotes Tab
@@ -53,20 +53,37 @@ class UserInterface(customtkinter.CTk):
         self.franklin_radio.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
 
         self.franklin_radio = customtkinter.CTkRadioButton(
-            self.tabview.tab("Quotes"), text="Your own collection (separate with %):", font=FONT2,
+            self.tabview.tab("Quotes"), text="Your own collection:", font=FONT2,
             variable=self.quote_radio_value, value="custom")
         self.franklin_radio.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
 
-        self.text_box = customtkinter.CTkEntry(self.tabview.tab("Quotes"), height=100)
+        self.text_box = customtkinter.CTkTextbox(
+            self.tabview.tab("Quotes"), height=100)
         self.text_box.grid(row=3, column=0, padx=10, pady=10, sticky="EW")
 
-    def set_wallpaper(self):
-        selected_pack = self.quote.set_quote_pack(self.quote_radio_value.get())
+        self.text_box.insert(index=0.1, text=self.load_to_textbox())
+
+        self.text_box_save_btn = customtkinter.CTkButton(
+            self.tabview.tab("Quotes"), text="Save", command=self.update_textbox)
+
+        self.text_box_save_btn.grid(row=4, column=0, padx=10, pady=10, sticky="EW")
+
+    def load_to_textbox(self):
+        with open(file="resources/temp/self-quotes.text", mode="r") as file:
+            return file.read()
+
+    def update_textbox(self):
+        with open(file="resources/temp/self-quotes.text", mode="w") as file:
+            file.write(self.text_box.get(0.1, customtkinter.END))
+
+    def set_wallpaper_auto(self):
+        self.quote.set_quote_pack("fortune")
         random_quote = self.quote.get_random_quote()
+        cowsay_quote = self.quote.pass_to_cowsay(random_quote)
         self.wallpaper.set_font(font="resources/fonts/RobotoMono-Bold.ttf", font_size=20)  # FONT HAS TO BE MONOSPACED
-        self.wallpaper.set_screen_size(method="manual")
-        self.wallpaper.set_canvas(canvas_type="solid", bg_color="darkblue")
-        self.wallpaper.draw_wallpaper(input_text=random_quote, text_color="white")
+        self.wallpaper.set_screen_size(method="auto")
+        self.wallpaper.set_canvas(canvas_type="solid", bg_color="black")
+        self.wallpaper.draw_wallpaper(input_text=cowsay_quote, text_color="white")
 
 
 if __name__ == "__main__":
