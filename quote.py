@@ -30,6 +30,13 @@ class QuoteGen:
             filepath = 'resources/quote_packs/fortunes.txt'
         elif self.quote_pack == "franklin":
             filepath = 'resources/quote_packs/franklin.txt'
+        elif self.quote_pack == "custom":
+            filepath = 'resources/quote_packs/custom.txt'
+            with open(filepath) as file:
+                file_data = file.read().split('\n')
+                random_quote = random.choice(file_data)
+                self.random_quote = random_quote
+                return self.random_quote
 
         with open(filepath) as file:
             file_data = file.read().split('%')

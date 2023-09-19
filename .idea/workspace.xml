@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Created the QuoteGen class for getting random quotes form different quotation text files.&#10;- Text can be passed to cowsay.&#10;- The cowsay package is Monkey Patched to prevent distortions.&#10;- Created the WallpaperGen class for adding text to image or canvas.&#10;- Canvas size is created by the resolution on the main display or manually.&#10;- Text over wallpaper is centered.&#10;- UI radio buttons for selecting quote texts work.">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Made a textbox for quotations that loads previous texts once the app loads">
+      <change afterPath="$PROJECT_DIR$/resources/quote_packs/custom.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/quote.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,19 +53,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Aref/PycharmProjects/day21"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aref/PycharmProjects/day21&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
@@ -91,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694922486368</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Made a textbox for quotations that loads previous texts once the app loads">
+      <option name="closed" value="true" />
+      <created>1695030359692</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695030359692</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +117,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Created the QuoteGen class for getting random quotes form different quotation text files.&#10;- Text can be passed to cowsay.&#10;- The cowsay package is Monkey Patched to prevent distortions.&#10;- Created the WallpaperGen class for adding text to image or canvas.&#10;- Canvas size is created by the resolution on the main display or manually.&#10;- Text over wallpaper is centered.&#10;- UI radio buttons for selecting quote texts work." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Created the QuoteGen class for getting random quotes form different quotation text files.&#10;- Text can be passed to cowsay.&#10;- The cowsay package is Monkey Patched to prevent distortions.&#10;- Created the WallpaperGen class for adding text to image or canvas.&#10;- Canvas size is created by the resolution on the main display or manually.&#10;- Text over wallpaper is centered.&#10;- UI radio buttons for selecting quote texts work." />
+    <MESSAGE value="- Made a textbox for quotations that loads previous texts once the app loads" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Made a textbox for quotations that loads previous texts once the app loads" />
   </component>
 </project>
