@@ -1,6 +1,9 @@
 from quote import QuoteGen
 from wallpaper import WallpaperGen
 import customtkinter
+from pathlib import Path
+import threading
+import darkdetect
 import random
 
 FONT = ('Arial', 18, 'italic')
@@ -28,6 +31,8 @@ class UserInterface(customtkinter.CTk):
         self.tabview.add("Style")
         self.tabview.add("Preferences")
 
+        # Home tab
+
         self.home_title = customtkinter.CTkLabel(
             self.tabview.tab("Home"), text="Welcome to Fortune's Window", font=FONT)
         self.home_title.grid(row=0, column=0, columnspan=2, padx=100, pady=20, sticky="EW")
@@ -41,6 +46,7 @@ class UserInterface(customtkinter.CTk):
         self.auto_set_btn.grid(row=3, column=0, columnspan=2, padx=100, pady=10, sticky="EW")
 
         # Quotes Tab
+
         self.quote_radio_value = customtkinter.StringVar(value="fortune")
 
         self.fortune_radio = customtkinter.CTkRadioButton(
@@ -72,6 +78,38 @@ class UserInterface(customtkinter.CTk):
             self.tabview.tab("Quotes"), text="Set as Wallpaper", command=self.set_wallpaper_custom)
         self.custom_set_btn.grid(row=5, column=2, padx=10, pady=10, sticky="EW")
 
+        # Style tab
+
+        self.text_size_var = customtkinter.IntVar(value=18)
+
+        self.text_size_edit_label = customtkinter.CTkLabel(
+            self.tabview.tab("Style"), text="Text-size"
+        )
+        self.text_size_edit_label.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
+
+        self.text_size_edit_options = customtkinter.CTkEntry(
+            self.tabview.tab("Style"), textvariable=self.text_size_var
+        )
+        self.text_size_edit_options.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
+
+        font_path = Path("./resources/fonts")
+
+        available_fonts = [font.name for font in font_path.iterdir()]
+
+        self.font_style_var = customtkinter.StringVar(value=available_fonts[0])
+
+        self.font_style_edit_label = customtkinter.CTkLabel(
+            self.tabview.tab("Style"), text="Text-size"
+        )
+        self.font_style_edit_label.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
+
+        self.font_combobox = customtkinter.CTkComboBox(
+            self.tabview.tab("Style"), values=available_fonts, variable=self.font_style_var
+        )
+        self.font_combobox.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
+
+
+
     def load_textbox_file(self):
         with open(file="resources/quote_packs/custom.txt", mode="r") as file:
             return file.read()
@@ -92,11 +130,12 @@ class UserInterface(customtkinter.CTk):
         self.quote.set_quote_pack("fortune")
         random_quote = self.quote.get_random_quote()
         cowsay_quote = self.quote.pass_to_cowsay(random_quote)
-        self.wallpaper.set_font(font="resources/fonts/RobotoMono-Bold.ttf", font_size=20)  # FONT HAS TO BE MONOSPACED
+        self.wallpaper.set_font(font=f"resources/fonts/{self.font_style_var.get()}", font_size=self.text_size_var.get())  # FONT HAS TO BE MONOSPACED
         self.wallpaper.set_screen_size(method="auto")
         self.wallpaper.set_canvas(canvas_type="solid", bg_color="black")
         self.wallpaper.draw_wallpaper(input_text=cowsay_quote, text_color="white")
         self.wallpaper.set_wallpaper()
+
 
 if __name__ == "__main__":
     app = UserInterface(QuoteGen(), WallpaperGen())

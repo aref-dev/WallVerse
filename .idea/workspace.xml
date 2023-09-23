@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Quotes from the textbox can be passed to WallpaperGen Class">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added a new function set_wallpaper in wallpaper.py for Windows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/result.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/result4.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallpaper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695088251089</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Added a new function set_wallpaper in wallpaper.py for Windows">
+      <option name="closed" value="true" />
+      <created>1695461222040</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695461222040</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +133,7 @@
     <MESSAGE value="- Created the QuoteGen class for getting random quotes form different quotation text files.&#10;- Text can be passed to cowsay.&#10;- The cowsay package is Monkey Patched to prevent distortions.&#10;- Created the WallpaperGen class for adding text to image or canvas.&#10;- Canvas size is created by the resolution on the main display or manually.&#10;- Text over wallpaper is centered.&#10;- UI radio buttons for selecting quote texts work." />
     <MESSAGE value="- Made a textbox for quotations that loads previous texts once the app loads" />
     <MESSAGE value="- Quotes from the textbox can be passed to WallpaperGen Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Quotes from the textbox can be passed to WallpaperGen Class" />
+    <MESSAGE value="- Added a new function set_wallpaper in wallpaper.py for Windows" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added a new function set_wallpaper in wallpaper.py for Windows" />
   </component>
 </project>
