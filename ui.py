@@ -96,7 +96,7 @@ class UserInterface(customtkinter.CTk):
         self.wallpaper.set_screen_size(method="auto")
         self.wallpaper.set_canvas(canvas_type="solid", bg_color="black")
         self.wallpaper.draw_wallpaper(input_text=cowsay_quote, text_color="white")
-
+        self.wallpaper.set_wallpaper()
 
 if __name__ == "__main__":
     app = UserInterface(QuoteGen(), WallpaperGen())

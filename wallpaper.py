@@ -1,6 +1,15 @@
 from PIL import Image, ImageDraw, ImageFont
 from screeninfo import get_monitors  # For getting screen-size
+import tempfile
+import ctypes
 
+"""
+Windows SystemParametersInfo for changing wallpaper:
+0x14 is for setting the desktop wallpaper
+0x2 is for writing it to user's INI/ Initialization File to prevent change after reboot
+"""
+SPI_SETDESKWALLPAPER = 0x14
+SPIF_UPDATEINIFILE   = 0x2
 
 class WallpaperGen:
     def __init__(self):
@@ -18,6 +27,9 @@ class WallpaperGen:
         self.background_img_file_path = None
 
         self.draw = None  # PIL draw object for image manipulation
+
+        self.temp_wallpaper = None
+        self.temp_wallpaper_path = None
 
     def set_font(self, font, font_size):
         self.font_size = font_size
@@ -50,4 +62,12 @@ class WallpaperGen:
 
         self.draw.text(((self.canvas.width - self.text_width) / 2, (self.canvas.height - self.text_height) / 2),
                        text=self.text_over_wallpaper, fill=self.text_color, font=self.text_font)
-        self.canvas.show()
+
+    def set_wallpaper(self):
+        self.temp_wallpaper = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
+        self.canvas.save(self.temp_wallpaper.name, "PNG")
+        self.temp_wallpaper_path = self.temp_wallpaper.name
+        ctypes.windll.user32.SystemParametersInfoW(
+            SPI_SETDESKWALLPAPER, 0, self.temp_wallpaper_path, SPIF_UPDATEINIFILE)
+        self.temp_wallpaper.close()
+
