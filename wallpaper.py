@@ -38,7 +38,7 @@ class WallpaperGen:
     def set_canvas(self, canvas_type, bg_color="black", path=None):
         if canvas_type == "solid":
             self.background_color = bg_color
-            self.canvas = Image.new('RGB', size=self.screen_size, color=self.background_color)
+            self.canvas = Image.new(mode="RGB", size=self.screen_size, color=self.background_color)
 
         elif canvas_type == "image":
             self.background_img_file_path = path
