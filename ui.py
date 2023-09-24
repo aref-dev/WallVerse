@@ -2,12 +2,21 @@ from quote import QuoteGen
 from wallpaper import WallpaperGen
 import customtkinter
 from pathlib import Path
+import pyglet
 import threading
 import darkdetect
 import random
 
-FONT = ('Arial', 18, 'italic')
-FONT2 = ('Arial', 14, 'bold')
+# Adding custom font for title:
+
+pyglet.options['win32_gdi_font'] = True
+pyglet.font.add_file("./resources/ui_fonts/Fuggles-Regular.ttf")
+
+# Defining fonts:
+
+TITLE_FONT = ('Fuggles', 46, 'bold')
+HEADING_FONT = ('Georgia', 18, 'bold')
+ELEMENT_FONT = ('Helvetica', 14)
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -34,11 +43,11 @@ class UserInterface(customtkinter.CTk):
         # Home tab
 
         self.home_title = customtkinter.CTkLabel(
-            self.tabview.tab("Home"), text="Welcome to Fortune's Window", font=FONT)
-        self.home_title.grid(row=0, column=0, columnspan=2, padx=100, pady=20, sticky="EW")
+            self.tabview.tab("Home"), text="Welcome to Fortune's Window", font=TITLE_FONT)
+        self.home_title.grid(row=0, column=0, columnspan=2, padx=100, pady=(30, 0), sticky="EW")
 
         self.home_info = customtkinter.CTkLabel(
-            self.tabview.tab("Home"), text="Revisit your favorite quotes, or be surprised!", font=FONT2)
+            self.tabview.tab("Home"), text="Revisit your favorite quotes, or be surprised!", font=ELEMENT_FONT)
         self.home_info.grid(row=1, column=0, columnspan=2, padx=100, pady=20, sticky="EW")
 
         self.auto_set_btn = customtkinter.CTkButton(
@@ -50,17 +59,17 @@ class UserInterface(customtkinter.CTk):
         self.quote_radio_value = customtkinter.StringVar(value="fortune")
 
         self.fortune_radio = customtkinter.CTkRadioButton(
-            self.tabview.tab("Quotes"), text="The original fortune from OpenBSD", font=FONT2,
+            self.tabview.tab("Quotes"), text="The original fortune from OpenBSD", font=ELEMENT_FONT,
             variable=self.quote_radio_value, value="fortune")
         self.fortune_radio.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
 
         self.franklin_radio = customtkinter.CTkRadioButton(
-            self.tabview.tab("Quotes"), text="Quotes form Poor Richard's Almanack by Benjamin Franklin", font=FONT2,
+            self.tabview.tab("Quotes"), text="Quotes form Poor Richard's Almanack by Benjamin Franklin", font=ELEMENT_FONT,
             variable=self.quote_radio_value, value="franklin")
         self.franklin_radio.grid(row=1, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
 
         self.custom_radio = customtkinter.CTkRadioButton(
-            self.tabview.tab("Quotes"), text="Your own collection (one quote on each line):", font=FONT2,
+            self.tabview.tab("Quotes"), text="Your own collection (one quote on each line):", font=ELEMENT_FONT,
             variable=self.quote_radio_value, value="custom")
         self.custom_radio.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
 
@@ -83,7 +92,7 @@ class UserInterface(customtkinter.CTk):
         self.text_size_var = customtkinter.IntVar(value=18)
 
         self.text_size_edit_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Text-size"
+            self.tabview.tab("Style"), text="Text-size:"
         )
         self.text_size_edit_label.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
 
@@ -99,14 +108,14 @@ class UserInterface(customtkinter.CTk):
         self.font_style_var = customtkinter.StringVar(value=available_fonts[0])
 
         self.font_style_edit_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Text-size"
+            self.tabview.tab("Style"), text="Font-size:"
         )
         self.font_style_edit_label.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
 
         self.font_combobox = customtkinter.CTkComboBox(
             self.tabview.tab("Style"), values=available_fonts, variable=self.font_style_var
         )
-        self.font_combobox.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
+        self.font_combobox.grid(row=2, column=1, columnspan=2, padx=10, pady=10, sticky="EW")
 
 
 
