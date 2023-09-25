@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- User can set different text-color, background color or image for dark-mode and light mode.">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Improved UI&#10;- Added cowsay option to UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/quote_packs/custom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/OpenDyslexicMono-Regular.otf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695549552537</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- Improved UI&#10;- Added cowsay option to UI">
+      <option name="closed" value="true" />
+      <created>1695599643459</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695599643459</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +176,7 @@
     <MESSAGE value="- Font size change is now possible from UI&#10;- All available fonts from the font-path are displayed in a combobox and can be used" />
     <MESSAGE value="- Added additional fonts and font for title" />
     <MESSAGE value="- User can set different text-color, background color or image for dark-mode and light mode." />
-    <option name="LAST_COMMIT_MESSAGE" value="- User can set different text-color, background color or image for dark-mode and light mode." />
+    <MESSAGE value="- Improved UI&#10;- Added cowsay option to UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Improved UI&#10;- Added cowsay option to UI" />
   </component>
 </project>

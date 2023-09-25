@@ -208,6 +208,7 @@ class UserInterface(customtkinter.CTk):
                                                                 text= "Cowsay",
                                                                 variable=self.cowsay_toggle_value,
                                                                 font=ELEMENT_FONT)
+
         self.cowsay_toggle_checkbox.grid(row=13, column=0, padx=50, pady=10, sticky="EW")
 
         self.cowsay_toggle_label = customtkinter.CTkLabel(self.tabview.tab("Style"), text="Pick cowsay character:",font=ELEMENT_FONT)
@@ -280,11 +281,35 @@ class UserInterface(customtkinter.CTk):
     def set_wallpaper(self):
         self.quote.set_quote_pack(self.quote_radio_value.get())
         random_quote = self.quote.get_random_quote()
+        if self.cowsay_toggle_value.get() == 1:
+            input_text = self.quote.pass_to_cowsay(random_quote, cowsay_character=self.cowsay_char.get())
+        elif self.cowsay_toggle_value.get() == 0:
+            input_text = random_quote
+
         self.wallpaper.set_font(font=f"resources/fonts/{self.font_style_var.get()}",
                                 font_size=self.text_size_var.get())
         self.wallpaper.set_screen_size(method="auto")
-        self.wallpaper.set_canvas(canvas_type="solid", bg_color=self.dark_theme_background_color_value.get())
-        self.wallpaper.draw_wallpaper(input_text=random_quote, text_color=self.dark_theme_text_color_value.get())
+
+        if darkdetect.isLight():
+            bg_color = self.light_theme_background_color_value.get()
+            text_color = self.light_theme_text_color_value.get()
+            img_path = self.light_theme_background_image_path.get()
+            if self.light_theme_background_type_option_var.get() == "Solid":
+                self.wallpaper.set_canvas(canvas_type="solid", bg_color=bg_color)
+            elif self.light_theme_background_type_option_var.get() == "Image":
+                self.wallpaper.set_canvas(canvas_type="image", path=img_path)
+        elif darkdetect.isDark():
+            bg_color = self.dark_theme_background_color_value.get()
+            text_color = self.dark_theme_text_color_value.get()
+            img_path = self.dark_theme_background_image_path.get()
+            if self.dark_theme_background_type_option_var.get() == "Solid":
+                self.wallpaper.set_canvas(canvas_type="solid", bg_color=bg_color)
+            elif self.dark_theme_background_type_option_var.get() == "Image":
+                self.wallpaper.set_canvas(canvas_type="image", path=img_path)
+
+
+
+        self.wallpaper.draw_wallpaper(input_text=input_text, text_color=text_color)
         self.wallpaper.set_wallpaper()
 
     def set_light_theme_text_color(self):
