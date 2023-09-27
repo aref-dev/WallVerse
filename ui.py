@@ -10,6 +10,7 @@ import threading
 import darkdetect
 import random
 
+
 # Adding custom font for title:
 
 pyglet.options['win32_gdi_font'] = True
@@ -42,6 +43,10 @@ class UserInterface(customtkinter.CTk):
         self.tabview.add("Quotes")
         self.tabview.add("Style")
         self.tabview.add("Preferences")
+
+        self.t = threading.Thread(target=darkdetect.listener, args=(self.dark_mode_trace,))
+        self.t.daemon = True
+        self.t.start()
 
         # Home tab
 
@@ -340,6 +345,9 @@ class UserInterface(customtkinter.CTk):
     def set_dark_theme_background_image(self):
         file_path = fd.askopenfile()
         self.dark_theme_background_image_path.set(file_path.name)
+
+    def dark_mode_trace(self, callback):
+        self.set_wallpaper()
 
 
 if __name__ == "__main__":

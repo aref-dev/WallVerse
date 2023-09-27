@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Improved UI&#10;- Added cowsay option to UI">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status">
+      <change afterPath="$PROJECT_DIR$/product.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fonts/OpenDyslexicMono-Regular.otf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +81,34 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="ui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Fortune's Window" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.ui" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -154,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695599643459</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status">
+      <option name="closed" value="true" />
+      <created>1695602412405</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695602412405</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,6 +213,7 @@
     <MESSAGE value="- Added additional fonts and font for title" />
     <MESSAGE value="- User can set different text-color, background color or image for dark-mode and light mode." />
     <MESSAGE value="- Improved UI&#10;- Added cowsay option to UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Improved UI&#10;- Added cowsay option to UI" />
+    <MESSAGE value="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status" />
+    <option name="LAST_COMMIT_MESSAGE" value="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status" />
   </component>
 </project>
