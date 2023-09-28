@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Wallpaper automatically updates when theme color changes&#10;- product.py shows example of how added files need to be structured.">
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added database structure so that each user can have multiple quote packs">
+      <change afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695850708061</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- Added database structure so that each user can have multiple quote packs">
+      <option name="closed" value="true" />
+      <created>1695881479540</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1695881479540</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,6 +235,7 @@
     <MESSAGE value="- Improved UI&#10;- Added cowsay option to UI" />
     <MESSAGE value="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status" />
     <MESSAGE value="- Wallpaper automatically updates when theme color changes&#10;- product.py shows example of how added files need to be structured." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Wallpaper automatically updates when theme color changes&#10;- product.py shows example of how added files need to be structured." />
+    <MESSAGE value="- Added database structure so that each user can have multiple quote packs" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added database structure so that each user can have multiple quote packs" />
   </component>
 </project>
