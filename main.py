@@ -31,6 +31,12 @@ class QuotePack(db.Model):
 with app.app_context():
     db.create_all()
 
+# with app.app_context():
+#     with open("resources/quote_packs/fortunes.txt") as file:
+#         quotes = file.read().split("%")
+#         for quote in quotes:
+#             new_quote = QuotePack
+
 
 @app.route("/")
 def home():
