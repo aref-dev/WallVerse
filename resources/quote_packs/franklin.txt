@@ -8,7 +8,9 @@ Act uprightly, and despise calumny; dirt may stick to a mud wall, but not to pol
 %
 A cypher and humility make the other figures and virtues of tenfold value.
 %
-A false friend and a shadow attend only while the sun shines. 7 A father's a treasure ; a brother's a comfort ; a friend is both.
+A false friend and a shadow attend only while the sun shines.
+%
+A father's a treasure ; a brother's a comfort ; a friend is both.
 %
 A fat kitchen, a lean will.
 %
@@ -54,7 +56,9 @@ All things are easy to industry, all things difficult to sloth.It
 %
 All would live long, but none would be old.
 %
-A long life may not be good enough, but a good life is long enough. "31. A man in a passion rides a mad horse.
+A long life may not be good enough, but a good life is long enough.
+%
+A man in a passion rides a mad horse.
 %
 A man without a wife, is but a half a man.
 %
@@ -106,7 +110,7 @@ A quarrelsome man has no good neighbors.
 %
 A quiet conscience sleeps in thunder.
 %
-Are you angry that others disappoint you? Remember you cannot depend upon yourself.li
+Are you angry that others disappoint you? Remember you cannot depend upon yourself.
 %
 As charms are nonsense, nonsense is a charm.
 %
@@ -142,7 +146,9 @@ Be always ashamed to catch thyself idle.
 %
 Be at war with your vices, at peace with your neighbors.
 %
-Beauty and folly are old companions. '76. Being ignorant is not so much a shame, as being unwilling to learn.
+Beauty and folly are old companions.
+%
+Being ignorant is not so much a shame, as being unwilling to learn.
 %
 Ben beats his pate, and fancys wit will come ; but he may knock, there's nobody at home.
 %
@@ -234,7 +240,7 @@ Don't judge of men's wealth or piety, by their Sunday appearances.
 %
 Don't misinform your doctor nor your lawyer.
 %
-Don't overload gratitude; if you d> she'll kick.
+Don't overload gratitude; if you do she'll kick.
 %
 Don't think to hunt two hares with one dog.
 %
@@ -260,7 +266,7 @@ Eat to please thyself, but dress to please others.
 %
 Employ thy time well, if thou meanest to gain leisure.
 %
-Ever since follies have pleased, foob have been able to divert.
+Ever since follies have pleased, fools have been able to divert.
 %
 Every man has assurance enough to boast of his honesty, few of their understanding.
 %
@@ -342,7 +348,9 @@ Great modesty often hides great merit.
 %
 Great spenders are bad lenders.
 %
-Great talkers, little doers. 1 /. Great talkers should be cropt, for they've no need of ears.
+Great talkers, little doers.
+%
+Great talkers should be cropt, for they've no need of ears.
 %
 Half hospitality opens his door and shuts up his countenance.
 %
@@ -1328,4 +1336,4 @@ You may sometimes be much in the wrong, in owning your being in the right.
 %
 Youth is pert and positive, age modest and doubting; so ears of corn when young and light, stand bolt upright, but hang their heads when weighty, full, and ripe.
 %
-You will be careful, if you are wise ; how you touch men's religion, or credit, or eyes. A star preceding a saying signifies that it is to be taken as expressing two distinct and different thoughts. 02033 :.',
+You will be careful, if you are wise ; how you touch men's religion, or credit, or eyes.
