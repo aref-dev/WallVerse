@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, json, redirect, url_for, request
+from flask import Flask, render_template, flash, json, redirect, url_for, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from forms import SignUpForm, LoginForm, UploadForm
@@ -104,7 +104,7 @@ def upload():
 
         pack_data = form.pack_file.data
         pack_data_filename = secure_filename(pack_data.filename)
-        pack_data_path = f"uploads/"
+        pack_data_path = f"uploads"
 
         pack_img = form.pack_image.data
         pack_img_filename = secure_filename(pack_img.filename)
@@ -123,6 +123,11 @@ def upload():
         return redirect(url_for("show_collection"))
 
     return render_template("upload.html", form=form)
+
+
+@app.route('/Download/<path:file_path>', methods=['GET', 'POST'])
+def download(file_path):
+    return send_from_directory(directory="", path=file_path, as_attachment=True)
 
 
 if __name__ == "__main__":

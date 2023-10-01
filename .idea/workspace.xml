@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added page for uploading new products (intended for use by admin)">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696135757795</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database">
+      <option name="closed" value="true" />
+      <created>1696191178812</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1696191178812</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -294,6 +302,7 @@
     <MESSAGE value="- Defined product structor in product.py, and exported fortune.json as product sample" />
     <MESSAGE value="- Added pages for signing-in, signing-up, and showing quote collections" />
     <MESSAGE value="- Added page for uploading new products (intended for use by admin)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added page for uploading new products (intended for use by admin)" />
+    <MESSAGE value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
   </component>
 </project>
