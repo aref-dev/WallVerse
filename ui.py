@@ -14,7 +14,7 @@ import random
 # Adding custom font for title:
 
 pyglet.options['win32_gdi_font'] = True
-pyglet.font.add_file("./resources/ui_fonts/Fuggles-Regular.ttf")
+pyglet.font.add_file("app_files/ui_fonts/Fuggles-Regular.ttf")
 
 # Defining fonts:
 
@@ -291,7 +291,7 @@ class UserInterface(customtkinter.CTk):
         elif self.cowsay_toggle_value.get() == 0:
             input_text = random_quote
 
-        self.wallpaper.set_font(font=f"resources/fonts/{self.font_style_var.get()}",
+        self.wallpaper.set_font(font=f"app_files/fonts/{self.font_style_var.get()}",
                                 font_size=self.text_size_var.get())
         self.wallpaper.set_screen_size(method="auto")
 

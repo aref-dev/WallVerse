@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask, render_template, flash, json, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
@@ -8,7 +6,7 @@ from flask_login import UserMixin, login_user, logout_user, LoginManager
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_bootstrap import Bootstrap5
-
+import os
 
 app = Flask(__name__)
 app.secret_key = '58o8l.>0d]yj$igr0jtA"6}DI@#JMK'
@@ -19,7 +17,7 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.get(user_id)
+    return db.get_or_404(User, user_id)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quotes.db'
@@ -41,7 +39,7 @@ class QuotePack(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     pack_name = db.Column(db.String(100), unique=True, nullable=False)
     pack_desc = db.Column(db.String(150), unique=True)
-    img_data = db.Column(db.LargeBinary, unique=True)
+    img_path = db.Column(db.String(150), unique=True)
     file_path = db.Column(db.String(150), unique=True)
     owner = relationship("User", back_populates="quote_packs")
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -103,26 +101,28 @@ def upload():
     form = UploadForm()
     if form.validate_on_submit():
         pack_name = secure_filename(form.pack_name.data)
+
         pack_data = form.pack_file.data
         pack_data_filename = secure_filename(pack_data.filename)
+        pack_data_path = f"uploads/"
+
         pack_img = form.pack_image.data
         pack_img_filename = secure_filename(pack_img.filename)
+        pack_img_path = f"static/pack_thumbnails"
 
-        os.mkdir(f"app_files/quote_packs/{pack_name}")
+        pack_data.save(os.path.join(pack_data_path, pack_data_filename))
+        pack_img.save(os.path.join(pack_img_path, pack_img_filename))
 
-        pack_data.save(os.path.join(f"app_files/quote_packs/{pack_name}", pack_data_filename))
+        with open(f"{pack_data_path}/{pack_data_filename}") as file:
+            quotes = json.load(file)
+            db.session.add(QuotePack(pack_name=quotes["Name"], pack_desc=quotes["Description"],
+                                     file_path=f"{pack_data_path}/{pack_data_filename}",
+                                     img_path=f"{pack_img_path}/{pack_img_filename}", owner_id=1))
+            db.session.commit()
 
-        pack_img.save(os.path.join(f"app_files/quote_packs/{pack_name}", pack_img_filename))
-
-        return url_for("show_collection")
+        return redirect(url_for("show_collection"))
 
     return render_template("upload.html", form=form)
-
-# with app.app_context():
-#     with open("resources/quote_packs/fortune.json") as file:
-#         quotes = json.load(file)
-#         db.session.add(QuotePack(pack_name=quotes["Name"], pack_desc=quotes["Description"], img_url=quotes["img_url"], file_url="resources/quote_packs/fortune.json", owner_id=1))
-#         db.session.commit()
 
 
 if __name__ == "__main__":
