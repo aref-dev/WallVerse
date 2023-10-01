@@ -114,7 +114,7 @@ class UserInterface(customtkinter.CTk):
 
         self.text_size_edit_options.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
 
-        font_path = Path("./resources/fonts")
+        font_path = Path("app_files/fonts")
 
         available_fonts = [font.name for font in font_path.iterdir()]
 
@@ -276,11 +276,11 @@ class UserInterface(customtkinter.CTk):
             self.dark_theme_background_image_picker_button.grid(row=11, column=1, padx=10, pady=10, sticky="EW")
 
     def load_textbox_file(self):
-        with open(file="resources/quote_packs/custom.txt", mode="r") as file:
+        with open(file="app_files/quote_packs/custom.txt", mode="r") as file:
             return file.read()
 
     def update_textbox(self):
-        with open(file="resources/quote_packs/custom.txt", mode="w") as file:
+        with open(file="app_files/quote_packs/custom.txt", mode="w") as file:
             file.write(self.text_box.get(0.1, customtkinter.END))
 
     def set_wallpaper(self):

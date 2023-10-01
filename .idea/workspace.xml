@@ -4,20 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Defined product structor in product.py, and exported fortune.json as product sample">
-      <change afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/collection.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/sign_in.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/sign_up.html" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added pages for signing-in, signing-up, and showing quote collections">
+      <change afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/quote_packs/custom.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/quote_packs/fortune.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/quote_packs/fortune.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/quote_packs/franklin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/quote_packs/franklin.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/quote.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/RobotoMono-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/fonts/RobotoMono-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/VT323-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/fonts/VT323-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/quote_packs/fortune.json" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/fortune.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/quote_packs/fortunes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/fortunes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/quote_packs/franklin.json" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/franklin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/quote_packs/franklin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/franklin.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ui_fonts/Fuggles-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui_fonts/Fuggles-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ui_fonts/OFL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui_fonts/OFL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695969476556</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="- Added pages for signing-in, signing-up, and showing quote collections">
+      <option name="closed" value="true" />
+      <created>1696052472710</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696052472710</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +274,7 @@
     <MESSAGE value="- Added database structure so that each user can have multiple quote packs" />
     <MESSAGE value="- Added Bootstrap header and footer" />
     <MESSAGE value="- Defined product structor in product.py, and exported fortune.json as product sample" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Defined product structor in product.py, and exported fortune.json as product sample" />
+    <MESSAGE value="- Added pages for signing-in, signing-up, and showing quote collections" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added pages for signing-in, signing-up, and showing quote collections" />
   </component>
 </project>

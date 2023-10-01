@@ -1,11 +1,13 @@
-from flask import Flask, render_template, flash, json, redirect, url_for
+import os
+
+from flask import Flask, render_template, flash, json, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from forms import SignUpForm, LoginForm
+from forms import SignUpForm, LoginForm, UploadForm
 from flask_login import UserMixin, login_user, logout_user, LoginManager
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from flask_bootstrap import Bootstrap5
-import pathlib
 
 
 app = Flask(__name__)
@@ -39,8 +41,8 @@ class QuotePack(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     pack_name = db.Column(db.String(100), unique=True, nullable=False)
     pack_desc = db.Column(db.String(150), unique=True)
-    img_url = db.Column(db.String(100), unique=True)
-    file_url = db.Column(db.String(150), unique=True)
+    img_data = db.Column(db.LargeBinary, unique=True)
+    file_path = db.Column(db.String(150), unique=True)
     owner = relationship("User", back_populates="quote_packs")
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
@@ -98,7 +100,23 @@ def show_collection():
 
 @app.route("/Upload", methods=['GET', 'POST'])
 def upload():
-    pass
+    form = UploadForm()
+    if form.validate_on_submit():
+        pack_name = secure_filename(form.pack_name.data)
+        pack_data = form.pack_file.data
+        pack_data_filename = secure_filename(pack_data.filename)
+        pack_img = form.pack_image.data
+        pack_img_filename = secure_filename(pack_img.filename)
+
+        os.mkdir(f"app_files/quote_packs/{pack_name}")
+
+        pack_data.save(os.path.join(f"app_files/quote_packs/{pack_name}", pack_data_filename))
+
+        pack_img.save(os.path.join(f"app_files/quote_packs/{pack_name}", pack_img_filename))
+
+        return url_for("show_collection")
+
+    return render_template("upload.html", form=form)
 
 # with app.app_context():
 #     with open("resources/quote_packs/fortune.json") as file:
