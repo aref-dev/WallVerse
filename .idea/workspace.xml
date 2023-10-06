@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added function to download quotation packs">
+      <change afterPath="$PROJECT_DIR$/app_files/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_files/methods.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_files/ui_home_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/wallpaper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -60,32 +65,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aref/PycharmProjects/day21&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Aref/PycharmProjects/fortune-2023"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\dist" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources\fonts" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Fortune's Window" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -119,7 +125,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ui.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Aref\PycharmProjects\fortune-2023\app_files\ui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -130,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.ui" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696191178812</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="- Added function to download quotation packs">
+      <option name="closed" value="true" />
+      <created>1696202029727</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1696202029727</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,6 +317,7 @@
     <MESSAGE value="- Added pages for signing-in, signing-up, and showing quote collections" />
     <MESSAGE value="- Added page for uploading new products (intended for use by admin)" />
     <MESSAGE value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
+    <MESSAGE value="- Added function to download quotation packs" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added function to download quotation packs" />
   </component>
 </project>

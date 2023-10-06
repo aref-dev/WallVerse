@@ -42,7 +42,7 @@ class WallpaperGen:
 
         elif canvas_type == "image":
             self.background_img_file_path = path
-            self.canvas = Image.open(fp=self.background_img_file_path)
+            self.canvas = Image.open(fp=self.background_img_file_path).resize(size=self.screen_size)
 
     def set_screen_size(self, method="auto", monitor_order=0, screen_width=1920, screen_height=1080):
         if method == "manual":

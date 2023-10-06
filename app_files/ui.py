@@ -8,13 +8,14 @@ import pyglet
 from CTkColorPicker import *
 import threading
 import darkdetect
+import pystray
 import random
 
 
 # Adding custom font for title:
 
 pyglet.options['win32_gdi_font'] = True
-pyglet.font.add_file("app_files/ui_fonts/Fuggles-Regular.ttf")
+pyglet.font.add_file("ui_fonts/Fuggles-Regular.ttf")
 
 # Defining fonts:
 
@@ -33,8 +34,8 @@ class UserInterface(customtkinter.CTk):
         self.wallpaper = wallpaper_obj
 
         self.app = customtkinter.CTk()
-        self.app.title("WallVerse")
-        self.app.geometry("600x600")
+        self.app.title("Fortune's Window")
+        self.app.geometry("600x800")
 
         self.tabview = customtkinter.CTkTabview(self, width=600)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
@@ -47,6 +48,9 @@ class UserInterface(customtkinter.CTk):
         self.t = threading.Thread(target=darkdetect.listener, args=(self.dark_mode_trace,))
         self.t.daemon = True
         self.t.start()
+
+        # self.tray_icon = pystray.Icon(icon=, name="Fortune's Window")
+        # self.tray_icon.run()
 
         # Home tab
 
@@ -114,7 +118,7 @@ class UserInterface(customtkinter.CTk):
 
         self.text_size_edit_options.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
 
-        font_path = Path("app_files/fonts")
+        font_path = Path("fonts")
 
         available_fonts = [font.name for font in font_path.iterdir()]
 
@@ -276,11 +280,11 @@ class UserInterface(customtkinter.CTk):
             self.dark_theme_background_image_picker_button.grid(row=11, column=1, padx=10, pady=10, sticky="EW")
 
     def load_textbox_file(self):
-        with open(file="app_files/quote_packs/custom.txt", mode="r") as file:
+        with open(file="quote_packs/custom.txt", mode="r") as file:
             return file.read()
 
     def update_textbox(self):
-        with open(file="app_files/quote_packs/custom.txt", mode="w") as file:
+        with open(file="quote_packs/custom.txt", mode="w") as file:
             file.write(self.text_box.get(0.1, customtkinter.END))
 
     def set_wallpaper(self):
@@ -291,7 +295,7 @@ class UserInterface(customtkinter.CTk):
         elif self.cowsay_toggle_value.get() == 0:
             input_text = random_quote
 
-        self.wallpaper.set_font(font=f"app_files/fonts/{self.font_style_var.get()}",
+        self.wallpaper.set_font(font=f"fonts/{self.font_style_var.get()}",
                                 font_size=self.text_size_var.get())
         self.wallpaper.set_screen_size(method="auto")
 
@@ -348,7 +352,6 @@ class UserInterface(customtkinter.CTk):
 
     def dark_mode_trace(self, callback):
         self.set_wallpaper()
-
 
 if __name__ == "__main__":
     app = UserInterface(QuoteGen(), WallpaperGen())
