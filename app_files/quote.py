@@ -24,7 +24,6 @@ class QuoteGen:
         self.cowsay_string = None
         self.quote_pack = None
 
-
     def get_random_quote(self):
         if self.quote_pack == "fortune":
             filepath = 'quote_packs/fortunes.txt'

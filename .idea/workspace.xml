@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added function to download quotation packs">
-      <change afterPath="$PROJECT_DIR$/app_files/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_files/methods.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_files/ui_home_tab.py" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed an issue with font-size distortion when using images as wallpaper">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/wallpaper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/methods.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/ui_home_tab.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +68,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Aref/PycharmProjects/fortune-2023"
+    "last_opened_file_path": "C:/Users/Aref/PycharmProjects/fortune-2023/app_files"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -84,14 +81,14 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\dist" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources\fonts" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources" />
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.ui">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Fortune's Window" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,11 +118,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app_files" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Aref\PycharmProjects\fortune-2023\app_files\ui.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_files/ui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -134,6 +131,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.ui" />
+      <item itemvalue="Python.main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.ui" />
@@ -286,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696202029727</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="- Fixed an issue with font-size distortion when using images as wallpaper">
+      <option name="closed" value="true" />
+      <created>1696555435540</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1696555435540</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,6 +327,7 @@
     <MESSAGE value="- Added page for uploading new products (intended for use by admin)" />
     <MESSAGE value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
     <MESSAGE value="- Added function to download quotation packs" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added function to download quotation packs" />
+    <MESSAGE value="- Fixed an issue with font-size distortion when using images as wallpaper" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed an issue with font-size distortion when using images as wallpaper" />
   </component>
 </project>

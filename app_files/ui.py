@@ -8,17 +8,17 @@ import pyglet
 from CTkColorPicker import *
 import threading
 import darkdetect
+from PIL import Image, ImageDraw
 import pystray
+from pystray import MenuItem
 import random
 
 
 # Adding custom font for title:
-
 pyglet.options['win32_gdi_font'] = True
 pyglet.font.add_file("ui_fonts/Fuggles-Regular.ttf")
 
 # Defining fonts:
-
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
@@ -40,6 +40,11 @@ class UserInterface(customtkinter.CTk):
         self.tabview = customtkinter.CTkTabview(self, width=600)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
+        self.icon_img = Image.open("icon.png")
+        self.icon_menu = (MenuItem("Refresh", self.set_wallpaper), MenuItem("Exit", self.destroy))
+        self.icon = pystray.Icon("TrayIcon", self.icon_img, "Fortune's Window", menu=self.icon_menu)
+        self.icon.run_detached()
+
         self.tabview.add("Home")
         self.tabview.add("Quotes")
         self.tabview.add("Style")
@@ -49,11 +54,7 @@ class UserInterface(customtkinter.CTk):
         self.t.daemon = True
         self.t.start()
 
-        # self.tray_icon = pystray.Icon(icon=, name="Fortune's Window")
-        # self.tray_icon.run()
-
         # Home tab
-
         self.home_title = customtkinter.CTkLabel(
             self.tabview.tab("Home"), text="Welcome to Fortune's Window", font=TITLE_FONT)
         self.home_title.grid(row=0, column=0, columnspan=2, padx=100, pady=(30, 0), sticky="EW")
@@ -101,7 +102,6 @@ class UserInterface(customtkinter.CTk):
         self.refresh_wallpaper_btn1.grid(row=5, column=2, padx=10, pady=10, sticky="EW")
 
         # Style tab
-
         self.font_setting_label = customtkinter.CTkLabel(self.tabview.tab("Style"), text="Font setting",
                                                            font=HEADING_FONT)
         self.font_setting_label.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
@@ -134,7 +134,6 @@ class UserInterface(customtkinter.CTk):
         self.font_combobox.grid(row=3, column=1, columnspan=2, padx=10, pady=10, sticky="EW")
 
         # LIGHT-MODE THEME OPTIONS
-
         self.light_theme_label = customtkinter.CTkLabel(
             self.tabview.tab("Style"), text="Light mode theme settings", font=HEADING_FONT)
         self.light_theme_label.grid(row=4, column=1, padx=10, pady=10, sticky="EW")
@@ -170,7 +169,6 @@ class UserInterface(customtkinter.CTk):
         self.light_theme_background_image_path = customtkinter.StringVar()
 
         # DARK-MODE THEME OPTIONS
-
         self.dark_theme_label = customtkinter.CTkLabel(
             self.tabview.tab("Style"), text="Dark mode theme settings", font=HEADING_FONT)
         self.dark_theme_label.grid(row=8, column=1, padx=10, pady=10, sticky="EW")
@@ -206,7 +204,6 @@ class UserInterface(customtkinter.CTk):
         self.dark_theme_background_image_path = customtkinter.StringVar()
 
         # COWSAY
-
         self.cowsay_toggle_value = customtkinter.IntVar(value=1)
         self.cowsay_char = customtkinter.StringVar(value="tux")
 
@@ -231,6 +228,8 @@ class UserInterface(customtkinter.CTk):
         self.refresh_wallpaper_btn2 = customtkinter.CTkButton(
             self.tabview.tab("Style"), text="Refresh wallpaper!", command=self.set_wallpaper, fg_color="purple",font=ELEMENT_FONT)
         self.refresh_wallpaper_btn2.grid(row=15, column=1, padx=10, pady=10, sticky="EW")
+
+    # Preferences Tab
 
 
     def handle_light_mode_callback(self, *args):
@@ -316,8 +315,6 @@ class UserInterface(customtkinter.CTk):
             elif self.dark_theme_background_type_option_var.get() == "Image":
                 self.wallpaper.set_canvas(canvas_type="image", path=img_path)
 
-
-
         self.wallpaper.draw_wallpaper(input_text=input_text, text_color=text_color)
         self.wallpaper.set_wallpaper()
 
@@ -352,6 +349,18 @@ class UserInterface(customtkinter.CTk):
 
     def dark_mode_trace(self, callback):
         self.set_wallpaper()
+
+    def create_image(self, width, height, color1, color2):
+        # Generate an image and draw a pattern
+        image = Image.new('RGB', (width, height), color1)
+        dc = ImageDraw.Draw(image)
+        dc.rectangle(
+            (width // 2, 0, width, height // 2),
+            fill=color2)
+        dc.rectangle(
+            (0, height // 2, width // 2, height),
+            fill=color2)
+
 
 if __name__ == "__main__":
     app = UserInterface(QuoteGen(), WallpaperGen())
