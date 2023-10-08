@@ -42,7 +42,7 @@ class UserInterface(customtkinter.CTk):
         self.icon_img = Image.open("icon.png")
         self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                           MenuItem("Show app", self.show_app),
-                          MenuItem("Exit", self.destroy))
+                          MenuItem("Exit", self.exit_app))
         self.icon = pystray.Icon("TrayIcon", self.icon_img, "Fortune's Window", menu=self.icon_menu)
         self.icon.run_detached()
 
@@ -54,6 +54,8 @@ class UserInterface(customtkinter.CTk):
         self.t = threading.Thread(target=darkdetect.listener, args=(self.dark_mode_trace,))
         self.t.daemon = True
         self.t.start()
+
+        self.protocol("WM_DELETE_WINDOW", self.iconify)
 
         # Home tab
         self.home_title = customtkinter.CTkLabel(
@@ -386,6 +388,10 @@ class UserInterface(customtkinter.CTk):
     def show_app(self):
         self.deiconify()
 
+    def exit_app(self):
+        self.destroy()
+        self.icon.stop()
+
     def handle_interval_callback(self, *args):
         time = None
         if self.interval_by_string.get() == "Hour":
@@ -399,6 +405,5 @@ class UserInterface(customtkinter.CTk):
 
 if __name__ == "__main__":
     app = UserInterface(QuoteGen(), WallpaperGen())
-    app.handle_interval_callback()
     app.mainloop()
 

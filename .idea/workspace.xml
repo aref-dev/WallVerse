@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Wallpaper can change every x minutes/hours">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added tray option to show app after it is minimized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -308,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696723413976</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- Added tray option to show app after it is minimized">
+      <option name="closed" value="true" />
+      <created>1696803839701</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1696803839701</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,6 +350,7 @@
     <MESSAGE value="- Fixed an issue with font-size distortion when using images as wallpaper" />
     <MESSAGE value="- Added tray icon with options to refresh wallpaper and exit." />
     <MESSAGE value="- Wallpaper can change every x minutes/hours" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Wallpaper can change every x minutes/hours" />
+    <MESSAGE value="- Added tray option to show app after it is minimized" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added tray option to show app after it is minimized" />
   </component>
 </project>
