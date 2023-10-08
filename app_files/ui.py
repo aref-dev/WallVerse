@@ -40,7 +40,9 @@ class UserInterface(customtkinter.CTk):
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
         self.icon_img = Image.open("icon.png")
-        self.icon_menu = (MenuItem("Refresh", self.set_wallpaper), MenuItem("Exit", self.destroy))
+        self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
+                          MenuItem("Show app", self.show_app),
+                          MenuItem("Exit", self.destroy))
         self.icon = pystray.Icon("TrayIcon", self.icon_img, "Fortune's Window", menu=self.icon_menu)
         self.icon.run_detached()
 
@@ -381,7 +383,11 @@ class UserInterface(customtkinter.CTk):
             (0, height // 2, width // 2, height),
             fill=color2)
 
+    def show_app(self):
+        self.deiconify()
+
     def handle_interval_callback(self, *args):
+        time = None
         if self.interval_by_string.get() == "Hour":
             time = self.interval_period.get() * 3600000
         elif self.interval_by_string.get() == "Minutes":
