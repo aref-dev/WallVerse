@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed an issue with font-size distortion when using images as wallpaper">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added tray icon with options to refresh wallpaper and exit.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/methods.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/ui_home_tab.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,20 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Aref/PycharmProjects/fortune-2023/app_files"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aref/PycharmProjects/fortune-2023/app_files&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
@@ -295,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696555435540</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="- Added tray icon with options to refresh wallpaper and exit.">
+      <option name="closed" value="true" />
+      <created>1696562437261</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1696562437261</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -328,6 +332,7 @@
     <MESSAGE value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
     <MESSAGE value="- Added function to download quotation packs" />
     <MESSAGE value="- Fixed an issue with font-size distortion when using images as wallpaper" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed an issue with font-size distortion when using images as wallpaper" />
+    <MESSAGE value="- Added tray icon with options to refresh wallpaper and exit." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added tray icon with options to refresh wallpaper and exit." />
   </component>
 </project>

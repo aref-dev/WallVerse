@@ -11,7 +11,6 @@ import darkdetect
 from PIL import Image, ImageDraw
 import pystray
 from pystray import MenuItem
-import random
 
 
 # Adding custom font for title:
@@ -68,7 +67,6 @@ class UserInterface(customtkinter.CTk):
         self.auto_set_btn.grid(row=3, column=0, columnspan=2, padx=100, pady=10, sticky="EW")
 
         # Quotes Tab
-
         self.quote_radio_value = customtkinter.StringVar(value="fortune")
 
         self.fortune_radio = customtkinter.CTkRadioButton(
@@ -229,8 +227,29 @@ class UserInterface(customtkinter.CTk):
             self.tabview.tab("Style"), text="Refresh wallpaper!", command=self.set_wallpaper, fg_color="purple",font=ELEMENT_FONT)
         self.refresh_wallpaper_btn2.grid(row=15, column=1, padx=10, pady=10, sticky="EW")
 
-    # Preferences Tab
+        # Preferences Tab
+        self.interval_period = customtkinter.IntVar(value=1)
+        self.interval_by_string = customtkinter.StringVar(value="Hour")
 
+        self.refresh_interval_label = customtkinter.CTkLabel(
+            self.tabview.tab("Preferences"), text="Refresh every:", font=ELEMENT_FONT)
+        self.refresh_interval_label.grid(row=0, column=0, padx=10, pady=10, sticky="EW")
+
+        self.interval_entry = customtkinter.CTkEntry(
+            self.tabview.tab("Preferences"), font=ELEMENT_FONT, textvariable=self.interval_period)
+        self.interval_entry.grid(row=0, column=1, padx=10, pady=10)
+
+        self.interval_hour = customtkinter.CTkRadioButton(
+            self.tabview.tab("Preferences"), text="Hour", font=ELEMENT_FONT,
+            variable=self.interval_by_string, value="Hour")
+        self.interval_hour.grid(row=0, column=2, padx=(20,0), pady=10, sticky="EW")
+
+        self.interval_minute = customtkinter.CTkRadioButton(
+            self.tabview.tab("Preferences"), text="Minutes", font=ELEMENT_FONT,
+            variable=self.interval_by_string, value="Minutes")
+        self.interval_minute.grid(row=0, column=3, padx=(0,10), pady=10, sticky="EW")
+
+        self.interval_by_string.trace('w', self.handle_interval_callback)
 
     def handle_light_mode_callback(self, *args):
         if self.light_theme_background_type_option_var.get() == "Solid":
@@ -317,6 +336,7 @@ class UserInterface(customtkinter.CTk):
 
         self.wallpaper.draw_wallpaper(input_text=input_text, text_color=text_color)
         self.wallpaper.set_wallpaper()
+        self.handle_interval_callback()
 
     def set_light_theme_text_color(self):
         pick_color = AskColor()
@@ -361,7 +381,18 @@ class UserInterface(customtkinter.CTk):
             (0, height // 2, width // 2, height),
             fill=color2)
 
+    def handle_interval_callback(self, *args):
+        if self.interval_by_string.get() == "Hour":
+            time = self.interval_period.get() * 3600000
+        elif self.interval_by_string.get() == "Minutes":
+            time = self.interval_period.get() * 60000
+
+        self.after(time, self.set_wallpaper)
+
+
 
 if __name__ == "__main__":
     app = UserInterface(QuoteGen(), WallpaperGen())
+    app.handle_interval_callback()
     app.mainloop()
+
