@@ -32,11 +32,11 @@ class UserInterface(customtkinter.CTk):
         self.quote = quote_obj
         self.wallpaper = wallpaper_obj
 
-        self.app = customtkinter.CTk()
-        self.app.title("Fortune's Window")
-        self.app.geometry("600x800")
+        self.title("Fortune's Window")
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
 
-        self.tabview = customtkinter.CTkTabview(self, width=600)
+        self.tabview = customtkinter.CTkTabview(self)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
         self.icon_img = Image.open("icon.png")
@@ -69,8 +69,10 @@ class UserInterface(customtkinter.CTk):
         self.auto_set_btn = customtkinter.CTkButton(
             self.tabview.tab("Home"), text="Set as Wallpaper", command=self.set_wallpaper, fg_color="purple",font=ELEMENT_FONT)
         self.auto_set_btn.grid(row=3, column=0, columnspan=2, padx=100, pady=10, sticky="EW")
-
         # Quotes Tab
+        # self.quotes_tab = customtkinter.CTkScrollableFrame(self.tabview.tab("Quotes"))
+        # self.quotes_tab.grid(row=0, column=0, padx=10, pady=10, sticky="EW")
+
         self.quote_radio_value = customtkinter.StringVar(value="fortune")
 
         self.fortune_radio = customtkinter.CTkRadioButton(
@@ -104,19 +106,22 @@ class UserInterface(customtkinter.CTk):
         self.refresh_wallpaper_btn1.grid(row=5, column=2, padx=10, pady=10, sticky="EW")
 
         # Style tab
-        self.font_setting_label = customtkinter.CTkLabel(self.tabview.tab("Style"), text="Font setting",
+        self.style_tab = customtkinter.CTkScrollableFrame(self.tabview.tab("Style"), width=600, height=400)
+        self.style_tab.grid(row=0, column=0, padx=10, pady=10)
+
+        self.font_setting_label = customtkinter.CTkLabel(self.style_tab, text="Font setting",
                                                            font=HEADING_FONT)
         self.font_setting_label.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
 
         self.text_size_var = customtkinter.IntVar(value=18)
 
         self.text_size_edit_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Text size:",font=ELEMENT_FONT)
+            self.style_tab, text="Text size:", font=ELEMENT_FONT)
 
         self.text_size_edit_label.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
 
         self.text_size_edit_options = customtkinter.CTkEntry(
-            self.tabview.tab("Style"), textvariable=self.text_size_var)
+            self.style_tab, textvariable=self.text_size_var)
 
         self.text_size_edit_options.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
 
@@ -127,38 +132,38 @@ class UserInterface(customtkinter.CTk):
         self.font_style_var = customtkinter.StringVar(value=available_fonts[0])
 
         self.font_style_edit_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Font type:",font=ELEMENT_FONT)
+            self.style_tab, text="Font type:",font=ELEMENT_FONT)
         self.font_style_edit_label.grid(row=3, column=0, padx=10, pady=10, sticky="EW")
 
         self.font_combobox = customtkinter.CTkComboBox(
-            self.tabview.tab("Style"), values=available_fonts, variable=self.font_style_var)
+            self.style_tab, values=available_fonts, variable=self.font_style_var)
 
         self.font_combobox.grid(row=3, column=1, columnspan=2, padx=10, pady=10, sticky="EW")
 
         # LIGHT-MODE THEME OPTIONS
         self.light_theme_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Light mode theme settings", font=HEADING_FONT)
+            self.style_tab, text="Light mode theme settings", font=HEADING_FONT)
         self.light_theme_label.grid(row=4, column=1, padx=10, pady=10, sticky="EW")
 
         self.light_theme_text_color_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Text color:",font=ELEMENT_FONT)
+            self.style_tab, text="Text color:",font=ELEMENT_FONT)
         self.light_theme_text_color_label.grid(row=5, column=0, padx=10, pady=10, sticky="EW")
 
         self.light_theme_text_color_value = customtkinter.StringVar(value="#000000")
 
-        self.light_theme_text_color_picker_button = customtkinter.CTkButton(self.tabview.tab("Style"),
+        self.light_theme_text_color_picker_button = customtkinter.CTkButton(self.style_tab,
                                                                             text="Choose text color",
                                                                             command=self.set_light_theme_text_color,
                                                                             font=ELEMENT_FONT)
         self.light_theme_text_color_picker_button.grid(row=5, column=1, padx=10, pady=10, sticky="EW")
 
         self.light_theme_background_type_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Background:")
+            self.style_tab, text="Background:")
         self.light_theme_background_type_label.grid(row=6, column=0, padx=10, pady=10, sticky="EW")
 
         self.light_theme_background_type_option_var = customtkinter.StringVar(value="Solid")
 
-        self.light_theme_background_type_options_combobox = customtkinter.CTkComboBox(self.tabview.tab("Style"),
+        self.light_theme_background_type_options_combobox = customtkinter.CTkComboBox(self.style_tab,
                                                                                       values=["Solid", "Image"],
                                                                                       variable=self.light_theme_background_type_option_var,
                                                                                       font=ELEMENT_FONT)
@@ -172,28 +177,28 @@ class UserInterface(customtkinter.CTk):
 
         # DARK-MODE THEME OPTIONS
         self.dark_theme_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Dark mode theme settings", font=HEADING_FONT)
+            self.style_tab, text="Dark mode theme settings", font=HEADING_FONT)
         self.dark_theme_label.grid(row=8, column=1, padx=10, pady=10, sticky="EW")
 
         self.dark_theme_text_color_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Text color:",font=ELEMENT_FONT)
+            self.style_tab, text="Text color:",font=ELEMENT_FONT)
         self.dark_theme_text_color_label.grid(row=9, column=0, padx=10, pady=10, sticky="EW")
 
         self.dark_theme_text_color_value = customtkinter.StringVar(value="#ffffff")
 
-        self.dark_theme_text_color_picker_button = customtkinter.CTkButton(self.tabview.tab("Style"),
+        self.dark_theme_text_color_picker_button = customtkinter.CTkButton(self.style_tab,
                                                                            text="Choose text color",
                                                                            command=self.set_dark_theme_text_color,
                                                                            font=ELEMENT_FONT)
         self.dark_theme_text_color_picker_button.grid(row=9, column=1, padx=10, pady=10, sticky="EW")
 
         self.dark_theme_background_type_label = customtkinter.CTkLabel(
-            self.tabview.tab("Style"), text="Background:",font=ELEMENT_FONT)
+            self.style_tab, text="Background:",font=ELEMENT_FONT)
         self.dark_theme_background_type_label.grid(row=10, column=0, padx=10, pady=10, sticky="EW")
 
         self.dark_theme_background_type_option_var = customtkinter.StringVar(value="Solid")
 
-        self.dark_theme_background_type_options_combobox = customtkinter.CTkComboBox(self.tabview.tab("Style"),
+        self.dark_theme_background_type_options_combobox = customtkinter.CTkComboBox(self.style_tab,
                                                                                      values=["Solid", "Image"],
                                                                                      variable=self.dark_theme_background_type_option_var,
                                                                                      font=ELEMENT_FONT)
@@ -209,26 +214,26 @@ class UserInterface(customtkinter.CTk):
         self.cowsay_toggle_value = customtkinter.IntVar(value=1)
         self.cowsay_char = customtkinter.StringVar(value="tux")
 
-        self.cowsay_setting_label = customtkinter.CTkLabel(self.tabview.tab("Style"), text="Cowsay setting", font=HEADING_FONT)
+        self.cowsay_setting_label = customtkinter.CTkLabel(self.style_tab, text="Cowsay setting", font=HEADING_FONT)
         self.cowsay_setting_label.grid(row=12, column=1, padx=10, pady=10, sticky="EW")
 
-        self.cowsay_toggle_checkbox = customtkinter.CTkCheckBox(self.tabview.tab("Style"), offvalue=0, onvalue=1,
+        self.cowsay_toggle_checkbox = customtkinter.CTkCheckBox(self.style_tab, offvalue=0, onvalue=1,
                                                                 text= "Cowsay",
                                                                 variable=self.cowsay_toggle_value,
                                                                 font=ELEMENT_FONT)
 
         self.cowsay_toggle_checkbox.grid(row=13, column=0, padx=50, pady=10, sticky="EW")
 
-        self.cowsay_toggle_label = customtkinter.CTkLabel(self.tabview.tab("Style"), text="Pick cowsay character:",font=ELEMENT_FONT)
+        self.cowsay_toggle_label = customtkinter.CTkLabel(self.style_tab, text="Pick cowsay character:",font=ELEMENT_FONT)
         self.cowsay_toggle_label.grid(row=14, column=0, padx=50, pady=10, sticky="EW")
 
-        self.cowsay_char_combobox = customtkinter.CTkComboBox(self.tabview.tab("Style"), values=cowsay.main.CHARS,
+        self.cowsay_char_combobox = customtkinter.CTkComboBox(self.style_tab, values=cowsay.main.CHARS,
                                                               variable=self.cowsay_char,font=ELEMENT_FONT)
 
         self.cowsay_char_combobox.grid(row=14, column=1, padx=10, pady=10, sticky="EW")
 
         self.refresh_wallpaper_btn2 = customtkinter.CTkButton(
-            self.tabview.tab("Style"), text="Refresh wallpaper!", command=self.set_wallpaper, fg_color="purple",font=ELEMENT_FONT)
+            self.style_tab, text="Refresh wallpaper!", command=self.set_wallpaper, fg_color="purple",font=ELEMENT_FONT)
         self.refresh_wallpaper_btn2.grid(row=15, column=1, padx=10, pady=10, sticky="EW")
 
         # Preferences Tab
@@ -259,21 +264,21 @@ class UserInterface(customtkinter.CTk):
         if self.light_theme_background_type_option_var.get() == "Solid":
 
             self.light_theme_background_color_label = customtkinter.CTkLabel(
-                self.tabview.tab("Style"), text="Background color:",font=ELEMENT_FONT)
+                self.style_tab, text="Background color:",font=ELEMENT_FONT)
             self.light_theme_background_color_label.grid(row=7, column=0, padx=10, pady=10, sticky="EW")
 
             self.light_theme_background_color_picker_button = (
-                customtkinter.CTkButton(self.tabview.tab("Style"), text="Choose background color",
+                customtkinter.CTkButton(self.style_tab, text="Choose background color",
                                         command=self.set_light_theme_background_color,font=ELEMENT_FONT))
             self.light_theme_background_color_picker_button.grid(row=7, column=1, padx=10, pady=10, sticky="EW")
 
         elif self.light_theme_background_type_option_var.get() == "Image":
 
             self.light_theme_background_image_label = customtkinter.CTkLabel(
-                self.tabview.tab("Style"), text="Background image:",font=ELEMENT_FONT)
+                self.style_tab, text="Background image:",font=ELEMENT_FONT)
             self.light_theme_background_image_label.grid(row=7, column=0, padx=10, pady=10, sticky="EW")
             self.light_theme_background_image_picker_button = (
-                customtkinter.CTkButton(self.tabview.tab("Style"), text="Choose background image",font=ELEMENT_FONT,
+                customtkinter.CTkButton(self.style_tab, text="Choose background image",font=ELEMENT_FONT,
                                         command=self.set_light_theme_background_image))
 
             self.light_theme_background_image_picker_button.grid(row=7, column=1, padx=10, pady=10, sticky="EW")
@@ -282,20 +287,20 @@ class UserInterface(customtkinter.CTk):
         if self.dark_theme_background_type_option_var.get() == "Solid":
 
             self.dark_theme_background_color_label = customtkinter.CTkLabel(
-                self.tabview.tab("Style"), text="Background color:",font=ELEMENT_FONT)
+                self.style_tab, text="Background color:",font=ELEMENT_FONT)
             self.dark_theme_background_color_label.grid(row=11, column=0, padx=10, pady=10, sticky="EW")
 
             self.dark_theme_background_color_picker_button = (
-                customtkinter.CTkButton(self.tabview.tab("Style"), text="Choose background color",
+                customtkinter.CTkButton(self.style_tab, text="Choose background color",
                                         command=self.set_dark_theme_background_color,font=ELEMENT_FONT))
             self.dark_theme_background_color_picker_button.grid(row=11, column=1, padx=10, pady=10, sticky="EW")
 
         elif self.dark_theme_background_type_option_var.get() == "Image":
 
             self.dark_theme_background_image_label = customtkinter.CTkLabel(
-                self.tabview.tab("Style"), text="Background image:",font=ELEMENT_FONT)
+                self.style_tab, text="Background image:",font=ELEMENT_FONT)
             self.dark_theme_background_image_label.grid(row=11, column=0, padx=10, pady=10, sticky="EW")
-            self.dark_theme_background_image_picker_button = customtkinter.CTkButton(self.tabview.tab("Style"),
+            self.dark_theme_background_image_picker_button = customtkinter.CTkButton(self.style_tab,
                                                                                      text="Choose background image",
                                                                                      command=self.set_dark_theme_background_image,
                                                                                      font=ELEMENT_FONT)
