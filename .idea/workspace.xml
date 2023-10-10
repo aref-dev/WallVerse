@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Made the style tab scrollable&#10;- Elements stay centered on resize">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added validators for time interval and font size entries - only numbers allowed&#10;- User is warned if time interval or font size is empty">
+      <change afterPath="$PROJECT_DIR$/app_files/home_tab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_files/preferences_tab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_files/quotes_tab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_files/style_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,8 +82,8 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files" />
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\dist" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources\fonts" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources" />
@@ -331,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696812372407</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="- Added validators for time interval and font size entries - only numbers allowed&#10;- User is warned if time interval or font size is empty">
+      <option name="closed" value="true" />
+      <created>1696875252739</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1696875252739</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,6 +382,7 @@
     <MESSAGE value="- Added tray option to show app after it is minimized" />
     <MESSAGE value="- Close button minimizes the app instead of closing&#10;- Fixed tray icon remaining after the app was closed." />
     <MESSAGE value="- Made the style tab scrollable&#10;- Elements stay centered on resize" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Made the style tab scrollable&#10;- Elements stay centered on resize" />
+    <MESSAGE value="- Added validators for time interval and font size entries - only numbers allowed&#10;- User is warned if time interval or font size is empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added validators for time interval and font size entries - only numbers allowed&#10;- User is warned if time interval or font size is empty" />
   </component>
 </project>
