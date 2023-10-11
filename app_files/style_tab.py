@@ -64,7 +64,7 @@ class StyleTab(customtkinter.CTkFrame):
             self.style_tab, text="Text color:", font=ELEMENT_FONT)
         self.light_theme_text_color_label.grid(row=5, column=0, padx=10, pady=10, sticky="EW")
 
-        self.light_theme_text_color_value = customtkinter.StringVar(value="#000000")
+        self.light_theme_text_color_value = customtkinter.StringVar(value="#F1F0E8")
 
         self.light_theme_text_color_picker_button = customtkinter.CTkButton(self.style_tab,
                                                                             text="Choose text color",
@@ -86,7 +86,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.light_theme_background_type_option_var.trace('w', self.handle_light_mode_callback)
         self.handle_light_mode_callback()
 
-        self.light_theme_background_color_value = customtkinter.StringVar(value="#ffffff")
+        self.light_theme_background_color_value = customtkinter.StringVar(value="#96B6C5")
         self.light_theme_background_image_path = customtkinter.StringVar()
 
         # DARK-MODE THEME OPTIONS
@@ -98,7 +98,7 @@ class StyleTab(customtkinter.CTkFrame):
             self.style_tab, text="Text color:", font=ELEMENT_FONT)
         self.dark_theme_text_color_label.grid(row=9, column=0, padx=10, pady=10, sticky="EW")
 
-        self.dark_theme_text_color_value = customtkinter.StringVar(value="#ffffff")
+        self.dark_theme_text_color_value = customtkinter.StringVar(value="#005B41")
 
         self.dark_theme_text_color_picker_button = customtkinter.CTkButton(self.style_tab,
                                                                            text="Choose text color",
@@ -120,11 +120,11 @@ class StyleTab(customtkinter.CTkFrame):
         self.dark_theme_background_type_option_var.trace('w', self.handle_dark_mode_callback)
         self.handle_dark_mode_callback()
 
-        self.dark_theme_background_color_value = customtkinter.StringVar(value="#000000")
+        self.dark_theme_background_color_value = customtkinter.StringVar(value="#0F0F0F")
         self.dark_theme_background_image_path = customtkinter.StringVar()
 
         # COWSAY
-        self.cowsay_toggle_value = customtkinter.IntVar(value=1)
+        self.cowsay_toggle_value = customtkinter.IntVar(value=0)
         self.cowsay_char = customtkinter.StringVar(value="tux")
 
         self.cowsay_setting_label = customtkinter.CTkLabel(self.style_tab, text="Cowsay setting", font=HEADING_FONT)

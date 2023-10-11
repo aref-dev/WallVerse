@@ -30,6 +30,8 @@ class QuoteGen:
             filepath = 'quote_packs/fortunes.txt'
         elif self.quote_pack == "franklin":
             filepath = 'quote_packs/franklin.txt'
+
+
         elif self.quote_pack == "custom":
             filepath = 'quote_packs/custom.txt'
             with open(filepath) as file:
