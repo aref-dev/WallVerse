@@ -10,12 +10,12 @@ ELEMENT_FONT = ('Helvetica', 14)
 class QuotesTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
-        self.available_packs = []
         self.db = DataBase()
         self.quote_radio_value = customtkinter.StringVar(value="franklin")
 
         self.quote_packs = customtkinter.CTkScrollableFrame(master.tabview.tab("Quotes"), width=500)
         self.quote_packs.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
+        self.load_packs()
 
         self.custom_radio = customtkinter.CTkRadioButton(
             master.tabview.tab("Quotes"), text="From your own notes (one quote on each line):", font=ELEMENT_FONT,
@@ -53,16 +53,15 @@ class QuotesTab(customtkinter.CTkFrame):
         file_path = fd.askopenfile()
         self.db.insert(file_path.name)
 
-    # def load_packs(self):
-    #     for pack in self.db.read
-    #
-    #
 
-        # for pack in self.available_packs:
-        #     print(self.available_packs[0])
-            # pack_radio_btn = customtkinter.CTkRadioButton(
-            #     self.quote_packs, variable=self.quote_radio_value, value=pack["Name"])
-            # pack_radio_btn.pack()
-            # pack_radio_label = customtkinter.CTkLabel(self.quote_packs, text=f"{name}: {description}",
-            #                                           font=ELEMENT_FONT, wraplength=500)
-            # pack_radio_label.pack()
+    def load_packs(self):
+        all_packs = self.db.get_info()
+        for pack in all_packs:
+            pack_name, pack_description = pack
+            pack_radio_btn = customtkinter.CTkRadioButton(
+                self.quote_packs, variable=self.quote_radio_value, text=pack_name, value=pack_name)
+
+            pack_radio_label = customtkinter.CTkLabel(self.quote_packs, text=pack_description,
+                                                      font=ELEMENT_FONT, wraplength=500)
+            pack_radio_btn.pack()
+            pack_radio_label.pack()

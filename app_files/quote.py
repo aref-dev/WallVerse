@@ -1,5 +1,6 @@
 import random
 import cowsay
+from database import DataBase
 
 
 def wider_cowsay_wrap_lines(lines, max_width=90):
@@ -20,30 +21,22 @@ cowsay.main.wrap_lines = wider_cowsay_wrap_lines
 
 class QuoteGen:
     def __init__(self):
+        self.db = DataBase()
         self.random_quote = None
         self.cowsay_string = None
         self.quote_pack = None
 
     def get_random_quote(self):
-        filepath = None
-        if self.quote_pack == "fortune":
-            filepath = 'quote_packs/fortunes.txt'
-        elif self.quote_pack == "franklin":
-            filepath = 'quote_packs/franklin.txt'
-
-
-        elif self.quote_pack == "custom":
+        if self.quote_pack == "custom":
             filepath = 'quote_packs/custom.txt'
             with open(filepath) as file:
                 file_data = file.read().split('\n')
                 random_quote = random.choice(file_data)
                 self.random_quote = random_quote
                 return self.random_quote
-
-        with open(filepath) as file:
-            file_data = file.read().split('%')
-            random_quote = random.choice(file_data)
-            self.random_quote = random_quote
+        else:
+            self.random_quote = self.db.fetch_random_quote(self.quote_pack)
+            print(self.random_quote)
             return self.random_quote
 
     def set_quote_pack(self, quote_pack):

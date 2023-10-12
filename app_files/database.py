@@ -24,8 +24,8 @@ class DataBase:
         FOREIGN KEY (PackName) REFERENCES Packs(Name)
         )""")
 
-    def insert(self, json_file):
-        with open(json_file, "r") as file:
+    def add_pack(self, pack_file):
+        with open(pack_file, "r") as file:
             data = json.load(file)
             pack_name = data["Name"]
             pack_description = data["Description"]
@@ -39,4 +39,22 @@ class DataBase:
             VALUES (?,?)""", (pack_name, quote))
 
         self.connection.commit()
+
+    def remove_pack(self):
+        pass
+        #self.cursor.execute("SELECT Name", self.quote_ui.quote_radio_value.get())
+
+
+    def get_info(self):
+        self.cursor.execute("SELECT Name, Description FROM Packs")
+        all_packs = self.cursor.fetchall()
+        return all_packs
+
+
+    def fetch_random_quote(self, pack_name):
+        self.cursor.execute("SELECT QuoteText FROM Quotes "
+                            "WHERE PackName = ? "
+                            "ORDER BY RANDOM() LIMIT 1", (pack_name,))
+        random_quote = self.cursor.fetchone()
+        return random_quote[0]
 
