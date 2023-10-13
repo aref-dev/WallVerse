@@ -40,10 +40,10 @@ class DataBase:
 
         self.connection.commit()
 
-    def remove_pack(self):
-        pass
-        #self.cursor.execute("SELECT Name", self.quote_ui.quote_radio_value.get())
-
+    def remove_pack(self, pack_name):
+        self.cursor.execute("DELETE FROM Quotes WHERE PackName = ?", (pack_name,))
+        self.cursor.execute("DELETE FROM Packs WHERE Name = ?", (pack_name,))
+        self.connection.commit()
 
     def get_info(self):
         self.cursor.execute("SELECT Name, Description FROM Packs")

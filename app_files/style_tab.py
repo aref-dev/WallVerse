@@ -5,6 +5,8 @@ import darkdetect
 import threading
 from tkinter import filedialog as fd
 from CTkColorPicker import *
+from tkfontchooser import askfont
+
 
 
 

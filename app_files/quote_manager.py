@@ -36,7 +36,6 @@ class QuoteGen:
                 return self.random_quote
         else:
             self.random_quote = self.db.fetch_random_quote(self.quote_pack)
-            print(self.random_quote)
             return self.random_quote
 
     def set_quote_pack(self, quote_pack):

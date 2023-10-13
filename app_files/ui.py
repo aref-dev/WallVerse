@@ -1,4 +1,4 @@
-from quote import QuoteGen
+from quote_manager import QuoteGen
 from wallpaper import WallpaperGen
 import customtkinter
 import pyglet
