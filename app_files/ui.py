@@ -71,9 +71,13 @@ class UserInterface(customtkinter.CTk):
         elif self.style_tab.cowsay_toggle_value.get() == 0:
             input_text = random_quote
 
-        self.wallpaper.set_font(font=f"fonts/{self.style_tab.font_style_var.get()}",
+        #font = f"fonts/{self.style_tab.font_style_var.get()}"
+        #font=f"C:\\Windows\\Fonts\\{self.style_tab.font_style_var.get()}.ttf"
+
+        self.wallpaper.set_font(font=self.style_tab.font_preview_window.font_style_var.get(),
                                 font_size=int(self.style_tab.text_size_var.get()))
         self.wallpaper.set_screen_size(method="auto")
+        print(self.style_tab.font_preview_window.font_style_var.get())
 
         if darkdetect.isLight():
             bg_color = self.style_tab.light_theme_background_color_value.get()

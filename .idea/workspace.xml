@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- UI works with database when removing quote packs">
+      <change afterPath="$PROJECT_DIR$/app_files/fonts/GreatVibes-Regular.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quotes_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/style_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
@@ -81,11 +81,11 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files\fonts" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\dist" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources\fonts" />
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Python.ui">
@@ -132,8 +132,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.ui" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.ui" />
     </list>
     <recent_temporary>
       <list>
@@ -367,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697074561697</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="- UI works with database when removing quote packs">
+      <option name="closed" value="true" />
+      <created>1697191676601</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1697191676601</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -382,7 +390,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Quotes from the textbox can be passed to WallpaperGen Class" />
     <MESSAGE value="- Added a new function set_wallpaper in wallpaper.py for Windows" />
     <MESSAGE value="- Font size change is now possible from UI&#10;- All available fonts from the font-path are displayed in a combobox and can be used" />
     <MESSAGE value="- Added additional fonts and font for title" />
@@ -407,6 +414,7 @@
     <MESSAGE value="- Broke down big class into smaller classes for easier management" />
     <MESSAGE value="- Created DataBase class for local app&#10;- Users can add json files to the local database" />
     <MESSAGE value="- App fetches random quotes from database instead of JSON" />
-    <option name="LAST_COMMIT_MESSAGE" value="- App fetches random quotes from database instead of JSON" />
+    <MESSAGE value="- UI works with database when removing quote packs" />
+    <option name="LAST_COMMIT_MESSAGE" value="- UI works with database when removing quote packs" />
   </component>
 </project>

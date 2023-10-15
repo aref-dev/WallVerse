@@ -16,7 +16,8 @@ class QuotesTab(customtkinter.CTkFrame):
         self.quote_radio_value = customtkinter.StringVar(value="custom")
         self.quote_radio_value.trace("w", self.delete_pack_show)
 
-        self.quote_packs = customtkinter.CTkScrollableFrame(master.tabview.tab("Quotes"), width=500)
+        self.quote_packs = customtkinter.CTkScrollableFrame(master.tabview.tab("Quotes"), width=500,
+                                                            label_text="Available Packs", label_font=ELEMENT_FONT)
         self.quote_packs.grid(row=0, column=0, columnspan=3, padx=10, pady=10, sticky="EW")
 
         self.load_packs()
@@ -44,7 +45,7 @@ class QuotesTab(customtkinter.CTkFrame):
                                                        command=self.delete_pack, font=ELEMENT_FONT, fg_color="red")
 
         self.refresh_wallpaper_btn1 = customtkinter.CTkButton(
-            master.tabview.tab("Quotes"), text="Refresh wallpaper!", command=master.set_wallpaper, fg_color="purple",
+            master.tabview.tab("Quotes"), text="Refresh Wallpaper!", command=master.set_wallpaper, fg_color="purple",
             font=ELEMENT_FONT)
         self.refresh_wallpaper_btn1.grid(row=5, column=2, padx=10, pady=10, sticky="EW")
 
@@ -86,3 +87,4 @@ class QuotesTab(customtkinter.CTkFrame):
     def delete_pack(self):
         self.db.remove_pack(self.quote_radio_value.get())
         self.load_packs()
+        self.quote_radio_value.set("custom")

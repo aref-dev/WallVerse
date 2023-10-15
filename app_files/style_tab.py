@@ -1,23 +1,67 @@
 import customtkinter
-from pathlib import Path
 import cowsay
 import darkdetect
 import threading
 from tkinter import filedialog as fd
 from CTkColorPicker import *
-from tkfontchooser import askfont
-
-
-
+from CTkListbox import *
+import matplotlib.font_manager as font_manager
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
 
+
+class FontPreview(customtkinter.CTkToplevel):
+    def __init__(self, master):
+        super().__init__(master)
+        self.font_path = None
+        self.title("Font Preview")
+
+        self.chosen_font = customtkinter.CTkFont(family="Courier New", size=35)
+
+        self.font_test_text = customtkinter.CTkTextbox(self, font=self.chosen_font, width=400)
+        self.font_test_text.grid(row=0, column=0, padx=10, pady=10, sticky="EW")
+
+        self.font_test_text.insert("end", text="Font Preview")
+
+        self.font_listbox = CTkListbox(self)
+        self.font_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
+
+        self.system_fonts = font_manager.findSystemFonts()
+        self.font_info_dict = {}
+
+        for name in self.system_fonts:
+            self.font_info_dict[name] = font_manager.FontProperties(fname=name).get_name()
+
+        for font in self.font_info_dict.values():
+            self.font_listbox.insert("end", font)
+
+        self.font_select_btn = customtkinter.CTkButton(self, text="Select Font", command=self.destroy)
+        self.font_select_btn.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
+
+        self.font_listbox.bind("<ButtonRelease-1>", self.font_chooser)
+
+        self.font_style_var = customtkinter.StringVar(value='C:\\Windows\\Fonts\\seguiemj.ttf')
+        self.font_style_var.trace("w", self.return_font)
+
+    def font_chooser(self, *args):
+        self.chosen_font.configure(family=self.font_listbox.get(self.font_listbox.curselection()))
+        self.font_style_var.set([k for k, v in self.font_info_dict.items()
+                                 if v == self.font_listbox.get(self.font_listbox.curselection())][0])
+        print(self.font_style_var.get())
+
+    def return_font(self):
+        new_path = self.font_path.replace("\\", "\\\\")
+        return new_path
+
+
 class StyleTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
+        self.font_preview_window = FontPreview(self)
+        self.font_preview_window.destroy()
 
         self.t = threading.Thread(target=darkdetect.listener, args=(self.dark_mode_trace,))
         self.t.daemon = True
@@ -42,20 +86,21 @@ class StyleTab(customtkinter.CTkFrame):
         self.text_size_entry.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
         self.text_size_var.trace("w", callback=self.text_size_warning)
 
-        font_path = Path("fonts")
-
-        available_fonts = [font.name for font in font_path.iterdir()]
-
-        self.font_style_var = customtkinter.StringVar(value=available_fonts[0])
+        # font_path = Path("fonts")
+        #
+        # available_fonts = [font.name for font in font_path.iterdir()]
 
         self.font_style_edit_label = customtkinter.CTkLabel(
             self.style_tab, text="Font type:", font=ELEMENT_FONT)
         self.font_style_edit_label.grid(row=3, column=0, padx=10, pady=10, sticky="EW")
 
-        self.font_combobox = customtkinter.CTkComboBox(
-            self.style_tab, values=available_fonts, variable=self.font_style_var)
-
-        self.font_combobox.grid(row=3, column=1, columnspan=2, padx=10, pady=10, sticky="EW")
+        self.font_preview_btn = customtkinter.CTkButton(self.style_tab, text="Choose Font",
+                                                        command=self.open_font_preview, font=ELEMENT_FONT)
+        self.font_preview_btn.grid(row=3, column=1, columnspan=2, padx=10, pady=10, sticky="EW")
+        # self.font_combobox = customtkinter.CTkComboBox(
+        #     self.style_tab, values=available_fonts, variable=self.font_style_var)
+        #
+        # self.font_combobox.grid(row=3, column=1, columnspan=2, padx=10, pady=10, sticky="EW")
 
         # LIGHT-MODE THEME OPTIONS
         self.light_theme_label = customtkinter.CTkLabel(
@@ -149,7 +194,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.cowsay_char_combobox.grid(row=14, column=1, padx=10, pady=10, sticky="EW")
 
         self.refresh_wallpaper_btn2 = customtkinter.CTkButton(
-            master.tabview.tab("Style"), text="Refresh wallpaper!", command=master.set_wallpaper, fg_color="purple",
+            master.tabview.tab("Style"), text="Refresh Wallpaper!", command=master.set_wallpaper, fg_color="purple",
             font=ELEMENT_FONT)
         self.refresh_wallpaper_btn2.grid(row=1, column=1, padx=10, pady=10, sticky="E")
 
@@ -239,3 +284,9 @@ class StyleTab(customtkinter.CTkFrame):
 
     def dark_mode_trace(self, callback):
         self.master.set_wallpaper()
+
+    def open_font_preview(self):
+        if self.font_preview_window is None or not self.font_preview_window.winfo_exists():
+            self.font_preview_window = FontPreview(self)  # create window if its None or destroyed
+        else:
+            self.font_preview_window.focus()

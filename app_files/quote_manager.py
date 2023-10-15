@@ -5,7 +5,7 @@ from database import DataBase
 
 def wider_cowsay_wrap_lines(lines, max_width=90):
     """Here, because the cowsay package has a default max_width of 49 for its wrap_line function, I'm using
-     Monkey Patching to increase the max_width to 100 to prevent distortions. """
+     Monkey Patching to increase the max_width to 90 to prevent distortions. """
     new_lines = []
     for line in lines:
         for line_part in [
