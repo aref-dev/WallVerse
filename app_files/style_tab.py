@@ -46,14 +46,30 @@ class FontPreview(customtkinter.CTkToplevel):
         self.font_style_var.trace("w", self.return_font)
 
     def font_chooser(self, *args):
-        self.chosen_font.configure(family=self.font_listbox.get(self.font_listbox.curselection()))
-        self.font_style_var.set([k for k, v in self.font_info_dict.items()
-                                 if v == self.font_listbox.get(self.font_listbox.curselection())][0])
-        print(self.font_style_var.get())
+        font_family = self.font_listbox.get(self.font_listbox.curselection())
+        self.chosen_font.configure(family=font_family)
+        for path, name in self.font_info_dict.items():
+            if name == font_family:
+                font_properties = font_manager.FontProperties(fname=path)
+                print(font_properties.get_name())
+                print(font_properties.get_fontconfig_pattern())
+                self.font_style_var.set(path)
+                # if font_properties.get_style() == "normal" and font_properties.get_weight() == "normal":
+                #     print(path)
+                #     self.font_style_var.set(path)
+
+        # font_styles = ([k for k, v in self.font_info_dict.items()
+        #                          if v == self.font_listbox.get(self.font_listbox.curselection())])
+        # if font_manager.FontProperties().get_style() == "normal"
+        # try:
+        #     self.font_style_var.set(font_styles[0])
+        # except:
+        #     pass
+        # print(font_styles)
+        # print(self.font_style_var.get())
 
     def return_font(self):
-        new_path = self.font_path.replace("\\", "\\\\")
-        return new_path
+        return self.font_path
 
 
 class StyleTab(customtkinter.CTkFrame):
@@ -178,11 +194,11 @@ class StyleTab(customtkinter.CTkFrame):
         self.cowsay_setting_label.grid(row=12, column=1, padx=10, pady=10, sticky="EW")
 
         self.cowsay_toggle_checkbox = customtkinter.CTkCheckBox(self.style_tab, offvalue=0, onvalue=1,
-                                                                text="Cowsay",
+                                                                text="Cowsay (Works with monospaced fonts only!)",
                                                                 variable=self.cowsay_toggle_value,
                                                                 font=ELEMENT_FONT)
 
-        self.cowsay_toggle_checkbox.grid(row=13, column=0, padx=50, pady=10, sticky="EW")
+        self.cowsay_toggle_checkbox.grid(row=13, column=0, columnspan=2, padx=50, pady=10, sticky="EW")
 
         self.cowsay_toggle_label = customtkinter.CTkLabel(self.style_tab, text="Pick cowsay character:",
                                                           font=ELEMENT_FONT)

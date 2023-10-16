@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- UI works with database when removing quote packs">
-      <change afterPath="$PROJECT_DIR$/app_files/fonts/GreatVibes-Regular.ttf" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added a font preview window">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quotes_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/preferences_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/style_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/wallpaper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697191676601</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="- Added a font preview window">
+      <option name="closed" value="true" />
+      <created>1697344659372</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1697344659372</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -390,7 +397,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added a new function set_wallpaper in wallpaper.py for Windows" />
     <MESSAGE value="- Font size change is now possible from UI&#10;- All available fonts from the font-path are displayed in a combobox and can be used" />
     <MESSAGE value="- Added additional fonts and font for title" />
     <MESSAGE value="- User can set different text-color, background color or image for dark-mode and light mode." />
@@ -415,6 +421,7 @@
     <MESSAGE value="- Created DataBase class for local app&#10;- Users can add json files to the local database" />
     <MESSAGE value="- App fetches random quotes from database instead of JSON" />
     <MESSAGE value="- UI works with database when removing quote packs" />
-    <option name="LAST_COMMIT_MESSAGE" value="- UI works with database when removing quote packs" />
+    <MESSAGE value="- Added a font preview window" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added a font preview window" />
   </component>
 </project>

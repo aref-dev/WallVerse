@@ -9,7 +9,8 @@ Windows SystemParametersInfo for changing wallpaper:
 0x2 is for writing it to user's INI/ Initialization File to prevent change after reboot
 """
 SPI_SETDESKWALLPAPER = 0x14
-SPIF_UPDATEINIFILE   = 0x2
+SPIF_UPDATEINIFILE = 0x2
+
 
 class WallpaperGen:
     def __init__(self):
@@ -52,7 +53,6 @@ class WallpaperGen:
             screen_height = get_monitors()[monitor_order].height
             self.screen_size = (screen_width, screen_height)
 
-
     def draw_wallpaper(self, input_text, text_color="grey"):
         self.text_over_wallpaper = input_text
         self.text_color = text_color
@@ -70,4 +70,3 @@ class WallpaperGen:
         ctypes.windll.user32.SystemParametersInfoW(
             SPI_SETDESKWALLPAPER, 0, self.temp_wallpaper_path, SPIF_UPDATEINIFILE)
         self.temp_wallpaper.close()
-

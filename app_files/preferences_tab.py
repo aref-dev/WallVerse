@@ -9,8 +9,9 @@ class PreferencesTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
-        self.interval_period = customtkinter.StringVar(value="1")
+        self.interval_period = customtkinter.StringVar(value="20")
         self.interval_by_string = customtkinter.StringVar(value="Hour")
+        self.timer = None
 
         self.refresh_interval_label = customtkinter.CTkLabel(
             master.tabview.tab("Preferences"), text="Refresh every:", font=ELEMENT_FONT)
@@ -44,10 +45,12 @@ class PreferencesTab(customtkinter.CTkFrame):
             self.interval_warning_label.destroy()
 
     def handle_interval_callback(self, *args):
+        if self.timer:
+            self.after_cancel(self.timer)
         time = None
         if self.interval_by_string.get() == "Hour":
             time = int(self.interval_period.get()) * 3600000
         elif self.interval_by_string.get() == "Minutes":
             time = int(self.interval_period.get()) * 60000
 
-        self.after(time, self.master.set_wallpaper)
+        self.timer = self.after(time, self.master.set_wallpaper)
