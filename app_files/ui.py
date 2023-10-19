@@ -1,3 +1,5 @@
+import threading
+
 from quote_manager import QuoteGen
 from wallpaper import WallpaperGen
 import customtkinter
@@ -45,10 +47,6 @@ class UserInterface(customtkinter.CTk):
         self.tabview.add("Style")
         self.tabview.add("Preferences")
 
-        # self.t = threading.Thread(target=darkdetect.listener, args=(self.dark_mode_trace,))
-        # self.t.daemon = True
-        # self.t.start()
-
         self.protocol("WM_DELETE_WINDOW", self.iconify)
 
         # Validate and invalidate commands for number only fields
@@ -60,6 +58,9 @@ class UserInterface(customtkinter.CTk):
         self.quotes_tab = QuotesTab(self)
         self.style_tab = StyleTab(self)
         self.preferences_tab = PreferencesTab(self)
+
+        self.current_theme = darkdetect.theme()
+        self.check_dark_mode()
 
     def set_wallpaper(self):
         input_text = None
@@ -74,7 +75,6 @@ class UserInterface(customtkinter.CTk):
         self.wallpaper.set_font(font=self.style_tab.font_preview_window.font_style_path.get(),
                                 font_size=int(self.style_tab.text_size_var.get()))
         self.wallpaper.set_screen_size(method="auto")
-        print(self.style_tab.font_preview_window.font_style_path.get())
 
         if darkdetect.isLight():
             bg_color = self.style_tab.light_theme_background_color_value.get()
@@ -117,6 +117,14 @@ class UserInterface(customtkinter.CTk):
 
     def only_allow_digit(self, value):
         return value.isdigit() or value == ""
+
+    def check_dark_mode(self):
+        if darkdetect.theme() != self.current_theme:
+            self.style_tab.dark_mode_trace()
+            self.current_theme = darkdetect.theme()
+        self.after(2000, self.check_dark_mode)
+
+
 
 
 if __name__ == "__main__":

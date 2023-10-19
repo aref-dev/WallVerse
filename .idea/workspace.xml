@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed issue with refresh timer">
-      <change afterPath="$PROJECT_DIR$/app_files/font_manager.py" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Replaced font selector">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/preferences_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/style_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
     </list>
@@ -390,7 +388,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697418508650</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="- Replaced font selector">
+      <option name="closed" value="true" />
+      <created>1697678849495</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1697678849495</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -405,7 +411,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added additional fonts and font for title" />
     <MESSAGE value="- User can set different text-color, background color or image for dark-mode and light mode." />
     <MESSAGE value="- Improved UI&#10;- Added cowsay option to UI" />
     <MESSAGE value="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status" />
@@ -430,6 +435,7 @@
     <MESSAGE value="- UI works with database when removing quote packs" />
     <MESSAGE value="- Added a font preview window" />
     <MESSAGE value="- Fixed issue with refresh timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed issue with refresh timer" />
+    <MESSAGE value="- Replaced font selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Replaced font selector" />
   </component>
 </project>

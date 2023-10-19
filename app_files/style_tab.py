@@ -1,7 +1,6 @@
 import customtkinter
 import cowsay
 import darkdetect
-import threading
 from tkinter import filedialog as fd
 from CTkColorPicker import *
 from CTkListbox import *
@@ -17,7 +16,6 @@ class FontPreview(customtkinter.CTkToplevel):
         super().__init__(master)
         self.title("Font Preview")
         self.font_manager = FontManager()
-        self.light_dark_mode()
 
         self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=35)
         self.font_family = customtkinter.StringVar()
@@ -28,7 +26,11 @@ class FontPreview(customtkinter.CTkToplevel):
         self.font_test_text.insert("end", text="Font Preview")
 
         self.font_info_dict = self.font_manager.get_font_dict()
-        print(self.font_info_dict)
+
+        self.font_listbox = CTkListbox(self)
+        self.font_style_listbox = CTkListbox(self)
+        self.font_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
+        self.font_style_listbox.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
 
         for font in self.font_info_dict:
             self.font_listbox.insert("end", font)
@@ -46,11 +48,17 @@ class FontPreview(customtkinter.CTkToplevel):
     def font_chooser(self, *args):
         self.font_family.set(self.font_listbox.get(self.font_listbox.curselection()))
         self.ui_font_preview.configure(family=self.font_family.get())
-        self.font_style_path.set(list(self.font_info_dict[self.font_family.get()].values())[0])
+        try:
+            self.font_style_path.set(list(self.font_info_dict[self.font_family.get()].values())[0])
+        except KeyError:
+            pass
 
     def style_chooser(self, *args):
         selected_style = self.font_style_listbox.get(self.font_style_listbox.curselection())
-        self.font_style_path.set(self.font_info_dict[self.font_family.get()][selected_style])
+        try:
+            self.font_style_path.set(self.font_info_dict[self.font_family.get()][selected_style])
+        except KeyError:
+            pass
 
     def get_style(self, *args):
         try:
@@ -63,18 +71,6 @@ class FontPreview(customtkinter.CTkToplevel):
         except KeyError:
             pass
 
-    def light_dark_mode(self):
-        if darkdetect.isLight():
-            self.font_listbox = CTkListbox(self, text_color="black")
-            self.font_style_listbox = CTkListbox(self, text_color="black")
-        elif darkdetect.isDark():
-            self.font_listbox = CTkListbox(self, text_color="white")
-            self.font_style_listbox = CTkListbox(self, text_color="white")
-
-        self.font_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
-        self.font_style_listbox.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
-
-
 
 class StyleTab(customtkinter.CTkFrame):
     def __init__(self, master):
@@ -82,10 +78,6 @@ class StyleTab(customtkinter.CTkFrame):
         self.master = master
         self.font_preview_window = FontPreview(self)
         self.font_preview_window.destroy()
-
-        self.t = threading.Thread(target=darkdetect.listener, args=(self.dark_mode_trace,))
-        self.t.daemon = True
-        self.t.start()
 
         self.style_tab = customtkinter.CTkScrollableFrame(master.tabview.tab("Style"), width=600, height=400)
         self.style_tab.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
@@ -297,12 +289,16 @@ class StyleTab(customtkinter.CTkFrame):
         file_path = fd.askopenfile()
         self.dark_theme_background_image_path.set(file_path.name)
 
-    def dark_mode_trace(self, callback):
+    def dark_mode_trace(self, *args):
         self.master.set_wallpaper()
-        self.font_preview_window.light_dark_mode()
+        self.font_preview_window.font_listbox.destroy()
+        self.font_preview_window.font_style_listbox.destroy()
 
     def open_font_preview(self):
         if self.font_preview_window is None or not self.font_preview_window.winfo_exists():
             self.font_preview_window = FontPreview(self)  # create window if its None or destroyed
         else:
-            self.font_preview_window.focus()
+            self.font_preview_window.attributes("-topmost", True)
+            self.font_preview_window.lift()
+
+
