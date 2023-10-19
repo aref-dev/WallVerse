@@ -12,6 +12,7 @@ class PreferencesTab(customtkinter.CTkFrame):
         self.interval_period = customtkinter.StringVar(value="20")
         self.interval_by_string = customtkinter.StringVar(value="Hour")
         self.timer = None
+        self.handle_interval_callback()
 
         self.refresh_interval_label = customtkinter.CTkLabel(
             master.tabview.tab("Preferences"), text="Refresh every:", font=ELEMENT_FONT)
@@ -22,6 +23,7 @@ class PreferencesTab(customtkinter.CTkFrame):
         self.interval_entry.configure(validate="key", validatecommand=master.v_cmd)
         self.interval_entry.grid(row=0, column=1, padx=10, pady=10)
         self.interval_period.trace("w", callback=self.time_interval_warning)
+        self.interval_period.trace("w", self.handle_interval_callback)
 
         self.interval_hour = customtkinter.CTkRadioButton(
             master.tabview.tab("Preferences"), text="Hour", font=ELEMENT_FONT,
@@ -42,15 +44,21 @@ class PreferencesTab(customtkinter.CTkFrame):
                                                                  text_color="red", font=ELEMENT_FONT)
             self.interval_warning_label.grid(row=1, column=0, sticky="EW")
         else:
-            self.interval_warning_label.destroy()
+            try:
+                self.interval_warning_label.destroy()
+            except AttributeError:
+                pass
 
     def handle_interval_callback(self, *args):
         if self.timer:
             self.after_cancel(self.timer)
         time = None
-        if self.interval_by_string.get() == "Hour":
-            time = int(self.interval_period.get()) * 3600000
-        elif self.interval_by_string.get() == "Minutes":
-            time = int(self.interval_period.get()) * 60000
+        try:
+            if self.interval_by_string.get() == "Hour":
+                time = int(self.interval_period.get()) * 3600000
+            elif self.interval_by_string.get() == "Minutes":
+                time = int(self.interval_period.get()) * 60000
+            self.timer = self.after(time, self.master.set_wallpaper)
+        except ValueError:
+            pass
 
-        self.timer = self.after(time, self.master.set_wallpaper)
