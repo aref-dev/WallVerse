@@ -1,7 +1,7 @@
 import customtkinter
 import cowsay
-import darkdetect
 from tkinter import filedialog as fd
+import darkdetect
 from CTkColorPicker import *
 from CTkListbox import *
 from font_manager import FontManager
@@ -11,9 +11,35 @@ HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
 
 
+def select(self, index):
+    """ select the option """
+    for options in self.buttons.values():
+        options.configure(fg_color="transparent")
+
+    if self.multiple:
+        if self.buttons[index] in self.selections:
+            self.selections.remove(self.buttons[index])
+            self.buttons[index].configure(fg_color="transparent", hover=False)
+            self.after(100, lambda: self.buttons[index].configure(hover=self.hover))
+        else:
+            self.selections.append(self.buttons[index])
+        for i in self.selections:
+            i.configure(fg_color=self.select_color, hover=False)
+            self.after(100, lambda button=i: button.configure(hover=self.hover))
+    else:
+        self.selected = self.buttons[index]
+        self.buttons[index].configure(fg_color=self.select_color, hover=False)
+        #self.after(100, lambda: self.buttons[index].configure(hover=self.hover))
+
+
+    if self.command:
+        self.command(self.get())
+
+CTkListbox.select = select
+
 class FontPreview(customtkinter.CTkToplevel):
     def __init__(self, master):
-        super().__init__(master)
+        super().__init__()
         self.title("Font Preview")
         self.font_manager = FontManager()
 
@@ -29,8 +55,16 @@ class FontPreview(customtkinter.CTkToplevel):
 
         self.font_listbox = CTkListbox(self)
         self.font_style_listbox = CTkListbox(self)
+
         self.font_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
         self.font_style_listbox.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
+
+        if darkdetect.isLight():
+            self.font_listbox.configure(text_color="black")
+            self.font_style_listbox.configure(text_color="black")
+        elif darkdetect.isDark():
+            self.font_listbox.configure(text_color="white")
+            self.font_style_listbox.configure(text_color="white")
 
         for font in self.font_info_dict:
             self.font_listbox.insert("end", font)
@@ -60,15 +94,16 @@ class FontPreview(customtkinter.CTkToplevel):
         except KeyError:
             pass
 
+
     def get_style(self, *args):
         try:
             self.font_style_listbox.delete(0, "end")
         except IndexError:
             pass
         try:
-            for style in self.font_info_dict[self.font_family.get()]:
+            for style in self.font_info_dict[self.font_family.get()].keys():
                 self.font_style_listbox.insert("end", style)
-        except KeyError:
+        except:
             pass
 
 
@@ -279,7 +314,6 @@ class StyleTab(customtkinter.CTkFrame):
         pick_color = AskColor()
         color = pick_color.get()
         self.dark_theme_background_color_value.set(color)
-        print(self.dark_theme_background_color_value.get())
 
     def set_light_theme_background_image(self):
         file_path = fd.askopenfile()
@@ -291,8 +325,6 @@ class StyleTab(customtkinter.CTkFrame):
 
     def dark_mode_trace(self, *args):
         self.master.set_wallpaper()
-        self.font_preview_window.font_listbox.destroy()
-        self.font_preview_window.font_style_listbox.destroy()
 
     def open_font_preview(self):
         if self.font_preview_window is None or not self.font_preview_window.winfo_exists():

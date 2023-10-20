@@ -17,7 +17,6 @@ from preferences_tab import PreferencesTab
 pyglet.options['win32_gdi_font'] = True
 pyglet.font.add_file("ui_fonts/Fuggles-Regular.ttf")
 
-
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
@@ -123,8 +122,6 @@ class UserInterface(customtkinter.CTk):
             self.style_tab.dark_mode_trace()
             self.current_theme = darkdetect.theme()
         self.after(2000, self.check_dark_mode)
-
-
 
 
 if __name__ == "__main__":

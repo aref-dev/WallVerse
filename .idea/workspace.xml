@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Replaced font selector">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Replaced dark mode listening function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/style_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
@@ -396,7 +396,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697678849495</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="- Replaced dark mode listening function">
+      <option name="closed" value="true" />
+      <created>1697689297226</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1697689297226</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +419,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- User can set different text-color, background color or image for dark-mode and light mode." />
     <MESSAGE value="- Improved UI&#10;- Added cowsay option to UI" />
     <MESSAGE value="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status" />
     <MESSAGE value="- Wallpaper automatically updates when theme color changes&#10;- product.py shows example of how added files need to be structured." />
@@ -436,6 +443,7 @@
     <MESSAGE value="- Added a font preview window" />
     <MESSAGE value="- Fixed issue with refresh timer" />
     <MESSAGE value="- Replaced font selector" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Replaced font selector" />
+    <MESSAGE value="- Replaced dark mode listening function" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Replaced dark mode listening function" />
   </component>
 </project>
