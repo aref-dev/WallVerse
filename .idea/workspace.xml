@@ -4,10 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Replaced dark mode listening function">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed problem with font selector">
+      <change beforePath="$PROJECT_DIR$/.idea/Fortune's Window.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fortune's Window.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/style_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_files/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/font_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/fonts/GreatVibes-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/fonts/GreatVibes-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/fonts/RobotoMono-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/fonts/RobotoMono-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/fonts/VT323-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/fonts/VT323-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/home_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/fortune.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/fortune.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/fortunes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/fortunes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/franklin.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/franklin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/franklin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/franklin.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/ui_fonts/Fuggles-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui_fonts/Fuggles-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/ui_fonts/OFL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui_fonts/OFL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_files/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/wallpaper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/collection.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign_in.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/sign_in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/upload.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +96,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aref/PycharmProjects/fortune-2023/app_files&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aref/PycharmProjects/fortune-2023/Windows Application/venv&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
@@ -78,15 +110,15 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application" />
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Flask Application" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files\fonts" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files" />
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\dist" />
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\resources\fonts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ui">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="ui" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Fortune's Window" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -94,11 +126,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Windows Application" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Windows Application/ui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,37 +139,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Fortune's Window" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app_files" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_files/ui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.ui" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.ui" />
-        <item itemvalue="Python.main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -404,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697689297226</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="- Fixed problem with font selector">
+      <option name="closed" value="true" />
+      <created>1697786029196</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1697786029196</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,7 +428,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Improved UI&#10;- Added cowsay option to UI" />
     <MESSAGE value="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status" />
     <MESSAGE value="- Wallpaper automatically updates when theme color changes&#10;- product.py shows example of how added files need to be structured." />
     <MESSAGE value="- Added database structure so that each user can have multiple quote packs" />
@@ -444,6 +452,7 @@
     <MESSAGE value="- Fixed issue with refresh timer" />
     <MESSAGE value="- Replaced font selector" />
     <MESSAGE value="- Replaced dark mode listening function" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Replaced dark mode listening function" />
+    <MESSAGE value="- Fixed problem with font selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed problem with font selector" />
   </component>
 </project>

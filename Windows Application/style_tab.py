@@ -11,7 +11,7 @@ HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
 
 
-def select(self, index):
+def new_select(self, index):
     """ select the option """
     for options in self.buttons.values():
         options.configure(fg_color="transparent")
@@ -29,13 +29,14 @@ def select(self, index):
     else:
         self.selected = self.buttons[index]
         self.buttons[index].configure(fg_color=self.select_color, hover=False)
-        #self.after(100, lambda: self.buttons[index].configure(hover=self.hover))
-
+        # self.after(100, lambda: self.buttons[index].configure(hover=self.hover))
 
     if self.command:
         self.command(self.get())
 
-CTkListbox.select = select
+
+CTkListbox.select = new_select
+
 
 class FontPreview(customtkinter.CTkToplevel):
     def __init__(self, master):
@@ -69,8 +70,12 @@ class FontPreview(customtkinter.CTkToplevel):
         for font in self.font_info_dict:
             self.font_listbox.insert("end", font)
 
-        self.font_select_btn = customtkinter.CTkButton(self, text="Select Font", command=self.destroy)
-        self.font_select_btn.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
+        self.refresh_btn = customtkinter.CTkButton(self, text="Refresh Wallpaper!", fg_color="purple",
+                                                   command=master.master.set_wallpaper)
+        self.refresh_btn.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
+
+        self.close_btn = customtkinter.CTkButton(self, text="Done", command=self.destroy)
+        self.close_btn.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
 
         self.font_listbox.bind("<ButtonRelease-1>", self.font_chooser)
         self.font_style_listbox.bind("<ButtonRelease-1>", self.style_chooser)
@@ -93,7 +98,6 @@ class FontPreview(customtkinter.CTkToplevel):
             self.font_style_path.set(self.font_info_dict[self.font_family.get()][selected_style])
         except KeyError:
             pass
-
 
     def get_style(self, *args):
         try:
@@ -332,5 +336,3 @@ class StyleTab(customtkinter.CTkFrame):
         else:
             self.font_preview_window.attributes("-topmost", True)
             self.font_preview_window.lift()
-
-

@@ -1,5 +1,3 @@
-import threading
-
 from quote_manager import QuoteGen
 from wallpaper import WallpaperGen
 import customtkinter

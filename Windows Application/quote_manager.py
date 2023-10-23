@@ -42,5 +42,5 @@ class QuoteGen:
         self.quote_pack = quote_pack
 
     def pass_to_cowsay(self, input_text=None, cowsay_character="cow"):
-        self.cowsay_string = cowsay.get_output_string(char_name=cowsay_character, text=input_text)
+        self.cowsay_string = cowsay.get_output_string(char=cowsay_character, text=input_text)
         return self.cowsay_string
