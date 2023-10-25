@@ -10,6 +10,5 @@ class SettingsManager:
 
     def set_value(self, key, value):
         self.settings[key] = value
-        print(self.settings)
         with open("settings.json", 'w') as file:
             file.write(json.dumps(self.settings, indent=2))

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment">
-      <change afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Windows Application/settings_manager.py" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Settings are saved to settings.json and loaded from it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -393,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698058756024</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="- Settings are saved to settings.json and loaded from it">
+      <option name="closed" value="true" />
+      <created>1698276676022</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1698276676022</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,7 +414,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Wallpaper automatically updates when theme color changes&#10;- product.py shows example of how added files need to be structured." />
     <MESSAGE value="- Added database structure so that each user can have multiple quote packs" />
     <MESSAGE value="- Added Bootstrap header and footer" />
     <MESSAGE value="- Defined product structor in product.py, and exported fortune.json as product sample" />
@@ -433,6 +438,7 @@
     <MESSAGE value="- Replaced dark mode listening function" />
     <MESSAGE value="- Fixed problem with font selector" />
     <MESSAGE value="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment" />
+    <MESSAGE value="- Settings are saved to settings.json and loaded from it" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Settings are saved to settings.json and loaded from it" />
   </component>
 </project>

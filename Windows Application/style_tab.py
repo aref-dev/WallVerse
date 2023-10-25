@@ -118,7 +118,6 @@ class FontPreview(customtkinter.CTkToplevel):
         self.destroy()
 
 
-
 class StyleTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
@@ -319,26 +318,30 @@ class StyleTab(customtkinter.CTkFrame):
     def set_light_theme_text_color(self):
         pick_color = AskColor(initial_color=self.settings.get_value("light_mode_text_color"))
         color = pick_color.get()
-        self.light_theme_text_color_value.set(color)
-        self.settings.set_value("light_mode_text_color", color)
+        if color is not None:
+            self.light_theme_text_color_value.set(color)
+            self.settings.set_value("light_mode_text_color", color)
 
     def set_light_theme_background_color(self):
         pick_color = AskColor(initial_color=self.settings.get_value("light_mode_bg_color"))
         color = pick_color.get()
-        self.light_theme_background_color_value.set(color)
-        self.settings.set_value("light_mode_bg_color", color)
+        if color is not None:
+            self.light_theme_background_color_value.set(color)
+            self.settings.set_value("light_mode_bg_color", color)
 
     def set_dark_theme_text_color(self):
         pick_color = AskColor(initial_color=self.settings.get_value("dark_mode_text_color"))
         color = pick_color.get()
-        self.dark_theme_text_color_value.set(color)
-        self.settings.set_value("dark_mode_text_color", color)
+        if color is not None:
+            self.dark_theme_text_color_value.set(color)
+            self.settings.set_value("dark_mode_text_color", color)
 
     def set_dark_theme_background_color(self):
         pick_color = AskColor(initial_color=self.settings.get_value("dark_mode_bg_color"))
         color = pick_color.get()
-        self.dark_theme_background_color_value.set(color)
-        self.settings.set_value("dark_mode_bg_color", color)
+        if color is not None:
+            self.dark_theme_background_color_value.set(color)
+            self.settings.set_value("dark_mode_bg_color", color)
 
     def set_light_theme_background_image(self):
         file_path = fd.askopenfile()
