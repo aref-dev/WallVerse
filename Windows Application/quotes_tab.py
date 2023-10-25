@@ -1,6 +1,7 @@
 import customtkinter
 from database import DataBase
 from tkinter import filedialog as fd
+from settings_manager import SettingsManager
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
@@ -12,9 +13,9 @@ class QuotesTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.db = DataBase()
-
-        self.quote_radio_value = customtkinter.StringVar(value="custom")
-        self.quote_radio_value.trace("w", self.delete_pack_show)
+        self.settings = SettingsManager()
+        self.quote_radio_value = customtkinter.StringVar(value=self.settings.get_value("selected_pack"))
+        self.quote_radio_value.trace("w", self.delete_pack_btn_show)
 
         self.quote_packs = customtkinter.CTkScrollableFrame(master.tabview.tab("Quotes"), width=500,
                                                             label_text="Available Packs", label_font=ELEMENT_FONT)
@@ -78,7 +79,8 @@ class QuotesTab(customtkinter.CTkFrame):
             pack_radio_btn.pack(anchor="w", pady=(10, 0))
             pack_radio_label.pack(anchor="center", pady=5)
 
-    def delete_pack_show(self, *args):
+    def delete_pack_btn_show(self, *args):
+        self.settings.set_value("selected_pack", self.quote_radio_value.get())
         if self.quote_radio_value.get() != "custom":
             self.delete_pack_btn.grid(row=5, column=1, padx=10, pady=10)
         else:

@@ -5,6 +5,7 @@ import darkdetect
 from CTkColorPicker import *
 from CTkListbox import *
 from font_manager import FontManager
+from settings_manager import SettingsManager
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
@@ -43,6 +44,7 @@ class FontPreview(customtkinter.CTkToplevel):
         super().__init__()
         self.title("Font Preview")
         self.font_manager = FontManager()
+        self.settings = SettingsManager()
 
         self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=35)
         self.font_family = customtkinter.StringVar()
@@ -74,13 +76,13 @@ class FontPreview(customtkinter.CTkToplevel):
                                                    command=master.master.set_wallpaper)
         self.refresh_btn.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
 
-        self.close_btn = customtkinter.CTkButton(self, text="Done", command=self.destroy)
+        self.close_btn = customtkinter.CTkButton(self, text="Done", command=self.exit_font_preview)
         self.close_btn.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
 
         self.font_listbox.bind("<ButtonRelease-1>", self.font_chooser)
         self.font_style_listbox.bind("<ButtonRelease-1>", self.style_chooser)
 
-        self.font_style_path = customtkinter.StringVar(value='C:\\Windows\\Fonts\\seguiemj.ttf')
+        self.font_style_path = customtkinter.StringVar(value=self.settings.get_value("font_path"))
 
         self.font_family.trace("w", self.get_style)
 
@@ -100,6 +102,7 @@ class FontPreview(customtkinter.CTkToplevel):
             pass
 
     def get_style(self, *args):
+        # self.settings.set_value("font_path", self.font_style_path.get())
         try:
             self.font_style_listbox.delete(0, "end")
         except IndexError:
@@ -110,12 +113,18 @@ class FontPreview(customtkinter.CTkToplevel):
         except:
             pass
 
+    def exit_font_preview(self):
+        self.settings.set_value("font_path", self.font_style_path.get())
+        self.destroy()
+
+
 
 class StyleTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
         self.font_preview_window = FontPreview(self)
+        self.settings = SettingsManager()
         self.font_preview_window.destroy()
 
         self.style_tab = customtkinter.CTkScrollableFrame(master.tabview.tab("Style"), width=600, height=400)
@@ -125,7 +134,7 @@ class StyleTab(customtkinter.CTkFrame):
                                                          font=HEADING_FONT)
         self.font_setting_label.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
 
-        self.text_size_var = customtkinter.StringVar(value="18")
+        self.text_size_var = customtkinter.StringVar(value=self.settings.get_value("text_size"))
 
         self.text_size_edit_label = customtkinter.CTkLabel(
             self.style_tab, text="Text size:", font=ELEMENT_FONT)
@@ -154,7 +163,8 @@ class StyleTab(customtkinter.CTkFrame):
             self.style_tab, text="Text color:", font=ELEMENT_FONT)
         self.light_theme_text_color_label.grid(row=5, column=0, padx=10, pady=10, sticky="EW")
 
-        self.light_theme_text_color_value = customtkinter.StringVar(value="#F1F0E8")
+        self.light_theme_text_color_value = customtkinter.StringVar(
+            value=self.settings.get_value("light_mode_text_color"))
 
         self.light_theme_text_color_picker_button = customtkinter.CTkButton(self.style_tab,
                                                                             text="Choose text color",
@@ -176,8 +186,10 @@ class StyleTab(customtkinter.CTkFrame):
         self.light_theme_background_type_option_var.trace('w', self.handle_light_mode_callback)
         self.handle_light_mode_callback()
 
-        self.light_theme_background_color_value = customtkinter.StringVar(value="#96B6C5")
-        self.light_theme_background_image_path = customtkinter.StringVar()
+        self.light_theme_background_color_value = customtkinter.StringVar(
+            value=self.settings.get_value("light_mode_bg_color"))
+        self.light_theme_background_image_path = customtkinter.StringVar(
+            value=self.settings.get_value("light_mode_image_path"))
 
         # DARK-MODE THEME OPTIONS
         self.dark_theme_label = customtkinter.CTkLabel(
@@ -188,7 +200,8 @@ class StyleTab(customtkinter.CTkFrame):
             self.style_tab, text="Text color:", font=ELEMENT_FONT)
         self.dark_theme_text_color_label.grid(row=9, column=0, padx=10, pady=10, sticky="EW")
 
-        self.dark_theme_text_color_value = customtkinter.StringVar(value="#005B41")
+        self.dark_theme_text_color_value = customtkinter.StringVar(
+            value=self.settings.get_value("dark_mode_text_color"))
 
         self.dark_theme_text_color_picker_button = customtkinter.CTkButton(self.style_tab,
                                                                            text="Choose text color",
@@ -210,12 +223,15 @@ class StyleTab(customtkinter.CTkFrame):
         self.dark_theme_background_type_option_var.trace('w', self.handle_dark_mode_callback)
         self.handle_dark_mode_callback()
 
-        self.dark_theme_background_color_value = customtkinter.StringVar(value="#0F0F0F")
-        self.dark_theme_background_image_path = customtkinter.StringVar()
+        self.dark_theme_background_color_value = customtkinter.StringVar(
+            value=self.settings.get_value("dark_mode_bg_color"))
+        self.dark_theme_background_image_path = customtkinter.StringVar(
+            value=self.settings.get_value("dark_mode_image_path"))
 
         # COWSAY
         self.cowsay_toggle_value = customtkinter.IntVar(value=0)
-        self.cowsay_char = customtkinter.StringVar(value="tux")
+        self.cowsay_char = customtkinter.StringVar(value=self.settings.get_value("cowsay_char"))
+        self.cowsay_char.trace("w", self.cowsay_callback)
 
         self.cowsay_setting_label = customtkinter.CTkLabel(self.style_tab, text="Cowsay setting", font=HEADING_FONT)
         self.cowsay_setting_label.grid(row=12, column=1, padx=10, pady=10, sticky="EW")
@@ -288,6 +304,7 @@ class StyleTab(customtkinter.CTkFrame):
             self.dark_theme_background_image_picker_button.grid(row=11, column=1, padx=10, pady=10, sticky="EW")
 
     def text_size_warning(self, *args):
+        self.settings.set_value("text_size", self.text_size_var.get())
         if self.text_size_var.get() == "":
             self.font_warning_label = customtkinter.CTkLabel(self.master.tabview.tab("Style"),
                                                              text="Font size can't be empty!",
@@ -300,32 +317,38 @@ class StyleTab(customtkinter.CTkFrame):
                 pass
 
     def set_light_theme_text_color(self):
-        pick_color = AskColor()
+        pick_color = AskColor(initial_color=self.settings.get_value("light_mode_text_color"))
         color = pick_color.get()
         self.light_theme_text_color_value.set(color)
+        self.settings.set_value("light_mode_text_color", color)
 
     def set_light_theme_background_color(self):
-        pick_color = AskColor()
+        pick_color = AskColor(initial_color=self.settings.get_value("light_mode_bg_color"))
         color = pick_color.get()
         self.light_theme_background_color_value.set(color)
+        self.settings.set_value("light_mode_bg_color", color)
 
     def set_dark_theme_text_color(self):
-        pick_color = AskColor()
+        pick_color = AskColor(initial_color=self.settings.get_value("dark_mode_text_color"))
         color = pick_color.get()
         self.dark_theme_text_color_value.set(color)
+        self.settings.set_value("dark_mode_text_color", color)
 
     def set_dark_theme_background_color(self):
-        pick_color = AskColor()
+        pick_color = AskColor(initial_color=self.settings.get_value("dark_mode_bg_color"))
         color = pick_color.get()
         self.dark_theme_background_color_value.set(color)
+        self.settings.set_value("dark_mode_bg_color", color)
 
     def set_light_theme_background_image(self):
         file_path = fd.askopenfile()
         self.light_theme_background_image_path.set(file_path.name)
+        self.settings.set_value("light_mode_image_path", file_path.name)
 
     def set_dark_theme_background_image(self):
         file_path = fd.askopenfile()
         self.dark_theme_background_image_path.set(file_path.name)
+        self.settings.set_value("dark_mode_image_path", file_path.name)
 
     def dark_mode_trace(self, *args):
         self.master.set_wallpaper()
@@ -336,3 +359,6 @@ class StyleTab(customtkinter.CTkFrame):
         else:
             self.font_preview_window.attributes("-topmost", True)
             self.font_preview_window.lift()
+
+    def cowsay_callback(self, *args):
+        self.settings.set_value("cowsay_char", self.cowsay_char.get())

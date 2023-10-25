@@ -1,6 +1,7 @@
 import os.path
 import customtkinter
 import winshell
+from settings_manager import SettingsManager
 
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
@@ -11,8 +12,9 @@ class PreferencesTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
-        self.interval_period = customtkinter.StringVar(value="20")
-        self.interval_by_string = customtkinter.StringVar(value="Hour")
+        self.settings = SettingsManager()
+        self.interval_period = customtkinter.StringVar(value=self.settings.get_value("refresh_int"))
+        self.interval_by_string = customtkinter.StringVar(value=self.settings.get_value("refresh_unit"))
         self.timer = None
         self.handle_interval_callback()
 
@@ -27,19 +29,19 @@ class PreferencesTab(customtkinter.CTkFrame):
         self.interval_period.trace("w", callback=self.time_interval_warning)
         self.interval_period.trace("w", self.handle_interval_callback)
 
-        self.interval_hour = customtkinter.CTkRadioButton(
-            master.tabview.tab("Preferences"), text="Hour", font=ELEMENT_FONT,
-            variable=self.interval_by_string, value="Hour")
-        self.interval_hour.grid(row=0, column=2, padx=(20, 0), pady=10, sticky="EW")
+        self.interval_hours = customtkinter.CTkRadioButton(
+            master.tabview.tab("Preferences"), text="hours", font=ELEMENT_FONT,
+            variable=self.interval_by_string, value="hours")
+        self.interval_hours.grid(row=0, column=2, padx=(20, 0), pady=10, sticky="EW")
 
-        self.interval_minute = customtkinter.CTkRadioButton(
-            master.tabview.tab("Preferences"), text="Minutes", font=ELEMENT_FONT,
-            variable=self.interval_by_string, value="Minutes")
-        self.interval_minute.grid(row=0, column=3, padx=(0, 10), pady=10, sticky="EW")
+        self.interval_minutes = customtkinter.CTkRadioButton(
+            master.tabview.tab("Preferences"), text="minutes", font=ELEMENT_FONT,
+            variable=self.interval_by_string, value="minutes")
+        self.interval_minutes.grid(row=0, column=3, padx=(0, 10), pady=10, sticky="EW")
 
         self.interval_by_string.trace('w', self.handle_interval_callback)
 
-        self.startup_var = customtkinter.IntVar(value=0)
+        self.startup_var = customtkinter.IntVar(value=self.settings.get_value("start_with_os?"))
 
         self.startup_checkbox = customtkinter.CTkCheckBox(
             master.tabview.tab("Preferences"), text="Start with Windows?",
@@ -61,19 +63,22 @@ class PreferencesTab(customtkinter.CTkFrame):
                 pass
 
     def handle_interval_callback(self, *args):
+        self.settings.set_value("refresh_int", self.interval_period.get())
+        self.settings.set_value("refresh_unit",self.interval_by_string.get())
         if self.timer:
             self.after_cancel(self.timer)
         time = None
         try:
-            if self.interval_by_string.get() == "Hour":
+            if self.interval_by_string.get() == "hours":
                 time = int(self.interval_period.get()) * 3600000
-            elif self.interval_by_string.get() == "Minutes":
+            elif self.interval_by_string.get() == "minutes":
                 time = int(self.interval_period.get()) * 60000
             self.timer = self.after(time, self.master.set_wallpaper)
         except ValueError:
             pass
 
     def check_startup(self, *args):
+        self.settings.set_value("start_with_os?", self.startup_var.get())
         startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
         shortcut_path = os.path.join(startup_folder, "Fortune's Window.lnk")
         current_folder = os.path.dirname(os.path.abspath(__file__))

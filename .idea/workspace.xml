@@ -4,41 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed problem with font selector">
-      <change beforePath="$PROJECT_DIR$/.idea/Fortune's Window.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fortune's Window.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment">
+      <change afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Windows Application/settings_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/font_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/fonts/GreatVibes-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/fonts/GreatVibes-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/fonts/RobotoMono-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/fonts/RobotoMono-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/fonts/VT323-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/fonts/VT323-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/home_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/fortune.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/fortune.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/fortunes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/fortunes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/franklin.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/franklin.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quote_packs/franklin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/franklin.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/ui_fonts/Fuggles-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui_fonts/Fuggles-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/ui_fonts/OFL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui_fonts/OFL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_files/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/wallpaper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/collection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign_in.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/sign_in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/sign_up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask Application/templates/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697786029196</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment">
+      <option name="closed" value="true" />
+      <created>1698058756024</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1698058756024</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -428,7 +408,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- All UI elements work&#10;- Wallpaper is set appropriately based on OS's light-mode/dark-mode status" />
     <MESSAGE value="- Wallpaper automatically updates when theme color changes&#10;- product.py shows example of how added files need to be structured." />
     <MESSAGE value="- Added database structure so that each user can have multiple quote packs" />
     <MESSAGE value="- Added Bootstrap header and footer" />
@@ -453,6 +432,7 @@
     <MESSAGE value="- Replaced font selector" />
     <MESSAGE value="- Replaced dark mode listening function" />
     <MESSAGE value="- Fixed problem with font selector" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed problem with font selector" />
+    <MESSAGE value="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment" />
   </component>
 </project>
