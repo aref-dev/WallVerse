@@ -10,10 +10,11 @@ from home_tab import HomeTab
 from quotes_tab import QuotesTab
 from style_tab import StyleTab
 from preferences_tab import PreferencesTab
+from settings_manager import SettingsManager
 
 # Adding custom font for title:
 pyglet.options['win32_gdi_font'] = True
-pyglet.font.add_file("ui_fonts/Fuggles-Regular.ttf")
+pyglet.font.add_file("ui_resources\\Fuggles-Regular.ttf")
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -24,6 +25,7 @@ class UserInterface(customtkinter.CTk):
         super().__init__()
         self.quote = quote_obj
         self.wallpaper = wallpaper_obj
+        self.settings = SettingsManager()
 
         self.title("Fortune's Window")
         self.grid_rowconfigure(0, weight=1)
@@ -58,6 +60,8 @@ class UserInterface(customtkinter.CTk):
 
         self.current_theme = darkdetect.theme()
         self.check_dark_mode()
+
+        self.set_wallpaper()
 
     def set_wallpaper(self):
         input_text = None

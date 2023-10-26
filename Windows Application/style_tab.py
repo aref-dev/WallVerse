@@ -41,10 +41,10 @@ CTkListbox.select = new_select
 
 class FontPreview(customtkinter.CTkToplevel):
     def __init__(self, master):
-        super().__init__()
+        super().__init__(master)
         self.title("Font Preview")
         self.font_manager = FontManager()
-        self.settings = SettingsManager()
+        self.settings = master.master.settings
 
         self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=35)
         self.font_family = customtkinter.StringVar()
@@ -123,7 +123,7 @@ class StyleTab(customtkinter.CTkFrame):
         super().__init__(master)
         self.master = master
         self.font_preview_window = FontPreview(self)
-        self.settings = SettingsManager()
+        self.settings = master.settings
         self.font_preview_window.destroy()
 
         self.style_tab = customtkinter.CTkScrollableFrame(master.tabview.tab("Style"), width=600, height=400)
@@ -175,7 +175,8 @@ class StyleTab(customtkinter.CTkFrame):
             self.style_tab, text="Background:")
         self.light_theme_background_type_label.grid(row=6, column=0, padx=10, pady=10, sticky="EW")
 
-        self.light_theme_background_type_option_var = customtkinter.StringVar(value="Solid")
+        self.light_theme_background_type_option_var = customtkinter.StringVar(
+            value=self.settings.get_value("light_mode_bg_mode"))
 
         self.light_theme_background_type_options_combobox = (
             customtkinter.CTkComboBox(self.style_tab, values=["Solid", "Image"],
@@ -212,7 +213,8 @@ class StyleTab(customtkinter.CTkFrame):
             self.style_tab, text="Background:", font=ELEMENT_FONT)
         self.dark_theme_background_type_label.grid(row=10, column=0, padx=10, pady=10, sticky="EW")
 
-        self.dark_theme_background_type_option_var = customtkinter.StringVar(value="Solid")
+        self.dark_theme_background_type_option_var = customtkinter.StringVar(
+            value=self.settings.get_value("dark_mode_bg_mode"))
 
         self.dark_theme_background_type_options_combobox = (
             customtkinter.CTkComboBox(self.style_tab, values=["Solid", "Image"],
@@ -228,9 +230,10 @@ class StyleTab(customtkinter.CTkFrame):
             value=self.settings.get_value("dark_mode_image_path"))
 
         # COWSAY
-        self.cowsay_toggle_value = customtkinter.IntVar(value=0)
+        self.cowsay_toggle_value = customtkinter.IntVar(value=self.settings.get_value("cowsay?"))
         self.cowsay_char = customtkinter.StringVar(value=self.settings.get_value("cowsay_char"))
-        self.cowsay_char.trace("w", self.cowsay_callback)
+        self.cowsay_char.trace("w", self.cowsay_char_callback)
+        self.cowsay_toggle_value.trace("w", self.cowsay_toggle_callback)
 
         self.cowsay_setting_label = customtkinter.CTkLabel(self.style_tab, text="Cowsay setting", font=HEADING_FONT)
         self.cowsay_setting_label.grid(row=12, column=1, padx=10, pady=10, sticky="EW")
@@ -257,6 +260,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.refresh_wallpaper_btn2.grid(row=1, column=1, padx=10, pady=10, sticky="E")
 
     def handle_light_mode_callback(self, *args):
+        self.settings.set_value("light_mode_bg_mode", self.light_theme_background_type_option_var.get())
         if self.light_theme_background_type_option_var.get() == "Solid":
 
             self.light_theme_background_color_label = customtkinter.CTkLabel(
@@ -280,6 +284,7 @@ class StyleTab(customtkinter.CTkFrame):
             self.light_theme_background_image_picker_button.grid(row=7, column=1, padx=10, pady=10, sticky="EW")
 
     def handle_dark_mode_callback(self, *args):
+        self.settings.set_value("dark_mode_bg_mode", self.dark_theme_background_type_option_var.get())
         if self.dark_theme_background_type_option_var.get() == "Solid":
 
             self.dark_theme_background_color_label = customtkinter.CTkLabel(
@@ -363,5 +368,9 @@ class StyleTab(customtkinter.CTkFrame):
             self.font_preview_window.attributes("-topmost", True)
             self.font_preview_window.lift()
 
-    def cowsay_callback(self, *args):
+    def cowsay_char_callback(self, *args):
         self.settings.set_value("cowsay_char", self.cowsay_char.get())
+
+    def cowsay_toggle_callback(self, *args):
+        self.settings.set_value("cowsay?", self.cowsay_toggle_value.get())
+

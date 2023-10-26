@@ -1,5 +1,6 @@
 import json
 
+
 class SettingsManager:
     def __init__(self):
         with open("settings.json", "r") as file:

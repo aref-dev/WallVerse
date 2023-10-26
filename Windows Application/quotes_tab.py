@@ -1,7 +1,6 @@
 import customtkinter
 from database import DataBase
 from tkinter import filedialog as fd
-from settings_manager import SettingsManager
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
@@ -13,7 +12,7 @@ class QuotesTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.db = DataBase()
-        self.settings = SettingsManager()
+        self.settings = master.settings
         self.quote_radio_value = customtkinter.StringVar(value=self.settings.get_value("selected_pack"))
         self.quote_radio_value.trace("w", self.delete_pack_btn_show)
 
@@ -51,11 +50,11 @@ class QuotesTab(customtkinter.CTkFrame):
         self.refresh_wallpaper_btn1.grid(row=5, column=2, padx=10, pady=10, sticky="EW")
 
     def load_textbox_file(self):
-        with open(file="quote_packs/custom.txt", mode="r") as file:
+        with open(file="quote_packs\\custom.txt", mode="r") as file:
             return file.read()
 
     def update_textbox(self):
-        with open(file="quote_packs/custom.txt", mode="w") as file:
+        with open(file="quote_packs\\custom.txt", mode="w") as file:
             file.write(self.text_box.get(0.1, customtkinter.END))
 
     def add_pack(self):

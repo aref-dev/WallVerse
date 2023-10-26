@@ -1,7 +1,6 @@
 import os.path
 import customtkinter
 import winshell
-from settings_manager import SettingsManager
 
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
@@ -12,7 +11,7 @@ class PreferencesTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
-        self.settings = SettingsManager()
+        self.settings = master.settings
         self.interval_period = customtkinter.StringVar(value=self.settings.get_value("refresh_int"))
         self.interval_by_string = customtkinter.StringVar(value=self.settings.get_value("refresh_unit"))
         self.timer = None

@@ -28,7 +28,7 @@ class QuoteGen:
 
     def get_random_quote(self):
         if self.quote_pack == "custom":
-            filepath = 'quote_packs/custom.txt'
+            filepath = 'quote_packs\\custom.txt'
             with open(filepath) as file:
                 file_data = file.read().split('\n')
                 random_quote = random.choice(file_data)
