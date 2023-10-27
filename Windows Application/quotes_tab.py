@@ -19,7 +19,6 @@ class QuotesTab(customtkinter.CTkFrame):
         self.quote_packs = customtkinter.CTkScrollableFrame(master.tabview.tab("Quotes"), width=500,
                                                             label_text="Available Packs", label_font=ELEMENT_FONT)
         self.quote_packs.grid(row=0, column=0, columnspan=3, padx=10, pady=10, sticky="EW")
-
         self.load_packs()
 
         self.custom_radio = customtkinter.CTkRadioButton(
@@ -48,6 +47,8 @@ class QuotesTab(customtkinter.CTkFrame):
             master.tabview.tab("Quotes"), text="Refresh Wallpaper!", command=master.set_wallpaper, fg_color="purple",
             font=ELEMENT_FONT)
         self.refresh_wallpaper_btn1.grid(row=5, column=2, padx=10, pady=10, sticky="EW")
+
+        self.delete_pack_btn_show()
 
     def load_textbox_file(self):
         with open(file="quote_packs\\custom.txt", mode="r") as file:

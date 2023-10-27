@@ -44,7 +44,7 @@ class PreferencesTab(customtkinter.CTkFrame):
 
         self.startup_checkbox = customtkinter.CTkCheckBox(
             master.tabview.tab("Preferences"), text="Start with Windows?",
-            variable=self.startup_var, onvalue=1, offvalue=0)
+            variable=self.startup_var, onvalue=1, offvalue=0, width=390)
         self.startup_checkbox.grid(row=1, column=0, columnspan=3, padx=20, pady=20, sticky="EW")
 
         self.startup_var.trace("w", self.check_startup)

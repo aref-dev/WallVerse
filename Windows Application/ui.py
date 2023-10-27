@@ -34,7 +34,7 @@ class UserInterface(customtkinter.CTk):
         self.tabview = customtkinter.CTkTabview(self)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
-        self.icon_img = Image.open("icon.png")
+        self.icon_img = Image.open("ui_resources/icon.png")
         self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                           MenuItem("Show app", self.show_app),
                           MenuItem("Exit", self.exit_app))
@@ -46,7 +46,11 @@ class UserInterface(customtkinter.CTk):
         self.tabview.add("Style")
         self.tabview.add("Preferences")
 
-        self.protocol("WM_DELETE_WINDOW", self.iconify)
+        self.protocol("WM_DELETE_WINDOW", self.withdraw)
+        self.resizable(height=False, width=False)
+        self.geometry("600x650")
+        self.tabview.grid(sticky="n")
+        self.grid_propagate(False)
 
         # Validate and invalidate commands for number only fields
         # %P is for validating text if change is allowed

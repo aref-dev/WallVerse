@@ -4,21 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed problem with CTkColorPicker returning null on close">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed problem with app configuration saving and other minor fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/fonts/GreatVibes-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/fonts/RobotoMono-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/fonts/VT323-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/home_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui_resources/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/fortune.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/fortunes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/franklin.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/franklin.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/ui_fonts/Fuggles-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/ui_fonts/OFL.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,11 +87,11 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\ui_resources" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Flask Application" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files\fonts" />
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\app_files" />
     </key>
   </component>
   <component name="RunManager">
@@ -417,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698277766513</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="- Fixed problem with app configuration saving and other minor fixes">
+      <option name="closed" value="true" />
+      <created>1698306434457</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1698306434457</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -432,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added Bootstrap header and footer" />
     <MESSAGE value="- Defined product structor in product.py, and exported fortune.json as product sample" />
     <MESSAGE value="- Added pages for signing-in, signing-up, and showing quote collections" />
     <MESSAGE value="- Added page for uploading new products (intended for use by admin)" />
@@ -457,6 +461,7 @@
     <MESSAGE value="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment" />
     <MESSAGE value="- Settings are saved to settings.json and loaded from it" />
     <MESSAGE value="- Fixed problem with CTkColorPicker returning null on close" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed problem with CTkColorPicker returning null on close" />
+    <MESSAGE value="- Fixed problem with app configuration saving and other minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed problem with app configuration saving and other minor fixes" />
   </component>
 </project>

@@ -45,8 +45,9 @@ class FontPreview(customtkinter.CTkToplevel):
         self.title("Font Preview")
         self.font_manager = FontManager()
         self.settings = master.master.settings
+        self.resizable(height=False,width=False)
 
-        self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=35)
+        self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=30)
         self.font_family = customtkinter.StringVar()
 
         self.font_test_text = customtkinter.CTkTextbox(self, font=self.ui_font_preview, width=400)
@@ -126,7 +127,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.settings = master.settings
         self.font_preview_window.destroy()
 
-        self.style_tab = customtkinter.CTkScrollableFrame(master.tabview.tab("Style"), width=600, height=400)
+        self.style_tab = customtkinter.CTkScrollableFrame(master.tabview.tab("Style"), width=500, height=450)
         self.style_tab.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
 
         self.font_setting_label = customtkinter.CTkLabel(self.style_tab, text="Font setting",
@@ -138,7 +139,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.text_size_edit_label = customtkinter.CTkLabel(
             self.style_tab, text="Text size:", font=ELEMENT_FONT)
 
-        self.text_size_edit_label.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
+        self.text_size_edit_label.grid(row=2, column=0, pady=10, sticky="EW")
 
         self.text_size_entry = customtkinter.CTkEntry(self.style_tab, textvariable=self.text_size_var)
         self.text_size_entry.configure(validate="key", validatecommand=master.v_cmd)
@@ -243,11 +244,11 @@ class StyleTab(customtkinter.CTkFrame):
                                                                 variable=self.cowsay_toggle_value,
                                                                 font=ELEMENT_FONT)
 
-        self.cowsay_toggle_checkbox.grid(row=13, column=0, columnspan=2, padx=50, pady=10, sticky="EW")
+        self.cowsay_toggle_checkbox.grid(row=13, column=0, columnspan=2, padx=20, pady=10, sticky="EW")
 
         self.cowsay_toggle_label = customtkinter.CTkLabel(self.style_tab, text="Pick cowsay character:",
                                                           font=ELEMENT_FONT)
-        self.cowsay_toggle_label.grid(row=14, column=0, padx=50, pady=10, sticky="EW")
+        self.cowsay_toggle_label.grid(row=14, column=0, padx=20, pady=10, sticky="EW")
 
         self.cowsay_char_combobox = customtkinter.CTkComboBox(self.style_tab, values=cowsay.main.CHARS,
                                                               variable=self.cowsay_char, font=ELEMENT_FONT)
