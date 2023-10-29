@@ -65,7 +65,8 @@ class UserInterface(customtkinter.CTk):
         self.current_theme = darkdetect.theme()
         self.check_dark_mode()
 
-        self.set_wallpaper()
+        if self.settings.get_value("set_as_wallpaper?") == 1:
+            self.set_wallpaper()
 
     def set_wallpaper(self):
         input_text = None
@@ -77,8 +78,12 @@ class UserInterface(customtkinter.CTk):
         elif self.style_tab.cowsay_toggle_value.get() == 0:
             input_text = random_quote
 
-        self.wallpaper.set_font(font=self.style_tab.font_preview_window.font_style_path.get(),
-                                font_size=int(self.style_tab.text_size_var.get()))
+        try:
+            self.wallpaper.set_font(font=self.style_tab.font_preview_window.font_style_path.get(),
+                                    font_size=int(self.style_tab.text_size_var.get()))
+        except AttributeError:
+            self.wallpaper.set_font(font=self.settings.get_value("font_path"),
+                                    font_size=int(self.style_tab.text_size_var.get()))
         self.wallpaper.set_screen_size(method="auto")
 
         if darkdetect.isLight():
@@ -118,6 +123,7 @@ class UserInterface(customtkinter.CTk):
 
     def exit_app(self):
         self.icon.stop()
+        self.quit()
         self.destroy()
 
     def only_allow_digit(self, value):

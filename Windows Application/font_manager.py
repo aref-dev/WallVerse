@@ -50,3 +50,4 @@ class FontManager:
 
     def get_font_dict(self):
         return self.fonts_dict
+

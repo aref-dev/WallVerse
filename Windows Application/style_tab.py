@@ -5,7 +5,6 @@ import darkdetect
 from CTkColorPicker import *
 from CTkListbox import *
 from font_manager import FontManager
-from settings_manager import SettingsManager
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
@@ -44,7 +43,7 @@ class FontPreview(customtkinter.CTkToplevel):
         super().__init__(master)
         self.title("Font Preview")
         self.font_manager = FontManager()
-        self.settings = master.master.settings
+        self.settings = master.settings
         self.resizable(height=False,width=False)
 
         self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=30)
@@ -74,7 +73,7 @@ class FontPreview(customtkinter.CTkToplevel):
             self.font_listbox.insert("end", font)
 
         self.refresh_btn = customtkinter.CTkButton(self, text="Refresh Wallpaper!", fg_color="purple",
-                                                   command=master.master.set_wallpaper)
+                                                   command=master.set_wallpaper)
         self.refresh_btn.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
 
         self.close_btn = customtkinter.CTkButton(self, text="Done", command=self.exit_font_preview)
@@ -123,9 +122,8 @@ class StyleTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
-        self.font_preview_window = FontPreview(self)
         self.settings = master.settings
-        self.font_preview_window.destroy()
+        self.font_preview_window = None
 
         self.style_tab = customtkinter.CTkScrollableFrame(master.tabview.tab("Style"), width=500, height=450)
         self.style_tab.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
@@ -258,7 +256,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.refresh_wallpaper_btn2 = customtkinter.CTkButton(
             master.tabview.tab("Style"), text="Refresh Wallpaper!", command=master.set_wallpaper, fg_color="purple",
             font=ELEMENT_FONT)
-        self.refresh_wallpaper_btn2.grid(row=1, column=1, padx=10, pady=10, sticky="E")
+        self.refresh_wallpaper_btn2.grid(row=1, column=1, padx=10, pady=20, sticky="E")
 
     def handle_light_mode_callback(self, *args):
         self.settings.set_value("light_mode_bg_mode", self.light_theme_background_type_option_var.get())
@@ -364,10 +362,11 @@ class StyleTab(customtkinter.CTkFrame):
 
     def open_font_preview(self):
         if self.font_preview_window is None or not self.font_preview_window.winfo_exists():
-            self.font_preview_window = FontPreview(self)  # create window if its None or destroyed
+            self.font_preview_window = FontPreview(self.master)
+            self.font_preview_window.grab_set()
         else:
-            self.font_preview_window.attributes("-topmost", True)
             self.font_preview_window.lift()
+            self.font_preview_window.focus()
 
     def cowsay_char_callback(self, *args):
         self.settings.set_value("cowsay_char", self.cowsay_char.get())

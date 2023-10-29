@@ -27,7 +27,7 @@ class QuotesTab(customtkinter.CTkFrame):
         self.custom_radio.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
 
         self.text_box = customtkinter.CTkTextbox(
-            master.tabview.tab("Quotes"), height=100)
+            master.tabview.tab("Quotes"), height=120)
         self.text_box.grid(row=3, column=0, columnspan=3, padx=10, pady=10, sticky="EW")
 
         self.text_box.insert(index=0.1, text=self.load_textbox_file())
