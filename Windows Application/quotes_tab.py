@@ -41,13 +41,11 @@ class QuotesTab(customtkinter.CTkFrame):
 
         self.text_box.insert(index=0.1, text=self.load_textbox_file())
 
-        self.text_box_save_btn = customtkinter.CTkButton(
-            master.tabview.tab("Quotes"), text="Save", command=self.update_textbox, font=ELEMENT_FONT)
-        self.text_box_save_btn.grid(row=4, column=2, padx=10, pady=10, sticky="EW")
+        self.text_box.bind('<<Modified>>', self.update_textbox)
 
         self.add_pack_btn = customtkinter.CTkButton(master.tabview.tab("Quotes"), text="Add Quote Pack",
                                                     command=self.add_pack, font=ELEMENT_FONT)
-        self.add_pack_btn.grid(row=5, column=0, padx=10, pady=10, sticky="W")
+        self.add_pack_btn.grid(row=4, column=0, padx=10, pady=10, sticky="W")
 
         self.delete_pack_btn = customtkinter.CTkButton(master.tabview.tab("Quotes"), text="Remove Pack",
                                                        command=self.delete_pack, font=ELEMENT_FONT, fg_color="red")
@@ -55,7 +53,7 @@ class QuotesTab(customtkinter.CTkFrame):
         self.refresh_wallpaper_btn1 = customtkinter.CTkButton(
             master.tabview.tab("Quotes"), text="Refresh Wallpaper!", command=master.set_wallpaper, fg_color="purple",
             font=ELEMENT_FONT)
-        self.refresh_wallpaper_btn1.grid(row=5, column=2, padx=10, pady=10, sticky="EW")
+        self.refresh_wallpaper_btn1.grid(row=4, column=2, padx=10, pady=10, sticky="EW")
 
         self.delete_pack_btn_show()
 
@@ -63,9 +61,10 @@ class QuotesTab(customtkinter.CTkFrame):
         with open(file=resource_path("quote_packs\\custom.txt"), mode="r") as file:
             return file.read()
 
-    def update_textbox(self):
+    def update_textbox(self, *args):
         with open(file=resource_path("quote_packs\\custom.txt"), mode="w") as file:
             file.write(self.text_box.get(0.1, customtkinter.END))
+        self.text_box.edit_modified(False)
 
     def add_pack(self):
         file_path = fd.askopenfile()

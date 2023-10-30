@@ -90,6 +90,7 @@ class PreferencesTab(customtkinter.CTkFrame):
             if os.path.exists(shortcut_path):
                 os.remove(shortcut_path)
         elif self.startup_var.get() == 1:
+            self.settings.set_value("set_as_wallpaper?", 1)
             if not os.path.exists(shortcut_path):
                 with winshell.shortcut(shortcut_path) as shortcut:
                     shortcut.path = exe_path

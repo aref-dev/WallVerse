@@ -41,10 +41,13 @@ class QuoteGen:
         if self.quote_pack == "custom":
             filepath = resource_path('quote_packs\\custom.txt')
             with open(filepath) as file:
-                file_data = file.read().split('\n')
-                random_quote = random.choice(file_data)
-                self.random_quote = random_quote
-                return self.random_quote
+                file_data = [line.strip() for line in file.readlines() if line.strip()]
+                if file_data:
+                    random_quote = random.choice(file_data)
+                    self.random_quote = random_quote
+                    return self.random_quote
+                else:
+                    return "Textbox is empty!"
         else:
             self.random_quote = self.db.fetch_random_quote(self.quote_pack)
             return self.random_quote
