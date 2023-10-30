@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Made necessary changes for compiling with PyInstaller">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Preventing user from entering 0 as the first digit for font-size and change interval&#10;- Setting values for font-size and change interval if empty">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/home_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -442,7 +439,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698655019762</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="- Preventing user from entering 0 as the first digit for font-size and change interval&#10;- Setting values for font-size and change interval if empty">
+      <option name="closed" value="true" />
+      <created>1698660233914</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1698660233914</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -457,7 +462,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
     <MESSAGE value="- Added function to download quotation packs" />
     <MESSAGE value="- Fixed an issue with font-size distortion when using images as wallpaper" />
     <MESSAGE value="- Added tray icon with options to refresh wallpaper and exit." />
@@ -482,6 +486,7 @@
     <MESSAGE value="- Minor UI adjustments&#10;- Close minimizes to tray" />
     <MESSAGE value="- Minor UI adjustments" />
     <MESSAGE value="- Made necessary changes for compiling with PyInstaller" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Made necessary changes for compiling with PyInstaller" />
+    <MESSAGE value="- Preventing user from entering 0 as the first digit for font-size and change interval&#10;- Setting values for font-size and change interval if empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Preventing user from entering 0 as the first digit for font-size and change interval&#10;- Setting values for font-size and change interval if empty" />
   </component>
 </project>

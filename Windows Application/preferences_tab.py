@@ -1,6 +1,7 @@
 import os.path
 import customtkinter
 import winshell
+import sys
 
 
 HEADING_FONT = ('Georgia', 18, 'bold')
@@ -84,7 +85,7 @@ class PreferencesTab(customtkinter.CTkFrame):
         startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
         shortcut_path = os.path.join(startup_folder, "WallVerse.lnk")
         current_folder = os.path.dirname(os.path.abspath(__file__))
-        exe_path = os.path.join(current_folder, "WallVerse.exe")
+        exe_path = os.path.realpath(sys.executable)
         if self.startup_var.get() == 0:
             if os.path.exists(shortcut_path):
                 os.remove(shortcut_path)

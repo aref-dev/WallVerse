@@ -14,6 +14,6 @@
   "cowsay_char": "tux",
   "refresh_int": "30",
   "refresh_unit": "minutes",
-  "start_with_os?": 0,
+  "start_with_os?": 1,
   "set_as_wallpaper?": 1
 }

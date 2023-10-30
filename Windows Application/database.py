@@ -1,9 +1,23 @@
 import sqlite3
 import json
+import sys, os
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 class DataBase:
     def __init__(self):
-        self.connection = sqlite3.connect("local.db", check_same_thread=False)
+        self.connection = sqlite3.connect(resource_path("local.db"), check_same_thread=False)
         self.cursor = self.connection.cursor()
         self.create_table()
 
