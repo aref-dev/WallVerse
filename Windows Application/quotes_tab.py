@@ -12,7 +12,6 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
-TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
 ELEMENT_FONT_BOLD = ('Helvetica', 14, 'bold')

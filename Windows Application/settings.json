@@ -12,8 +12,8 @@
   "dark_mode_image_path": "ui_resources\\dark-bg.jpg",
   "cowsay?": 0,
   "cowsay_char": "tux",
-  "refresh_int": "20",
+  "refresh_int": "30",
   "refresh_unit": "minutes",
   "start_with_os?": 0,
-  "set_as_wallpaper?": 0
+  "set_as_wallpaper?": 1
 }

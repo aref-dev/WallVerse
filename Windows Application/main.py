@@ -24,7 +24,7 @@ def resource_path(relative_path):
 
 # Adding custom font for title:
 pyglet.options['win32_gdi_font'] = True
-pyglet.font.add_file(resource_path("ui_resources\\Fuggles-Regular.ttf"))
+pyglet.font.add_file(resource_path("ui_resources\\EBGaramond-VariableFont_wght.ttf"))
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -37,7 +37,7 @@ class UserInterface(customtkinter.CTk):
         self.wallpaper = wallpaper_obj
         self.settings = SettingsManager()
 
-        self.title("Fortune's Window")
+        self.title("WallVerse")
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
@@ -48,7 +48,7 @@ class UserInterface(customtkinter.CTk):
         self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                           MenuItem("Show app", self.show_app),
                           MenuItem("Exit", self.exit_app))
-        self.icon = pystray.Icon("TrayIcon", self.icon_img, "Fortune's Window", menu=self.icon_menu)
+        self.icon = pystray.Icon("TrayIcon", self.icon_img, "WallVerse", menu=self.icon_menu)
         self.icon.run_detached()
 
         self.tabview.add("Home")
@@ -77,6 +77,8 @@ class UserInterface(customtkinter.CTk):
 
         if self.settings.get_value("set_as_wallpaper?") == 1:
             self.set_wallpaper()
+        if self.settings.get_value("start_with_os?") == 1:
+            self.withdraw()
 
     def set_wallpaper(self):
         input_text = None
@@ -87,6 +89,13 @@ class UserInterface(customtkinter.CTk):
             input_text = self.quote.pass_to_cowsay(random_quote, cowsay_character=self.style_tab.cowsay_char.get())
         elif self.style_tab.cowsay_toggle_value.get() == 0:
             input_text = random_quote
+
+        if self.settings.get_value("text_size") == "":
+            self.settings.set_value("text_size", 20)
+            self.style_tab.text_size_var.set("20")
+        if self.settings.get_value("refresh_int") == "":
+            self.settings.set_value("refresh_int", 30)
+            self.preferences_tab.interval_period.set("30")
 
         try:
             self.wallpaper.set_font(font=self.style_tab.font_preview_window.font_style_path.get(),
@@ -137,7 +146,10 @@ class UserInterface(customtkinter.CTk):
         self.destroy()
 
     def only_allow_digit(self, value):
-        return value.isdigit() or value == ""
+        if value == "0":
+            return False
+        else:
+            return value.isdigit() or value == ""
 
     def check_dark_mode(self):
         if darkdetect.theme() != self.current_theme:
