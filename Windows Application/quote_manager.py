@@ -1,6 +1,17 @@
 import random
 import cowsay
 from database import DataBase
+import os, sys
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 def wider_cowsay_wrap_lines(lines, max_width=90):
@@ -28,7 +39,7 @@ class QuoteGen:
 
     def get_random_quote(self):
         if self.quote_pack == "custom":
-            filepath = 'quote_packs\\custom.txt'
+            filepath = resource_path('quote_packs\\custom.txt')
             with open(filepath) as file:
                 file_data = file.read().split('\n')
                 random_quote = random.choice(file_data)

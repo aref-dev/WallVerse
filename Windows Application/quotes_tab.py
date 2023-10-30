@@ -1,6 +1,16 @@
 import customtkinter
 from database import DataBase
 from tkinter import filedialog as fd
+import os, sys
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
@@ -51,11 +61,11 @@ class QuotesTab(customtkinter.CTkFrame):
         self.delete_pack_btn_show()
 
     def load_textbox_file(self):
-        with open(file="quote_packs\\custom.txt", mode="r") as file:
+        with open(file=resource_path("quote_packs\\custom.txt"), mode="r") as file:
             return file.read()
 
     def update_textbox(self):
-        with open(file="quote_packs\\custom.txt", mode="w") as file:
+        with open(file=resource_path("quote_packs\\custom.txt"), mode="w") as file:
             file.write(self.text_box.get(0.1, customtkinter.END))
 
     def add_pack(self):

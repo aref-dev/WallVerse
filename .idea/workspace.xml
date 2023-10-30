@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Minor UI adjustments&#10;- Close minimizes to tray">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Minor UI adjustments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/font_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/home_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="ui" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Fortune's Window" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -104,7 +105,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Windows Application/ui.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -427,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698373749340</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="- Minor UI adjustments">
+      <option name="closed" value="true" />
+      <created>1698610225918</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1698610225918</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added pages for signing-in, signing-up, and showing quote collections" />
     <MESSAGE value="- Added page for uploading new products (intended for use by admin)" />
     <MESSAGE value="- Corrected paths for various files&#10;- Uploaded files show thumbnails and description from database" />
     <MESSAGE value="- Added function to download quotation packs" />
@@ -467,6 +475,7 @@
     <MESSAGE value="- Fixed problem with CTkColorPicker returning null on close" />
     <MESSAGE value="- Fixed problem with app configuration saving and other minor fixes" />
     <MESSAGE value="- Minor UI adjustments&#10;- Close minimizes to tray" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Minor UI adjustments&#10;- Close minimizes to tray" />
+    <MESSAGE value="- Minor UI adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Minor UI adjustments" />
   </component>
 </project>

@@ -11,10 +11,20 @@ from quotes_tab import QuotesTab
 from style_tab import StyleTab
 from preferences_tab import PreferencesTab
 from settings_manager import SettingsManager
+import os, sys
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 # Adding custom font for title:
 pyglet.options['win32_gdi_font'] = True
-pyglet.font.add_file("ui_resources\\Fuggles-Regular.ttf")
+pyglet.font.add_file(resource_path("ui_resources\\Fuggles-Regular.ttf"))
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -34,7 +44,7 @@ class UserInterface(customtkinter.CTk):
         self.tabview = customtkinter.CTkTabview(self)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
-        self.icon_img = Image.open("ui_resources/icon.png")
+        self.icon_img = Image.open(resource_path("ui_resources\\icon.png"))
         self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                           MenuItem("Show app", self.show_app),
                           MenuItem("Exit", self.exit_app))

@@ -1,10 +1,26 @@
-import customtkinter
-import cowsay
+import os
+import sys
 from tkinter import filedialog as fd
+
+import cowsay
+import customtkinter
 import darkdetect
 from CTkColorPicker import *
 from CTkListbox import *
+
 from font_manager import FontManager
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 
 TITLE_FONT = ('Fuggles', 46, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
@@ -44,7 +60,7 @@ class FontPreview(customtkinter.CTkToplevel):
         self.title("Font Preview")
         self.font_manager = FontManager()
         self.settings = master.settings
-        self.resizable(height=False,width=False)
+        self.resizable(height=False, width=False)
 
         self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=30)
         self.font_family = customtkinter.StringVar()
@@ -188,7 +204,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.light_theme_background_color_value = customtkinter.StringVar(
             value=self.settings.get_value("light_mode_bg_color"))
         self.light_theme_background_image_path = customtkinter.StringVar(
-            value=self.settings.get_value("light_mode_image_path"))
+            value=resource_path(self.settings.get_value("light_mode_image_path")))
 
         # DARK-MODE THEME OPTIONS
         self.dark_theme_label = customtkinter.CTkLabel(
@@ -226,7 +242,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.dark_theme_background_color_value = customtkinter.StringVar(
             value=self.settings.get_value("dark_mode_bg_color"))
         self.dark_theme_background_image_path = customtkinter.StringVar(
-            value=self.settings.get_value("dark_mode_image_path"))
+            value=resource_path(self.settings.get_value("dark_mode_image_path")))
 
         # COWSAY
         self.cowsay_toggle_value = customtkinter.IntVar(value=self.settings.get_value("cowsay?"))
@@ -373,4 +389,3 @@ class StyleTab(customtkinter.CTkFrame):
 
     def cowsay_toggle_callback(self, *args):
         self.settings.set_value("cowsay?", self.cowsay_toggle_value.get())
-

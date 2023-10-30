@@ -3,7 +3,7 @@ import json
 
 class DataBase:
     def __init__(self):
-        self.connection = sqlite3.connect("local.db")
+        self.connection = sqlite3.connect("local.db", check_same_thread=False)
         self.cursor = self.connection.cursor()
         self.create_table()
 
