@@ -41,7 +41,7 @@ class QuoteGen:
         if self.quote_pack == "custom":
             filepath = resource_path('quote_packs\\custom.txt')
             with open(filepath) as file:
-                file_data = [line.strip() for line in file.readlines() if line.strip()]
+                file_data = file.read().split("%")
                 if file_data:
                     random_quote = random.choice(file_data)
                     self.random_quote = random_quote

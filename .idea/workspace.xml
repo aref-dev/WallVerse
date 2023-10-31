@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed problem with database not opening on startup when compiled">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Textbox saves automatically">
+      <change afterPath="$PROJECT_DIR$/Windows Application/font_preview_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/ui_resources/icon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -457,7 +459,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698702966618</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="- Textbox saves automatically">
+      <option name="closed" value="true" />
+      <created>1698705695919</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1698705695919</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -472,7 +482,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Fixed an issue with font-size distortion when using images as wallpaper" />
     <MESSAGE value="- Added tray icon with options to refresh wallpaper and exit." />
     <MESSAGE value="- Wallpaper can change every x minutes/hours" />
     <MESSAGE value="- Added tray option to show app after it is minimized" />
@@ -497,6 +506,7 @@
     <MESSAGE value="- Made necessary changes for compiling with PyInstaller" />
     <MESSAGE value="- Preventing user from entering 0 as the first digit for font-size and change interval&#10;- Setting values for font-size and change interval if empty" />
     <MESSAGE value="- Fixed problem with database not opening on startup when compiled" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed problem with database not opening on startup when compiled" />
+    <MESSAGE value="- Textbox saves automatically" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Textbox saves automatically" />
   </component>
 </project>

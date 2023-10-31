@@ -45,7 +45,7 @@ class UserInterface(customtkinter.CTk):
         self.tabview = customtkinter.CTkTabview(self)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
-        self.icon_img = Image.open(resource_path("ui_resources\\icon.png"))
+        self.icon_img = Image.open(resource_path("ui_resources\\icon.ico"))
         self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                           MenuItem("Show app", self.show_app),
                           MenuItem("Exit", self.exit_app))
@@ -97,6 +97,7 @@ class UserInterface(customtkinter.CTk):
         if self.settings.get_value("refresh_int") == "":
             self.settings.set_value("refresh_int", 30)
             self.preferences_tab.interval_period.set("30")
+            self.preferences_tab.interval_by_string.set("minutes")
 
         try:
             self.wallpaper.set_font(font=self.style_tab.font_preview_window.font_style_path.get(),

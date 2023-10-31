@@ -31,12 +31,12 @@ class QuotesTab(customtkinter.CTkFrame):
         self.load_packs()
 
         self.custom_radio = customtkinter.CTkRadioButton(
-            master.tabview.tab("Quotes"), text="From your own notes (one on each line):", font=ELEMENT_FONT,
+            master.tabview.tab("Quotes"), text="From your own notes (separate with %):", font=ELEMENT_FONT,
             variable=self.quote_radio_value, value="custom")
         self.custom_radio.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
 
         self.text_box = customtkinter.CTkTextbox(
-            master.tabview.tab("Quotes"), height=120)
+            master.tabview.tab("Quotes"), height=160)
         self.text_box.grid(row=3, column=0, columnspan=3, padx=10, pady=10, sticky="EW")
 
         self.text_box.insert(index=0.1, text=self.load_textbox_file())
@@ -90,7 +90,7 @@ class QuotesTab(customtkinter.CTkFrame):
     def delete_pack_btn_show(self, *args):
         self.settings.set_value("selected_pack", self.quote_radio_value.get())
         if self.quote_radio_value.get() != "custom":
-            self.delete_pack_btn.grid(row=5, column=1, padx=10, pady=10)
+            self.delete_pack_btn.grid(row=4, column=1, padx=10, pady=10)
         else:
             self.delete_pack_btn.grid_remove()
 
