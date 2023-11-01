@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Textbox saves automatically">
-      <change afterPath="$PROJECT_DIR$/Windows Application/font_preview_window.py" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Minor UI changes&#10;- Moved FontPreview class to its own file from style_tab.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/font_preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_preview_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/ui_resources/icon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -467,7 +464,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698705695919</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="- Minor UI changes&#10;- Moved FontPreview class to its own file from style_tab.py">
+      <option name="closed" value="true" />
+      <created>1698788046838</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1698788046838</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -482,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added tray icon with options to refresh wallpaper and exit." />
     <MESSAGE value="- Wallpaper can change every x minutes/hours" />
     <MESSAGE value="- Added tray option to show app after it is minimized" />
     <MESSAGE value="- Close button minimizes the app instead of closing&#10;- Fixed tray icon remaining after the app was closed." />
@@ -507,6 +511,7 @@
     <MESSAGE value="- Preventing user from entering 0 as the first digit for font-size and change interval&#10;- Setting values for font-size and change interval if empty" />
     <MESSAGE value="- Fixed problem with database not opening on startup when compiled" />
     <MESSAGE value="- Textbox saves automatically" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Textbox saves automatically" />
+    <MESSAGE value="- Minor UI changes&#10;- Moved FontPreview class to its own file from style_tab.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Minor UI changes&#10;- Moved FontPreview class to its own file from style_tab.py" />
   </component>
 </project>

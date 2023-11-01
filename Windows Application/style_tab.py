@@ -141,7 +141,7 @@ class StyleTab(customtkinter.CTkFrame):
         self.cowsay_setting_label = customtkinter.CTkLabel(self.style_tab, text="Cowsay setting", font=HEADING_FONT)
         self.cowsay_setting_label.grid(row=12, column=1, padx=10, pady=10, sticky="EW")
 
-        self.cowsay_toggle_checkbox = customtkinter.CTkCheckBox(self.style_tab, offvalue=0, onvalue=1,
+        self.cowsay_toggle_checkbox = customtkinter.CTkSwitch(self.style_tab, offvalue=0, onvalue=1,
                                                                 text="Cowsay (Works with monospaced fonts only!)",
                                                                 variable=self.cowsay_toggle_value,
                                                                 font=ELEMENT_FONT)

@@ -1,33 +1,6 @@
 import customtkinter
 import darkdetect
-from CTkListbox import *
 from font_manager import FontManager
-
-def new_select(self, index):
-    """ select the option """
-    for options in self.buttons.values():
-        options.configure(fg_color="transparent")
-
-    if self.multiple:
-        if self.buttons[index] in self.selections:
-            self.selections.remove(self.buttons[index])
-            self.buttons[index].configure(fg_color="transparent", hover=False)
-            self.after(100, lambda: self.buttons[index].configure(hover=self.hover))
-        else:
-            self.selections.append(self.buttons[index])
-        for i in self.selections:
-            i.configure(fg_color=self.select_color, hover=False)
-            self.after(100, lambda button=i: button.configure(hover=self.hover))
-    else:
-        self.selected = self.buttons[index]
-        self.buttons[index].configure(fg_color=self.select_color, hover=False)
-        # self.after(100, lambda: self.buttons[index].configure(hover=self.hover))
-
-    if self.command:
-        self.command(self.get())
-
-
-CTkListbox.select = new_select
 
 
 class FontPreview(customtkinter.CTkToplevel):
@@ -40,46 +13,47 @@ class FontPreview(customtkinter.CTkToplevel):
 
         self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=30)
         self.font_family = customtkinter.StringVar()
+        self.font_style_path = customtkinter.StringVar(value=self.settings.get_value("font_path"))
+        self.selected_font = customtkinter.StringVar()
+        self.selected_style = customtkinter.StringVar()
 
         self.font_test_text = customtkinter.CTkTextbox(self, font=self.ui_font_preview, width=400)
         self.font_test_text.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky="EW")
 
-        self.font_test_text.insert("end", text="Font Preview")
+        self.font_test_text.insert("end", text="Basic font preview")
 
         self.font_info_dict = self.font_manager.get_font_dict()
+        self.font_list = [font for font in self.font_info_dict]
 
-        self.font_listbox = CTkListbox(self)
-        self.font_style_listbox = CTkListbox(self)
+        self.font_frame = customtkinter.CTkFrame(self)
+        self.font_frame.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
+        self.font_label = customtkinter.CTkLabel(self.font_frame, text="Font")
+        self.font_label.pack(padx=10, pady=10)
+        self.font_combobox = customtkinter.CTkOptionMenu(self.font_frame, values=self.font_list,
+                                                       variable=self.selected_font, width=200)
+        self.font_combobox.pack(padx=10, pady=10)
 
-        self.font_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
-        self.font_style_listbox.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
-
-        if darkdetect.isLight():
-            self.font_listbox.configure(text_color="black")
-            self.font_style_listbox.configure(text_color="black")
-        elif darkdetect.isDark():
-            self.font_listbox.configure(text_color="white")
-            self.font_style_listbox.configure(text_color="white")
-
-        for font in self.font_info_dict:
-            self.font_listbox.insert("end", font)
+        self.font_style_frame = customtkinter.CTkFrame(self)
+        self.font_style_frame.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
+        self.font_style_label = customtkinter.CTkLabel(self.font_style_frame, text="Style")
+        self.font_style_label.pack(padx=10, pady=10)
+        self.font_style_combobox = customtkinter.CTkOptionMenu(self.font_style_frame, state="disabled",
+                                                             variable=self.selected_style)
+        self.font_style_combobox.pack(padx=10, pady=10)
 
         self.refresh_btn = customtkinter.CTkButton(self, text="Refresh Wallpaper!", fg_color="purple",
                                                    command=master.set_wallpaper)
         self.refresh_btn.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
 
-        self.close_btn = customtkinter.CTkButton(self, text="Done", command=self.exit_font_preview)
+        self.close_btn = customtkinter.CTkButton(self, text="Save", command=self.exit_font_preview)
         self.close_btn.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
 
-        self.font_listbox.bind("<ButtonRelease-1>", self.font_chooser)
-        self.font_style_listbox.bind("<ButtonRelease-1>", self.style_chooser)
-
-        self.font_style_path = customtkinter.StringVar(value=self.settings.get_value("font_path"))
-
         self.font_family.trace("w", self.get_style)
+        self.selected_font.trace("w", self.font_chooser)
+        self.selected_style.trace("w", self.style_chooser)
 
     def font_chooser(self, *args):
-        self.font_family.set(self.font_listbox.get(self.font_listbox.curselection()))
+        self.font_family.set(self.selected_font.get())
         self.ui_font_preview.configure(family=self.font_family.get())
         try:
             self.font_style_path.set(list(self.font_info_dict[self.font_family.get()].values())[0])
@@ -87,25 +61,28 @@ class FontPreview(customtkinter.CTkToplevel):
             pass
 
     def style_chooser(self, *args):
-        selected_style = self.font_style_listbox.get(self.font_style_listbox.curselection())
+        selected_style = self.selected_style.get()
         try:
             self.font_style_path.set(self.font_info_dict[self.font_family.get()][selected_style])
         except KeyError:
             pass
 
     def get_style(self, *args):
-        # self.settings.set_value("font_path", self.font_style_path.get())
-        try:
-            self.font_style_listbox.delete(0, "end")
-        except IndexError:
-            pass
+        font_styles = []
         try:
             for style in self.font_info_dict[self.font_family.get()].keys():
-                self.font_style_listbox.insert("end", style)
-        except:
+                font_styles.append(style)
+        except KeyError:
+            pass
+        try:
+            self.font_style_combobox.configure(values=font_styles, state="readonly")
+        except AttributeError:
+            pass
+        try:
+            self.font_style_combobox.set(font_styles[0])
+        except IndexError:
             pass
 
     def exit_font_preview(self):
         self.settings.set_value("font_path", self.font_style_path.get())
         self.destroy()
-
