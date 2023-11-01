@@ -2,6 +2,8 @@ import random
 import cowsay
 from database import DataBase
 import os, sys
+import arabic_reshaper
+from bidi.algorithm import get_display
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -40,11 +42,13 @@ class QuoteGen:
     def get_random_quote(self):
         if self.quote_pack == "custom":
             filepath = resource_path('quote_packs\\custom.txt')
-            with open(filepath) as file:
+            with open(filepath, encoding="utf-8") as file:
                 file_data = file.read().split("%")
-                if file_data:
+                if file_data[0].strip():
                     random_quote = random.choice(file_data)
-                    self.random_quote = random_quote
+                    reshaped_text = arabic_reshaper.reshape(random_quote)
+                    bidirectional_text = get_display(reshaped_text)
+                    self.random_quote = bidirectional_text
                     return self.random_quote
                 else:
                     return "Textbox is empty!"

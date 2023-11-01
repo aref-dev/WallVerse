@@ -1,15 +1,31 @@
 from fontTools import ttLib
+import os
 from os import walk
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 
 class FontManager:
     def __init__(self):
-        self.system_font_path = "C:\\Windows\\Fonts"
+        self.app_fonts_path = resource_path("ui_resources\\fonts")
+        self.imported_fonts_path = os.path.expanduser("~") + "\\AppData\\Local\\Microsoft\\Windows\\Fonts"
+        self.system_font_paths = [self.app_fonts_path, self.imported_fonts_path]
 
         self.fonts_path = []
-        for (dirpath, dirnames, filenames) in walk(fr'{self.system_font_path}'):
-            for i in filenames:
-                if any(i.endswith(ext) for ext in ['.ttf', '.otf', '.ttc', '.ttz', '.woff', '.woff2']):
-                    self.fonts_path.append(dirpath.replace('\\\\', '\\') + '\\' + i)
+
+        for path in self.system_font_paths:
+            for (dirpath, dirnames, filenames) in walk(fr'{path}'):
+                for i in filenames:
+                    if any(i.endswith(ext) for ext in ['.ttf', '.otf', '.ttc', '.ttz', '.woff', '.woff2']):
+                        self.fonts_path.append(dirpath.replace('\\\\', '\\') + '\\' + i)
 
         def getFont(font, font_path):
             x = lambda x: font['name'].getDebugName(x)

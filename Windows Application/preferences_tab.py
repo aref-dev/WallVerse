@@ -95,5 +95,3 @@ class PreferencesTab(customtkinter.CTkFrame):
                 with winshell.shortcut(shortcut_path) as shortcut:
                     shortcut.path = exe_path
                     shortcut.write()
-
-

@@ -45,12 +45,13 @@ class FontPreview(customtkinter.CTkToplevel):
                                                    command=master.set_wallpaper)
         self.refresh_btn.grid(row=2, column=0, padx=10, pady=10, sticky="EW")
 
-        self.close_btn = customtkinter.CTkButton(self, text="Save", command=self.exit_font_preview)
+        self.close_btn = customtkinter.CTkButton(self, text="Done", command=self.exit_font_preview)
         self.close_btn.grid(row=2, column=1, padx=10, pady=10, sticky="EW")
 
         self.font_family.trace("w", self.get_style)
         self.selected_font.trace("w", self.font_chooser)
         self.selected_style.trace("w", self.style_chooser)
+        self.font_style_path.trace("w", self.save_settings)
 
     def font_chooser(self, *args):
         self.font_family.set(self.selected_font.get())
@@ -83,6 +84,8 @@ class FontPreview(customtkinter.CTkToplevel):
         except IndexError:
             pass
 
-    def exit_font_preview(self):
+    def save_settings(self, *args):
         self.settings.set_value("font_path", self.font_style_path.get())
+
+    def exit_font_preview(self):
         self.destroy()
