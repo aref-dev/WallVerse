@@ -103,7 +103,7 @@ class UserInterface(customtkinter.CTk):
             self.wallpaper.set_font(font=self.style_tab.font_preview_window.font_style_path.get(),
                                     font_size=int(self.style_tab.text_size_var.get()))
         except AttributeError:
-            self.wallpaper.set_font(font=self.settings.get_value("font_path"),
+            self.wallpaper.set_font(font=resource_path(self.settings.get_value("font_path")),
                                     font_size=int(self.style_tab.text_size_var.get()))
         self.wallpaper.set_screen_size(method="auto")
 

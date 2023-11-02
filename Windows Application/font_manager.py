@@ -1,5 +1,5 @@
 from fontTools import ttLib
-import os
+import os, sys
 from os import walk
 
 def resource_path(relative_path):

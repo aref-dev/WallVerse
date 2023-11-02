@@ -1,7 +1,16 @@
 import customtkinter
-import darkdetect
+import os, sys
 from font_manager import FontManager
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 class FontPreview(customtkinter.CTkToplevel):
     def __init__(self, master):
@@ -13,7 +22,7 @@ class FontPreview(customtkinter.CTkToplevel):
 
         self.ui_font_preview = customtkinter.CTkFont(family="Courier New", size=30)
         self.font_family = customtkinter.StringVar()
-        self.font_style_path = customtkinter.StringVar(value=self.settings.get_value("font_path"))
+        self.font_style_path = customtkinter.StringVar(value=resource_path(self.settings.get_value("font_path")))
         self.selected_font = customtkinter.StringVar()
         self.selected_style = customtkinter.StringVar()
 

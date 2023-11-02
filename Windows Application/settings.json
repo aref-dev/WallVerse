@@ -1,7 +1,7 @@
 {
   "selected_pack": "custom",
   "text_size": "20",
-  "font_path": "C:\\Users\\Aref\\AppData\\Local\\Microsoft\\Windows\\Fonts\\NotoSansArabic-VariableFont_wdth,wght.ttf",
+  "font_path": "ui_resources\\fonts\\NotoSans-Regular.ttf",
   "light_mode_text_color": "#583864",
   "light_mode_bg_mode": "Image",
   "light_mode_bg_color": "#96d4ff",
@@ -15,5 +15,5 @@
   "refresh_int": "30",
   "refresh_unit": "minutes",
   "start_with_os?": 0,
-  "set_as_wallpaper?": 1
+  "set_as_wallpaper?": 0
 }
