@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- PyInstaller paths for fonts">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Replaced tabs with 4 spaces to solve text over image issues for most fonts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
@@ -494,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698903392384</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="- Replaced tabs with 4 spaces to solve text over image issues for most fonts">
+      <option name="closed" value="true" />
+      <created>1698905921242</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1698905921242</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -509,7 +517,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Made the style tab scrollable&#10;- Elements stay centered on resize" />
     <MESSAGE value="- Added validators for time interval and font size entries - only numbers allowed&#10;- User is warned if time interval or font size is empty" />
     <MESSAGE value="- Broke down big class into smaller classes for easier management" />
     <MESSAGE value="- Created DataBase class for local app&#10;- Users can add json files to the local database" />
@@ -534,6 +541,7 @@
     <MESSAGE value="- Minor UI changes&#10;- Changed the FontPreview class' listbox to options menu for less user confusion" />
     <MESSAGE value="- Fixed minor problems&#10;- Optimized for some language support&#10;- Changed font-path from system-fonts to user-added fonts" />
     <MESSAGE value="- PyInstaller paths for fonts" />
-    <option name="LAST_COMMIT_MESSAGE" value="- PyInstaller paths for fonts" />
+    <MESSAGE value="- Replaced tabs with 4 spaces to solve text over image issues for most fonts" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Replaced tabs with 4 spaces to solve text over image issues for most fonts" />
   </component>
 </project>

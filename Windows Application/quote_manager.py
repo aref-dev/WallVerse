@@ -40,21 +40,21 @@ class QuoteGen:
         self.quote_pack = None
 
     def get_random_quote(self):
+        random_quote = None
         if self.quote_pack == "custom":
             filepath = resource_path('quote_packs\\custom.txt')
             with open(filepath, encoding="utf-8") as file:
                 file_data = file.read().split("%")
                 if file_data[0].strip():
                     random_quote = random.choice(file_data)
-                    reshaped_text = arabic_reshaper.reshape(random_quote)
-                    bidirectional_text = get_display(reshaped_text)
-                    self.random_quote = bidirectional_text.replace('\t', '    ')
-                    return self.random_quote
                 else:
                     return "Textbox is empty!"
         else:
-            self.random_quote = self.db.fetch_random_quote(self.quote_pack)
-            return self.random_quote
+            random_quote = self.db.fetch_random_quote(self.quote_pack)
+        reshaped_text = arabic_reshaper.reshape(random_quote)
+        bidirectional_text = get_display(reshaped_text)
+        self.random_quote = bidirectional_text.replace('\t', '    ')
+        return self.random_quote
 
     def set_quote_pack(self, quote_pack):
         self.quote_pack = quote_pack
