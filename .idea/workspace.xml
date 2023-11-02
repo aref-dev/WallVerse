@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Fixed minor problems&#10;- Optimized for some language support&#10;- Changed font-path from system-fonts to user-added fonts">
-      <change afterPath="$PROJECT_DIR$/Windows Application/ui_resources/fonts/NotoSerif-VariableFont_wdth,wght.ttf" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- PyInstaller paths for fonts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/font_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/font_preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_preview_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -490,7 +486,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698877373804</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="- PyInstaller paths for fonts">
+      <option name="closed" value="true" />
+      <created>1698903392384</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1698903392384</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -505,7 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Close button minimizes the app instead of closing&#10;- Fixed tray icon remaining after the app was closed." />
     <MESSAGE value="- Made the style tab scrollable&#10;- Elements stay centered on resize" />
     <MESSAGE value="- Added validators for time interval and font size entries - only numbers allowed&#10;- User is warned if time interval or font size is empty" />
     <MESSAGE value="- Broke down big class into smaller classes for easier management" />
@@ -530,6 +533,7 @@
     <MESSAGE value="- Minor UI changes&#10;- Moved FontPreview class to its own file from style_tab.py" />
     <MESSAGE value="- Minor UI changes&#10;- Changed the FontPreview class' listbox to options menu for less user confusion" />
     <MESSAGE value="- Fixed minor problems&#10;- Optimized for some language support&#10;- Changed font-path from system-fonts to user-added fonts" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed minor problems&#10;- Optimized for some language support&#10;- Changed font-path from system-fonts to user-added fonts" />
+    <MESSAGE value="- PyInstaller paths for fonts" />
+    <option name="LAST_COMMIT_MESSAGE" value="- PyInstaller paths for fonts" />
   </component>
 </project>

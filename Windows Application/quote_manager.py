@@ -48,7 +48,7 @@ class QuoteGen:
                     random_quote = random.choice(file_data)
                     reshaped_text = arabic_reshaper.reshape(random_quote)
                     bidirectional_text = get_display(reshaped_text)
-                    self.random_quote = bidirectional_text
+                    self.random_quote = bidirectional_text.replace('\t', '    ')
                     return self.random_quote
                 else:
                     return "Textbox is empty!"
