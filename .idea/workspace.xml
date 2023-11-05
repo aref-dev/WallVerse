@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Replaced tabs with 4 spaces to solve text over image issues for most fonts">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Minor adjustments">
+      <change afterPath="$PROJECT_DIR$/Windows Application/ui_resources/transparent.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_packs/custom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/font_preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_preview_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +67,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aref/PycharmProjects/fortune-2023/Windows Application/venv&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aref/PycharmProjects/fortune-2023/Windows Application/ui_resources&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -76,6 +78,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\ui_resources" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -502,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698905921242</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="- Minor adjustments">
+      <option name="closed" value="true" />
+      <created>1698911497558</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1698911497558</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -517,7 +528,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added validators for time interval and font size entries - only numbers allowed&#10;- User is warned if time interval or font size is empty" />
     <MESSAGE value="- Broke down big class into smaller classes for easier management" />
     <MESSAGE value="- Created DataBase class for local app&#10;- Users can add json files to the local database" />
     <MESSAGE value="- App fetches random quotes from database instead of JSON" />
@@ -542,6 +552,7 @@
     <MESSAGE value="- Fixed minor problems&#10;- Optimized for some language support&#10;- Changed font-path from system-fonts to user-added fonts" />
     <MESSAGE value="- PyInstaller paths for fonts" />
     <MESSAGE value="- Replaced tabs with 4 spaces to solve text over image issues for most fonts" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Replaced tabs with 4 spaces to solve text over image issues for most fonts" />
+    <MESSAGE value="- Minor adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Minor adjustments" />
   </component>
 </project>

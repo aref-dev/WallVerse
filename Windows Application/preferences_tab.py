@@ -84,7 +84,6 @@ class PreferencesTab(customtkinter.CTkFrame):
         self.settings.set_value("start_with_os?", self.startup_var.get())
         startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
         shortcut_path = os.path.join(startup_folder, "WallVerse.lnk")
-        current_folder = os.path.dirname(os.path.abspath(__file__))
         exe_path = os.path.realpath(sys.executable)
         if self.startup_var.get() == 0:
             if os.path.exists(shortcut_path):

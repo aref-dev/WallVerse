@@ -16,6 +16,7 @@ class FontPreview(customtkinter.CTkToplevel):
     def __init__(self, master):
         super().__init__(master)
         self.title("Font Preview")
+        self.after(200, lambda: self.iconbitmap(resource_path("ui_resources\\transparent.ico")))
         self.font_manager = FontManager()
         self.settings = master.settings
         self.resizable(height=False, width=False)
