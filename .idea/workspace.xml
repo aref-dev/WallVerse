@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Minor UI changes">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Background image not dependent on source path in case of deletion">
+      <change afterPath="$PROJECT_DIR$/Windows Application/ui_resources/dark-mode-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Windows Application/ui_resources/light-mode-logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/style_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/ui_resources/dark-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui_resources/background_images/dark-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/ui_resources/light-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/ui_resources/background_images/light-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/home_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/ui_resources/EBGaramond-VariableFont_wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/ui_resources/OFL.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,9 +84,9 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\ui_resources" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\ui_resources\wallpaper_images" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\ui_resources\fonts" />
-      <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\ui_resources" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application" />
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023" />
     </key>
@@ -120,14 +122,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693507207607</updated>
-    </task>
-    <task id="LOCAL-00002" summary="- Made a textbox for quotations that loads previous texts once the app loads">
-      <option name="closed" value="true" />
-      <created>1695030359692</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1695030359692</updated>
     </task>
     <task id="LOCAL-00003" summary="- Quotes from the textbox can be passed to WallpaperGen Class">
       <option name="closed" value="true" />
@@ -513,7 +507,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699227041577</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="- Background image not dependent on source path in case of deletion">
+      <option name="closed" value="true" />
+      <created>1699250642902</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1699250642902</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -528,7 +530,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Created DataBase class for local app&#10;- Users can add json files to the local database" />
     <MESSAGE value="- App fetches random quotes from database instead of JSON" />
     <MESSAGE value="- UI works with database when removing quote packs" />
     <MESSAGE value="- Added a font preview window" />
@@ -553,6 +554,7 @@
     <MESSAGE value="- Replaced tabs with 4 spaces to solve text over image issues for most fonts" />
     <MESSAGE value="- Minor adjustments" />
     <MESSAGE value="- Minor UI changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Minor UI changes" />
+    <MESSAGE value="- Background image not dependent on source path in case of deletion" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Background image not dependent on source path in case of deletion" />
   </component>
 </project>

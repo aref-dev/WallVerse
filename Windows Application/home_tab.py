@@ -1,6 +1,7 @@
 import customtkinter
+from PIL import Image
+import os
 
-TITLE_FONT = ('EB Garamond', 42, 'bold')
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
 
@@ -8,9 +9,14 @@ class HomeTab(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
+        logo_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ui_resources")
+        self.logo_image = customtkinter.CTkImage(
+            light_image=Image.open(os.path.join(logo_path, "light-mode-logo.png")),
+            dark_image=Image.open(os.path.join(logo_path, "dark-mode-logo.png")), size=(350, 180))
+
         self.home_title = customtkinter.CTkLabel(
-            master.tabview.tab("Home"), text="Welcome to WallVerse", font=TITLE_FONT, width=540)
-        self.home_title.grid(row=0, column=0, columnspan=2, pady=(150, 0), sticky="EW")
+            master.tabview.tab("Home"), image=self.logo_image, width=540, text="")
+        self.home_title.grid(row=0, column=0, columnspan=2, pady=(50, 0), sticky="EW")
 
         self.home_info = customtkinter.CTkLabel(
             master.tabview.tab("Home"), text="Revisit your favorite quotes, or be surprised!", font=ELEMENT_FONT)

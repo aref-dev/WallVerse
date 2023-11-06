@@ -1,7 +1,6 @@
 from quote_manager import QuoteGen
 from wallpaper import WallpaperGen
 import customtkinter
-import pyglet
 import darkdetect
 from PIL import Image, ImageDraw
 import pystray
@@ -22,9 +21,6 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
-# Adding custom font for title:
-pyglet.options['win32_gdi_font'] = True
-pyglet.font.add_file(resource_path("ui_resources\\EBGaramond-VariableFont_wght.ttf"))
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
