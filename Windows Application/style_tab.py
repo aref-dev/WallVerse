@@ -1,4 +1,5 @@
 import os
+import shutil
 import sys
 from tkinter import filedialog as fd
 import cowsay
@@ -252,14 +253,26 @@ class StyleTab(customtkinter.CTkFrame):
             self.settings.set_value("dark_mode_bg_color", color)
 
     def set_light_theme_background_image(self):
-        file_path = fd.askopenfile()
-        self.light_theme_background_image_path.set(file_path.name)
-        self.settings.set_value("light_mode_image_path", file_path.name)
+        file_path = fd.askopenfile(title="Select an image file",
+                                   filetypes=[("Image files", "*.jpg *.jpeg *.png *.gif *.bmp *.tif *.tiff")])
+        if file_path:
+            script_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ui_resources", "background_images")
+            file_name = os.path.basename(file_path.name)
+            dest_path = os.path.join(script_dir, file_name)
+            shutil.copy(file_path.name, dest_path)
+            self.light_theme_background_image_path.set(dest_path)
+            self.settings.set_value("light_mode_image_path", dest_path)
 
     def set_dark_theme_background_image(self):
-        file_path = fd.askopenfile()
-        self.dark_theme_background_image_path.set(file_path.name)
-        self.settings.set_value("dark_mode_image_path", file_path.name)
+        file_path = fd.askopenfile(title="Select an image file",
+                                   filetypes=[("Image files", "*.jpg *.jpeg *.png *.gif *.bmp *.tif *.tiff")])
+        if file_path:
+            script_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ui_resources", "background_images")
+            file_name = os.path.basename(file_path.name)
+            dest_path = os.path.join(script_dir, file_name)
+            shutil.copy(file_path.name, dest_path)
+            self.dark_theme_background_image_path.set(dest_path)
+            self.settings.set_value("dark_mode_image_path", dest_path)
 
     def dark_mode_trace(self, *args):
         self.master.set_wallpaper()
