@@ -1,7 +1,10 @@
+import os
+
 from PIL import Image, ImageDraw, ImageFont
 from screeninfo import get_monitors  # For getting screen-size
 import tempfile
 import ctypes
+import platform
 
 """
 Windows SystemParametersInfo for changing wallpaper:
@@ -67,6 +70,12 @@ class WallpaperGen:
         self.temp_wallpaper = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
         self.canvas.save(self.temp_wallpaper.name, "PNG")
         self.temp_wallpaper_path = self.temp_wallpaper.name
-        ctypes.windll.user32.SystemParametersInfoW(
-            SPI_SETDESKWALLPAPER, 0, self.temp_wallpaper_path, SPIF_UPDATEINIFILE)
+        if platform.system() == "Windows":
+            ctypes.windll.user32.SystemParametersInfoW(
+                SPI_SETDESKWALLPAPER, 0, self.temp_wallpaper_path, SPIF_UPDATEINIFILE)
+        elif platform.system() == "Darwin":
+            osascript_script = f'tell application "Finder" to set desktop picture to POSIX file "{self.temp_wallpaper_path}"'
+            os.system(f'osascript -e \'{osascript_script}\'')
+        elif platform.system() == "Linux":
+            pass
         self.temp_wallpaper.close()

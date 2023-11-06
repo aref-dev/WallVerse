@@ -10,7 +10,7 @@ from quotes_tab import QuotesTab
 from style_tab import StyleTab
 from preferences_tab import PreferencesTab
 from settings_manager import SettingsManager
-import os, sys
+import os, sys, platform
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
@@ -25,7 +25,6 @@ def resource_path(relative_path):
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
-
 class UserInterface(customtkinter.CTk):
     def __init__(self, quote_obj: QuoteGen, wallpaper_obj: WallpaperGen):
         super().__init__()
@@ -34,14 +33,20 @@ class UserInterface(customtkinter.CTk):
         self.settings = SettingsManager()
 
         self.title("WallVerse")
-        self.iconbitmap(resource_path("ui_resources\\icon.ico"))
+        if platform.system() == "Windows":
+            self.iconbitmap(resource_path(os.path.join("ui_resources", "icon.ico")))
+        elif platform.system() == "Darwin":
+            pass
+        elif platform.system() == "Linux":
+            pass
+
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
         self.tabview = customtkinter.CTkTabview(self)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
-        self.icon_img = Image.open(resource_path("ui_resources\\icon.ico"))
+        self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon.ico")))
         self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                           MenuItem("Show app", self.show_app),
                           MenuItem("Exit", self.exit_app))

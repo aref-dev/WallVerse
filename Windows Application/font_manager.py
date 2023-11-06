@@ -15,7 +15,7 @@ def resource_path(relative_path):
 
 class FontManager:
     def __init__(self):
-        self.app_fonts_path = resource_path("ui_resources\\fonts")
+        self.app_fonts_path = resource_path(os.path.join("ui_resources", "fonts"))
         self.imported_fonts_path = os.path.expanduser("~") + "\\AppData\\Local\\Microsoft\\Windows\\Fonts"
         self.system_font_paths = [self.app_fonts_path, self.imported_fonts_path]
 
@@ -25,7 +25,8 @@ class FontManager:
             for (dirpath, dirnames, filenames) in walk(fr'{path}'):
                 for i in filenames:
                     if any(i.endswith(ext) for ext in ['.ttf', '.otf', '.ttc', '.ttz', '.woff', '.woff2']):
-                        self.fonts_path.append(dirpath.replace('\\\\', '\\') + '\\' + i)
+                        font_file_path = os.path.join(dirpath, i)
+                        self.fonts_path.append(font_file_path)
 
         def getFont(font, font_path):
             x = lambda x: font['name'].getDebugName(x)

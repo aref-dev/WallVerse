@@ -1,5 +1,5 @@
 import customtkinter
-import os, sys
+import os, sys, platform
 from font_manager import FontManager
 
 def resource_path(relative_path):
@@ -16,7 +16,12 @@ class FontPreview(customtkinter.CTkToplevel):
     def __init__(self, master):
         super().__init__(master)
         self.title("Font Preview")
-        self.after(200, lambda: self.iconbitmap(resource_path("ui_resources\\transparent.ico")))
+        if platform.system() == "Windows":
+            self.after(200, lambda: self.iconbitmap(resource_path(os.path.join("ui_resources","transparent.ico"))))
+        elif platform.system() == "Darwin":
+            pass
+        elif platform.system() == "Linux":
+            pass
         self.font_manager = FontManager()
         self.settings = master.settings
         self.resizable(height=False, width=False)

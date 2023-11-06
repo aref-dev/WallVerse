@@ -1,7 +1,14 @@
 import os.path
 import customtkinter
-import winshell
 import sys
+import platform
+
+if platform.system() == "Windows":
+    import winshell
+elif platform.system() == "Darwin":
+    pass
+elif platform.system() == "Linux":
+    pass
 
 
 HEADING_FONT = ('Georgia', 18, 'bold')

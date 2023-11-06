@@ -42,7 +42,7 @@ class QuoteGen:
     def get_random_quote(self):
         random_quote = None
         if self.quote_pack == "custom":
-            filepath = resource_path('quote_packs\\custom.txt')
+            filepath = resource_path(os.path.join("quote_packs", "custom.txt"))
             with open(filepath, encoding="utf-8") as file:
                 file_data = file.read().split("%")
                 if file_data[0].strip():
