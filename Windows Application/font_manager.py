@@ -1,5 +1,5 @@
 from fontTools import ttLib
-import os, sys
+import os, sys, platform
 from os import walk
 
 def resource_path(relative_path):
@@ -15,9 +15,24 @@ def resource_path(relative_path):
 
 class FontManager:
     def __init__(self):
+
+        self.system_font_paths = []
+
         self.app_fonts_path = resource_path(os.path.join("ui_resources", "fonts"))
-        self.imported_fonts_path = os.path.expanduser("~") + "\\AppData\\Local\\Microsoft\\Windows\\Fonts"
-        self.system_font_paths = [self.app_fonts_path, self.imported_fonts_path]
+        self.system_font_paths.append(self.app_fonts_path)
+
+        if platform.system() == "Windows":
+            self.windows_system_fonts_path = "C:\\Windows\\Fonts"
+            self.system_font_paths.append(self.windows_system_fonts_path)
+            self.windows_user_fonts_path = os.path.expanduser("~") + "\\AppData\\Local\\Microsoft\\Windows\\Fonts"
+            self.system_font_paths.append(self.windows_user_fonts_path)
+        elif platform.system() == "Darwin":
+            self.mac_system_fonts_path = "/System/Library/Fonts"
+            self.system_font_paths.append(self.mac_system_fonts_path)
+            self.mac_user_fonts_path = os.path.expanduser("~") + "/Library/Fonts"
+            self.system_font_paths.append(self.mac_user_fonts_path)
+        elif platform.system() == "Linux":
+            pass
 
         self.fonts_path = []
 
@@ -66,5 +81,7 @@ class FontManager:
                             self.fonts_dict[k][j[1]] = j[2]
 
     def get_font_dict(self):
-        return self.fonts_dict
+        sorted_dict = dict(sorted(self.fonts_dict.items()))
+        non_hidden_fonts = {key: value for key, value in sorted_dict.items() if not key.startswith(".")}
+        return non_hidden_fonts
 

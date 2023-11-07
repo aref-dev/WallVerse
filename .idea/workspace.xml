@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Background image not dependent on source path in case of deletion">
-      <change beforePath="$PROJECT_DIR$/.idea/Fortune's Window.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fortune's Window.iml" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/font_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/font_preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_preview_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quote_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/quotes_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/wallpaper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,14 +124,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693507207607</updated>
-    </task>
-    <task id="LOCAL-00003" summary="- Quotes from the textbox can be passed to WallpaperGen Class">
-      <option name="closed" value="true" />
-      <created>1695088251089</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1695088251089</updated>
     </task>
     <task id="LOCAL-00004" summary="- Added a new function set_wallpaper in wallpaper.py for Windows">
       <option name="closed" value="true" />
@@ -524,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699250642902</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript">
+      <option name="closed" value="true" />
+      <created>1699314215971</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1699314215971</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -539,7 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- App fetches random quotes from database instead of JSON" />
     <MESSAGE value="- UI works with database when removing quote packs" />
     <MESSAGE value="- Added a font preview window" />
     <MESSAGE value="- Fixed issue with refresh timer" />
@@ -564,6 +556,7 @@
     <MESSAGE value="- Minor adjustments" />
     <MESSAGE value="- Minor UI changes" />
     <MESSAGE value="- Background image not dependent on source path in case of deletion" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Background image not dependent on source path in case of deletion" />
+    <MESSAGE value="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript" />
   </component>
 </project>
