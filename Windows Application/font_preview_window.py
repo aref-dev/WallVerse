@@ -2,6 +2,7 @@ import customtkinter
 import os, sys, platform
 from font_manager import FontManager
 
+
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
@@ -12,12 +13,13 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+
 class FontPreview(customtkinter.CTkToplevel):
     def __init__(self, master):
         super().__init__(master)
         self.title("Font Preview")
         if platform.system() == "Windows":
-            self.after(200, lambda: self.iconbitmap(resource_path(os.path.join("ui_resources","transparent.ico"))))
+            self.after(200, lambda: self.iconbitmap(resource_path(os.path.join("ui_resources", "transparent.ico"))))
         elif platform.system() == "Darwin":
             pass
         elif platform.system() == "Linux":
@@ -40,20 +42,20 @@ class FontPreview(customtkinter.CTkToplevel):
         self.font_info_dict = self.font_manager.get_font_dict()
         self.font_list = [font for font in self.font_info_dict]
 
-        self.font_frame = customtkinter.CTkFrame(self)
+        self.font_frame = customtkinter.CTkScrollableFrame(self, label_text="Fonts")
         self.font_frame.grid(row=1, column=0, padx=10, pady=10, sticky="EW")
-        self.font_label = customtkinter.CTkLabel(self.font_frame, text="Font")
-        self.font_label.pack(padx=10, pady=10)
-        self.font_combobox = customtkinter.CTkOptionMenu(self.font_frame, values=self.font_list,
-                                                       variable=self.selected_font, width=200)
-        self.font_combobox.pack(padx=10, pady=10)
+
+        for font in self.font_list:
+            self.font_radio = customtkinter.CTkRadioButton(self.font_frame, text=font,
+                                                           variable=self.selected_font, value=font)
+            self.font_radio.pack(padx=10, pady=10, anchor="w")
 
         self.font_style_frame = customtkinter.CTkFrame(self)
         self.font_style_frame.grid(row=1, column=1, padx=10, pady=10, sticky="EW")
-        self.font_style_label = customtkinter.CTkLabel(self.font_style_frame, text="Style")
+        self.font_style_label = customtkinter.CTkLabel(self.font_style_frame, text="Styles")
         self.font_style_label.pack(padx=10, pady=10)
         self.font_style_combobox = customtkinter.CTkOptionMenu(self.font_style_frame, state="disabled",
-                                                             variable=self.selected_style)
+                                                               variable=self.selected_style)
         self.font_style_combobox.pack(padx=10, pady=10)
 
         self.refresh_btn = customtkinter.CTkButton(self, text="Refresh Wallpaper!", fg_color="purple",
