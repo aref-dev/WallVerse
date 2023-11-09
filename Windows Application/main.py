@@ -47,10 +47,19 @@ class UserInterface(customtkinter.CTk):
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
         self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon.ico")))
-        self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
-                          MenuItem("Show app", self.show_app),
-                          MenuItem("Exit", self.exit_app))
-        self.icon = pystray.Icon("TrayIcon", self.icon_img, "WallVerse", menu=self.icon_menu)
+
+        if platform.system() == "Windows":
+            self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
+                              MenuItem("Show app", self.show_app),
+                              MenuItem("Exit", self.exit_app))
+        elif platform.system() == "Darwin":
+            self.icon_menu = (MenuItem("Refresh", self.set_wallpaper, visible=False),
+                              MenuItem("Show app", self.show_app, visible=False),
+                              MenuItem("Exit", self.exit_app))
+        elif platform.system() == "Linux":
+            pass
+
+        self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
         self.icon.run_detached()
 
         self.tabview.add("Home")

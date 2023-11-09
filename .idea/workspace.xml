@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Background image not dependent on source path in case of deletion">
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript">
       <change beforePath="$PROJECT_DIR$/.idea/Fortune's Window.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fortune's Window.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Windows Application/font_preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/font_preview_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +91,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Fortune's Window" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -102,7 +103,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Windows Application/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -111,6 +112,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,14 +126,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693507207607</updated>
-    </task>
-    <task id="LOCAL-00003" summary="- Quotes from the textbox can be passed to WallpaperGen Class">
-      <option name="closed" value="true" />
-      <created>1695088251089</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1695088251089</updated>
     </task>
     <task id="LOCAL-00004" summary="- Added a new function set_wallpaper in wallpaper.py for Windows">
       <option name="closed" value="true" />
@@ -513,7 +511,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699250642902</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript">
+      <option name="closed" value="true" />
+      <created>1699314215971</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1699314215971</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -528,7 +534,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- App fetches random quotes from database instead of JSON" />
     <MESSAGE value="- UI works with database when removing quote packs" />
     <MESSAGE value="- Added a font preview window" />
     <MESSAGE value="- Fixed issue with refresh timer" />
@@ -553,6 +558,19 @@
     <MESSAGE value="- Minor adjustments" />
     <MESSAGE value="- Minor UI changes" />
     <MESSAGE value="- Background image not dependent on source path in case of deletion" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Background image not dependent on source path in case of deletion" />
+    <MESSAGE value="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="python-exception">
+          <properties notifyOnTerminate="true" ignoreLibraries="true" exception="BaseException">
+            <option name="ignoreLibraries" value="true" />
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
