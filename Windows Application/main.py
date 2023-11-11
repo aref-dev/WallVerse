@@ -11,6 +11,9 @@ from style_tab import StyleTab
 from preferences_tab import PreferencesTab
 from settings_manager import SettingsManager
 import os, sys, platform
+from multiprocessing import Process, Queue
+
+
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
@@ -31,6 +34,7 @@ class UserInterface(customtkinter.CTk):
         self.quote = quote_obj
         self.wallpaper = wallpaper_obj
         self.settings = SettingsManager()
+        self.mac_pystray_que = Queue()
 
         self.title("WallVerse")
         if platform.system() == "Windows":
@@ -48,19 +52,19 @@ class UserInterface(customtkinter.CTk):
 
         self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon.ico")))
 
-        if platform.system() == "Windows":
+        if platform.system() == "Windows" and platform.system() == "Linux":
             self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                               MenuItem("Show app", self.show_app),
                               MenuItem("Exit", self.exit_app))
+            self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
+            self.icon.run_detached()
         elif platform.system() == "Darwin":
-            self.icon_menu = (MenuItem("Refresh", self.set_wallpaper, visible=False),
-                              MenuItem("Show app", self.show_app, visible=False),
+            self.icon_menu = (MenuItem("Refresh", self.que_put_set_wallpaper),
+                              MenuItem("Show app", self.que_put_show_app),
                               MenuItem("Exit", self.exit_app))
-        elif platform.system() == "Linux":
-            pass
+            self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
+            Process(target=self.icon.run_detached())
 
-        self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
-        self.icon.run_detached()
 
         self.tabview.add("Home")
         self.tabview.add("Quotes")
@@ -85,6 +89,7 @@ class UserInterface(customtkinter.CTk):
 
         self.current_theme = darkdetect.theme()
         self.check_dark_mode()
+        self.check_pystray_que()
 
         if self.settings.get_value("set_as_wallpaper?") == 1:
             self.set_wallpaper()
@@ -167,7 +172,24 @@ class UserInterface(customtkinter.CTk):
         if darkdetect.theme() != self.current_theme:
             self.style_tab.dark_mode_trace()
             self.current_theme = darkdetect.theme()
-        self.after(2000, self.check_dark_mode)
+        self.after(100, self.check_dark_mode)
+
+    def que_put_set_wallpaper(self):
+        self.mac_pystray_que.put("set_wallpaper")
+
+    def que_put_show_app(self):
+        self.mac_pystray_que.put("show_app")
+
+    def check_pystray_que(self):
+        try:
+            message = self.mac_pystray_que.get_nowait()
+            if  message == "set_wallpaper":
+                self.set_wallpaper()
+            elif message == "show_app":
+                self.show_app()
+        except:
+            pass
+        self.after(100, self.check_pystray_que)
 
 
 if __name__ == "__main__":

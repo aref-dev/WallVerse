@@ -89,15 +89,22 @@ class PreferencesTab(customtkinter.CTkFrame):
 
     def check_startup(self, *args):
         self.settings.set_value("start_with_os?", self.startup_var.get())
-        startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
-        shortcut_path = os.path.join(startup_folder, "WallVerse.lnk")
-        exe_path = os.path.realpath(sys.executable)
-        if self.startup_var.get() == 0:
-            if os.path.exists(shortcut_path):
-                os.remove(shortcut_path)
-        elif self.startup_var.get() == 1:
-            self.settings.set_value("set_as_wallpaper?", 1)
-            if not os.path.exists(shortcut_path):
-                with winshell.shortcut(shortcut_path) as shortcut:
-                    shortcut.path = exe_path
-                    shortcut.write()
+        if platform.system() == "Windows":
+            startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs',
+                                          'Startup')
+            shortcut_path = os.path.join(startup_folder, "WallVerse.lnk")
+            exe_path = os.path.realpath(sys.executable)
+            if self.startup_var.get() == 0:
+                if os.path.exists(shortcut_path):
+                    os.remove(shortcut_path)
+            elif self.startup_var.get() == 1:
+                self.settings.set_value("set_as_wallpaper?", 1)
+                if not os.path.exists(shortcut_path):
+                    with winshell.shortcut(shortcut_path) as shortcut:
+                        shortcut.path = exe_path
+                        shortcut.write()
+        elif platform.system() == "Darwin":
+            pass
+        elif platform.system() == "Linux":
+            pass
+
