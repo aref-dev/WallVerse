@@ -1,3 +1,4 @@
+import multiprocessing
 from quote_manager import QuoteGen
 from wallpaper import WallpaperGen
 import customtkinter
@@ -193,5 +194,6 @@ class UserInterface(customtkinter.CTk):
 
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
     app = UserInterface(QuoteGen(), WallpaperGen())
     app.mainloop()

@@ -11,6 +11,16 @@ elif platform.system() == "Darwin":
 elif platform.system() == "Linux":
     pass
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
@@ -107,12 +117,15 @@ class PreferencesTab(customtkinter.CTkFrame):
         elif platform.system() == "Darwin":
             launch_agents_path = os.path.expanduser("~/Library/LaunchAgents/com.wallverse.app.plist")
             if self.startup_var.get() == 0:
-                os.remove(launch_agents_path)
+                if os.path.exists(launch_agents_path):
+                    os.remove(launch_agents_path)
             elif self.startup_var.get() == 1:
-                with open("com.wallverse.app.plist") as plist:
-                    plist = plist.read()
-                plist = plist.replace("__EXECUTABLE_PATH__", exe_path)
-                with open(launch_agents_path, "w") as file:
-                    file.write(plist)
+                self.settings.set_value("set_as_wallpaper?", 1)
+                if not os.path.exists(launch_agents_path):
+                    with open(resource_path("com.wallverse.app.plist")) as plist:
+                        plist = plist.read()
+                    plist = plist.replace("__EXECUTABLE_PATH__", exe_path)
+                    with open(launch_agents_path, "w") as file:
+                        file.write(plist)
         elif platform.system() == "Linux":
             pass
