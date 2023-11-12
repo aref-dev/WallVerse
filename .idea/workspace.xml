@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Adapting tray icon for Mac with limited functionality">
-      <change beforePath="$PROJECT_DIR$/.idea/Fortune's Window.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fortune's Window.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Worked around GIL with a que&#10;- All tray icon functions work">
+      <change afterPath="$PROJECT_DIR$/Windows Application/com.wallverse.app.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/preferences_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Windows Application/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Windows Application/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Windows Application/ui_resources/fonts/NotoSerif-VariableFont_wdth,wght.ttf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,14 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693507207607</updated>
-    </task>
-    <task id="LOCAL-00005" summary="- Font size change is now possible from UI&#10;- All available fonts from the font-path are displayed in a combobox and can be used">
-      <option name="closed" value="true" />
-      <created>1695510807714</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1695510807714</updated>
     </task>
     <task id="LOCAL-00006" summary="- Added additional fonts and font for title">
       <option name="closed" value="true" />
@@ -520,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699506266668</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="- Worked around GIL with a que&#10;- All tray icon functions work">
+      <option name="closed" value="true" />
+      <created>1699663094078</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1699663094078</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added a font preview window" />
     <MESSAGE value="- Fixed issue with refresh timer" />
     <MESSAGE value="- Replaced font selector" />
     <MESSAGE value="- Replaced dark mode listening function" />
@@ -560,7 +559,8 @@
     <MESSAGE value="- Background image not dependent on source path in case of deletion" />
     <MESSAGE value="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript" />
     <MESSAGE value="- Adapting tray icon for Mac with limited functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Adapting tray icon for Mac with limited functionality" />
+    <MESSAGE value="- Worked around GIL with a que&#10;- All tray icon functions work" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Worked around GIL with a que&#10;- All tray icon functions work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

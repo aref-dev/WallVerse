@@ -2,6 +2,7 @@ import os.path
 import customtkinter
 import sys
 import platform
+import xml.dom.minidom
 
 if platform.system() == "Windows":
     import winshell
@@ -89,11 +90,11 @@ class PreferencesTab(customtkinter.CTkFrame):
 
     def check_startup(self, *args):
         self.settings.set_value("start_with_os?", self.startup_var.get())
+        exe_path = os.path.realpath(sys.executable)
         if platform.system() == "Windows":
             startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs',
                                           'Startup')
             shortcut_path = os.path.join(startup_folder, "WallVerse.lnk")
-            exe_path = os.path.realpath(sys.executable)
             if self.startup_var.get() == 0:
                 if os.path.exists(shortcut_path):
                     os.remove(shortcut_path)
@@ -104,7 +105,14 @@ class PreferencesTab(customtkinter.CTkFrame):
                         shortcut.path = exe_path
                         shortcut.write()
         elif platform.system() == "Darwin":
-            pass
+            launch_agents_path = os.path.expanduser("~/Library/LaunchAgents/com.wallverse.app.plist")
+            if self.startup_var.get() == 0:
+                os.remove(launch_agents_path)
+            elif self.startup_var.get() == 1:
+                with open("com.wallverse.app.plist") as plist:
+                    plist = plist.read()
+                plist = plist.replace("__EXECUTABLE_PATH__", exe_path)
+                with open(launch_agents_path, "w") as file:
+                    file.write(plist)
         elif platform.system() == "Linux":
             pass
-

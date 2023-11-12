@@ -183,7 +183,7 @@ class UserInterface(customtkinter.CTk):
     def check_pystray_que(self):
         try:
             message = self.mac_pystray_que.get_nowait()
-            if  message == "set_wallpaper":
+            if message == "set_wallpaper":
                 self.set_wallpaper()
             elif message == "show_app":
                 self.show_app()
