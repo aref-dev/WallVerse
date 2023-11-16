@@ -53,7 +53,7 @@ class UserInterface(customtkinter.CTk):
 
         self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon.ico")))
 
-        if platform.system() == "Windows" and platform.system() == "Linux":
+        if platform.system() == "Windows" or platform.system() == "Linux":
             self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                               MenuItem("Show app", self.show_app),
                               MenuItem("Exit", self.exit_app))
@@ -90,7 +90,8 @@ class UserInterface(customtkinter.CTk):
 
         self.current_theme = darkdetect.theme()
         self.check_dark_mode()
-        self.check_pystray_que()
+        if platform.system() == "Darwin":
+            self.check_pystray_que()
 
         if self.settings.get_value("set_as_wallpaper?") == 1:
             self.set_wallpaper()
@@ -194,6 +195,7 @@ class UserInterface(customtkinter.CTk):
 
 
 if __name__ == "__main__":
-    multiprocessing.freeze_support()
+    if platform.system() == "Darwin":
+        multiprocessing.freeze_support()
     app = UserInterface(QuoteGen(), WallpaperGen())
     app.mainloop()
