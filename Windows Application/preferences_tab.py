@@ -64,7 +64,7 @@ class PreferencesTab(customtkinter.CTkFrame):
         self.startup_var = customtkinter.IntVar(value=self.settings.get_value("start_with_os?"))
 
         self.startup_checkbox = customtkinter.CTkSwitch(
-            self.preferences_frame, text="Start with Windows?",
+            self.preferences_frame, text="Start with System?",
             variable=self.startup_var, onvalue=1, offvalue=0, width=390)
         self.startup_checkbox.grid(row=2, column=0, columnspan=3, padx=20, pady=(20,410), sticky="EW")
 
@@ -128,4 +128,28 @@ class PreferencesTab(customtkinter.CTkFrame):
                     with open(launch_agents_path, "w") as file:
                         file.write(plist)
         elif platform.system() == "Linux":
-            pass
+            desktop_environment = os.environ.get("XDG_CURRENT_DESKTOP", "").lower()
+            if "gnome" in desktop_environment:
+                autostart_path = os.path.expanduser("~/.config/autostart/")
+                desktop_file_path = os.path.join(autostart_path, "wallverse.desktop")
+
+                if not os.path.exists(autostart_path):
+                    os.makedirs(autostart_path)
+
+                if self.startup_var.get() == 0:
+                    if os.path.exists(desktop_file_path):
+                        os.remove(desktop_file_path)
+                elif self.startup_var.get() == 1:
+                    self.settings.set_value("set_as_wallpaper?", 1)
+                    if not os.path.exists(desktop_file_path):
+                        desktop_file_content = f"""
+                            [Desktop Entry]
+                            Name=WallVerse
+                            Exec={exe_path}
+                            Type=Application
+                            X-GNOME-Autostart-enabled=true
+                            """
+                        with open(desktop_file_path, "w") as file:
+                            file.write(desktop_file_content)
+            else:
+                pass

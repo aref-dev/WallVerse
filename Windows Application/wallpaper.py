@@ -77,5 +77,10 @@ class WallpaperGen:
             osascript_script = f'tell application "Finder" to set desktop picture to POSIX file "{self.temp_wallpaper_path}"'
             os.system(f'osascript -e \'{osascript_script}\'')
         elif platform.system() == "Linux":
-            pass
+            desktop_environment = os.environ.get("XDG_CURRENT_DESKTOP", "").lower()
+            if "gnome" in desktop_environment:
+                if os.system('gsettings get org.gnome.desktop.interface gtk-theme | grep -q "dark"') == 0:
+                    os.system(f'gsettings set org.gnome.desktop.background picture-uri-dark file://{self.temp_wallpaper_path}')
+                else:
+                    os.system(f'gsettings set org.gnome.desktop.background picture-uri file://{self.temp_wallpaper_path}')
         self.temp_wallpaper.close()

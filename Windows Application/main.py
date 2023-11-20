@@ -29,6 +29,7 @@ def resource_path(relative_path):
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
+
 class UserInterface(customtkinter.CTk):
     def __init__(self, quote_obj: QuoteGen, wallpaper_obj: WallpaperGen):
         super().__init__()
@@ -53,19 +54,22 @@ class UserInterface(customtkinter.CTk):
 
         self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon.ico")))
 
-        if platform.system() == "Windows" or platform.system() == "Linux":
+        if platform.system() == "Windows":
             self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
-                              MenuItem("Show app", self.show_app),
+                              MenuItem("Show app", self.show_app, default=True),
                               MenuItem("Exit", self.exit_app))
             self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
             self.icon.run_detached()
         elif platform.system() == "Darwin":
             self.icon_menu = (MenuItem("Refresh", self.que_put_set_wallpaper),
-                              MenuItem("Show app", self.que_put_show_app),
+                              MenuItem("Show app", self.que_put_show_app, default=True),
                               MenuItem("Exit", self.exit_app))
             self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
             Process(target=self.icon.run_detached())
-
+        elif platform.system() == "Linux":
+            self.icon = pystray.Icon(name="WallVerse", icon=self.icon_img, menu=pystray.Menu(
+                pystray.MenuItem(text="Left-Click-Action", action=self.show_app, default=True)))
+            self.icon.run_detached()
 
         self.tabview.add("Home")
         self.tabview.add("Quotes")

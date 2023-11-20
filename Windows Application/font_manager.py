@@ -32,7 +32,10 @@ class FontManager:
             self.mac_user_fonts_path = os.path.expanduser("~") + "/Library/Fonts"
             self.system_font_paths.append(self.mac_user_fonts_path)
         elif platform.system() == "Linux":
-            pass
+            self.linux_system_fonts_path = "/usr/share/fonts"
+            self.system_font_paths.append(self.linux_system_fonts_path)
+            self.linux_user_fonts_path = os.path.expanduser("~") + "/.fonts"
+            self.system_font_paths.append(self.linux_user_fonts_path)
 
         self.fonts_path = []
 
