@@ -20,7 +20,7 @@ With WallVerse you can set different chunks of texts as your wallpaper. There is
 - Different text-color, background-color, or background-image for dark-mode and light-mode
 - Adjustable font style and size
 - System tray icon
-- Changes at set intervals
+- Refresh wallpaper at set intervals
 </br>
 
 ## Using the textbox
