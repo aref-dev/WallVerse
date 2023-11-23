@@ -14,12 +14,12 @@ With WallVerse you can set different chunks of texts as your wallpaper. There is
 </br>
 
 ## Features
-- Works with both Windows and MacOS
+- Works with Windows, MacOS, and Linux (GNOME)
 - Option to start with the OS
 - Automatic dark-mode switching
 - Different text-color, background-color, or background-image for dark-mode and light-mode
 - Adjustable font style and size
-- Runs in the background
+- System tray icon
 - Changes at set intervals
 </br>
 
