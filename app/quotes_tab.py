@@ -58,11 +58,11 @@ class QuotesTab(customtkinter.CTkFrame):
         self.delete_pack_btn_show()
 
     def load_textbox_file(self):
-        with open(file=resource_path(os.path.join("quote_packs", "custom.txt")), encoding="utf-8", mode="r") as file:
+        with open(file=resource_path(os.path.join("ui_resources", "custom.txt")), encoding="utf-8", mode="r") as file:
             return file.read()
 
     def update_textbox(self, *args):
-        with open(file=resource_path(os.path.join("quote_packs", "custom.txt")), encoding="utf-8", mode="w") as file:
+        with open(file=resource_path(os.path.join("ui_resources", "custom.txt")), encoding="utf-8", mode="w") as file:
             file.write(self.text_box.get(0.1, customtkinter.END).strip())
         self.text_box.edit_modified(False)
 

@@ -59,10 +59,11 @@ class UserInterface(customtkinter.CTk):
                               MenuItem("Show app", self.show_app, default=True),
                               MenuItem("Exit", self.exit_app))
             self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
+            self.icon.remove_notification()
             self.icon.run_detached()
         elif platform.system() == "Darwin":
             self.icon_menu = (MenuItem("Refresh", self.que_put_set_wallpaper),
-                              MenuItem("Show app", self.que_put_show_app, default=True),
+                              MenuItem("Show app", self.que_put_show_app),
                               MenuItem("Exit", self.exit_app))
             self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
             Process(target=self.icon.run_detached())
