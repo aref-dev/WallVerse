@@ -1,5 +1,9 @@
+import os
+import platform
+import sys
+
 import customtkinter
-import os, sys, platform
+
 from font_manager import FontManager
 
 

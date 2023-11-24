@@ -1,6 +1,8 @@
 import customtkinter
 from PIL import Image
 import os
+import platform
+
 
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
@@ -23,7 +25,7 @@ class HomeTab(customtkinter.CTkFrame):
         self.home_info.grid(row=1, column=0, columnspan=2, pady=20, sticky="EW")
 
         self.auto_set_btn = customtkinter.CTkButton(
-            master.tabview.tab("Home"), text="Set as Wallpaper", command=self.set_wallpaper, fg_color="purple",
+            master.tabview.tab("Home"), text="Set/Refresh Wallpaper", command=self.set_wallpaper, fg_color="purple",
             font=ELEMENT_FONT)
         self.auto_set_btn.grid(row=3, column=0, columnspan=2, padx=75, pady=(10,240), sticky="EW")
 

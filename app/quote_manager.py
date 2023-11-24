@@ -1,9 +1,13 @@
+import os
 import random
-import cowsay
-from database import DataBase
-import os, sys
+import sys
+
 import arabic_reshaper
+import cowsay
 from bidi.algorithm import get_display
+
+from database import DataBase
+
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """

@@ -1,6 +1,10 @@
-from fontTools import ttLib
-import os, sys, platform
+import os
+import platform
+import sys
 from os import walk
+
+from fontTools import ttLib
+
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """

@@ -1,18 +1,23 @@
 import multiprocessing
-from quote_manager import QuoteGen
-from wallpaper import WallpaperGen
+import os
+import platform
+import sys
+import threading
+from multiprocessing import Process, Queue
+
 import customtkinter
 import darkdetect
-from PIL import Image, ImageDraw
 import pystray
+from PIL import Image
 from pystray import MenuItem
+
 from home_tab import HomeTab
-from quotes_tab import QuotesTab
-from style_tab import StyleTab
 from preferences_tab import PreferencesTab
+from quote_manager import QuoteGen
+from quotes_tab import QuotesTab
 from settings_manager import SettingsManager
-import os, sys, platform
-from multiprocessing import Process, Queue
+from style_tab import StyleTab
+from wallpaper import WallpaperGen
 
 
 def resource_path(relative_path):
@@ -52,7 +57,10 @@ class UserInterface(customtkinter.CTk):
         self.tabview = customtkinter.CTkTabview(self)
         self.tabview.grid(row=0, column=0, padx=(20, 20), pady=(20, 20))
 
-        self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon.ico")))
+        if platform.system() == "Windows" or platform.system() == "Darwin":
+            self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon.ico")))
+        elif platform.system() == "Linux":
+            self.icon_img = Image.open(resource_path(os.path.join("ui_resources", "icon-linux.png")))
 
         if platform.system() == "Windows":
             self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
@@ -68,9 +76,10 @@ class UserInterface(customtkinter.CTk):
             self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
             Process(target=self.icon.run_detached())
         elif platform.system() == "Linux":
-            self.icon = pystray.Icon(name="WallVerse", icon=self.icon_img, menu=pystray.Menu(
-                pystray.MenuItem(text="Left-Click-Action", action=self.show_app, default=True)))
-            self.icon.run_detached()
+            self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
+                              MenuItem("Show app", self.show_app, default=True),
+                              MenuItem("Exit", self.exit_app))
+            self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
 
         self.tabview.add("Home")
         self.tabview.add("Quotes")
@@ -154,6 +163,7 @@ class UserInterface(customtkinter.CTk):
         self.deiconify()
 
     def exit_app(self):
+        threading.Thread(target=self.icon.stop).start()
         self.icon.stop()
         self.quit()
         self.destroy()
@@ -192,4 +202,6 @@ if __name__ == "__main__":
     if platform.system() == "Darwin":
         multiprocessing.freeze_support()
     app = UserInterface(QuoteGen(), WallpaperGen())
+    if platform.system() == "Linux":
+        threading.Thread(target=app.icon.run).start()
     app.mainloop()
