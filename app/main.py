@@ -150,17 +150,6 @@ class UserInterface(customtkinter.CTk):
         self.wallpaper.set_wallpaper()
         self.preferences_tab.handle_interval_callback()
 
-    def create_image(self, width, height, color1, color2):
-        # Generate an image and draw a pattern
-        image = Image.new('RGB', (width, height), color1)
-        dc = ImageDraw.Draw(image)
-        dc.rectangle(
-            (width // 2, 0, width, height // 2),
-            fill=color2)
-        dc.rectangle(
-            (0, height // 2, width // 2, height),
-            fill=color2)
-
     def show_app(self):
         self.deiconify()
 
