@@ -1,19 +1,12 @@
-import sqlite3
 import json
-import sys, os
+import os
+import sqlite3
+import sys
+from importlib.resources import files
 
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        if getattr(sys, 'frozen', False):
-            base_path = sys._MEIPASS
-        else:
-            base_path = os.path.dirname(os.path.abspath(__file__))
-    except Exception:
-        base_path = os.path.abspath(".")
 
-    return os.path.join(base_path, relative_path)
+def resource_path(file_name):
+    return files('wallverse').joinpath(file_name)
 
 class DataBase:
     def __init__(self):

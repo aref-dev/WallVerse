@@ -37,7 +37,7 @@ class WallpaperGen:
 
     def set_font(self, font, font_size):
         self.font_size = font_size
-        self.text_font = ImageFont.truetype(font=font, size=self.font_size)
+        self.text_font = ImageFont.truetype(font=str(font), size=self.font_size)
 
     def set_canvas(self, canvas_type, bg_color="black", path=None):
         if canvas_type == "solid":

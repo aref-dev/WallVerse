@@ -4,18 +4,12 @@ import sys
 
 import customtkinter
 
-from font_manager import FontManager
+from wallverse.font_manager import FontManager
+from importlib.resources import files
 
 
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
+def resource_path(file_name):
+    return files('wallverse').joinpath(file_name)
 
 
 class FontPreview(customtkinter.CTkToplevel):

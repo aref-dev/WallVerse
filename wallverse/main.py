@@ -11,24 +11,22 @@ import pystray
 from PIL import Image
 from pystray import MenuItem
 
-from home_tab import HomeTab
-from preferences_tab import PreferencesTab
-from quote_manager import QuoteGen
-from quotes_tab import QuotesTab
-from settings_manager import SettingsManager
-from style_tab import StyleTab
-from wallpaper import WallpaperGen
+from wallverse.home_tab import HomeTab
+from wallverse.preferences_tab import PreferencesTab
+from wallverse.quote_manager import QuoteGen
+from wallverse.quotes_tab import QuotesTab
+from wallverse.settings_manager import SettingsManager
+from wallverse.style_tab import StyleTab
+from wallverse.wallpaper import WallpaperGen
+
+from importlib.resources import files
 
 
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
+current_directory = os.getcwd()
+print("Current working directory:", current_directory)
 
-    return os.path.join(base_path, relative_path)
+def resource_path(file_name):
+    return files('wallverse').joinpath(file_name)
 
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
@@ -198,10 +196,14 @@ class UserInterface(customtkinter.CTk):
         self.after(100, self.check_pystray_que)
 
 
-if __name__ == "__main__":
+def run():
     if platform.system() == "Darwin":
         multiprocessing.freeze_support()
     app = UserInterface(QuoteGen(), WallpaperGen())
     if platform.system() == "Linux":
         threading.Thread(target=app.icon.run).start()
     app.mainloop()
+
+
+if __name__ == "__main__":
+    run()
