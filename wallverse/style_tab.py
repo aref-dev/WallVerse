@@ -250,9 +250,9 @@ class StyleTab(customtkinter.CTkFrame):
         file_path = fd.askopenfile(title="Select an image file",
                                    filetypes=[("Image files", "*.jpg *.jpeg *.png *.gif *.bmp *.tif *.tiff")])
         if file_path:
-            script_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ui_resources", "background_images")
+            bg_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ui_resources", "background_images")
             file_name = os.path.basename(file_path.name)
-            dest_path = os.path.join(script_dir, file_name)
+            dest_path = os.path.join(bg_dir, file_name)
             shutil.copy(file_path.name, dest_path)
             self.light_theme_background_image_path.set(dest_path)
             self.settings.set_value("light_mode_image_path", dest_path)
@@ -261,9 +261,9 @@ class StyleTab(customtkinter.CTkFrame):
         file_path = fd.askopenfile(title="Select an image file",
                                    filetypes=[("Image files", "*.jpg *.jpeg *.png *.gif *.bmp *.tif *.tiff")])
         if file_path:
-            script_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ui_resources", "background_images")
+            bg_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ui_resources", "background_images")
             file_name = os.path.basename(file_path.name)
-            dest_path = os.path.join(script_dir, file_name)
+            dest_path = os.path.join(bg_dir, file_name)
             shutil.copy(file_path.name, dest_path)
             self.dark_theme_background_image_path.set(dest_path)
             self.settings.set_value("dark_mode_image_path", dest_path)

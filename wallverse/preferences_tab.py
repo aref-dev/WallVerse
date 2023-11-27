@@ -94,20 +94,21 @@ class PreferencesTab(customtkinter.CTkFrame):
 
     def check_startup(self, *args):
         self.settings.set_value("start_with_os?", self.startup_var.get())
-        exe_path = os.path.realpath(sys.executable)
+        main_path = os.path.join(os.path.dirname(__file__), 'main.py')
         if platform.system() == "Windows":
             startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs',
                                           'Startup')
-            shortcut_path = os.path.join(startup_folder, "WallVerse.lnk")
+            startup_path = os.path.join(startup_folder, "wallverse-startup.vbs")
             if self.startup_var.get() == 0:
-                if os.path.exists(shortcut_path):
-                    os.remove(shortcut_path)
+                if os.path.exists(startup_path):
+                    os.remove(startup_path)
             elif self.startup_var.get() == 1:
                 self.settings.set_value("set_as_wallpaper?", 1)
-                if not os.path.exists(shortcut_path):
-                    with winshell.shortcut(shortcut_path) as shortcut:
-                        shortcut.path = exe_path
-                        shortcut.write()
+                if not os.path.exists(startup_path):
+                    with open(resource_path("wallverse-startup.vbs")) as start_bat:
+                        start_bat = start_bat.read().replace("__MAIN_PATH__", main_path)
+                        with open(startup_path, "w") as file:
+                            file.write(start_bat)
         elif platform.system() == "Darwin":
             launch_agents_path = os.path.expanduser("~/Library/LaunchAgents/com.wallverse.app.plist")
             if self.startup_var.get() == 0:
@@ -118,7 +119,7 @@ class PreferencesTab(customtkinter.CTkFrame):
                 if not os.path.exists(launch_agents_path):
                     with open(resource_path("com.wallverse.app.plist")) as plist:
                         plist = plist.read()
-                    plist = plist.replace("__EXECUTABLE_PATH__", exe_path)
+                    plist = plist.replace("__MAIN_PATH__", main_path)
                     with open(launch_agents_path, "w") as file:
                         file.write(plist)
         elif platform.system() == "Linux":
@@ -139,8 +140,9 @@ class PreferencesTab(customtkinter.CTkFrame):
                         desktop_file_content = f"""
                             [Desktop Entry]
                             Name=WallVerse
-                            Exec={exe_path}
+                            Exec=pythonw {main_path}
                             Type=Application
+                            Terminal=false
                             X-GNOME-Autostart-enabled=true
                             """
                         with open(desktop_file_path, "w") as file:

@@ -21,10 +21,6 @@ from wallverse.wallpaper import WallpaperGen
 
 from importlib.resources import files
 
-
-current_directory = os.getcwd()
-print("Current working directory:", current_directory)
-
 def resource_path(file_name):
     return files('wallverse').joinpath(file_name)
 

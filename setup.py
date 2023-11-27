@@ -32,8 +32,8 @@ setup(
         'pystray==0.19.5',
         'python-bidi==0.4.2',
         'screeninfo==0.8.1',
-        'pypiwin32 == 223',
-        'winshell == 0.6',
+        'pypiwin32 == 223; platform_system=="Windows"',
+        'winshell == 0.6; platform_system=="Windows"',
         'fonttools==4.45.1'
     ],
     python_requires='>=3.10',
@@ -52,7 +52,7 @@ setup(
         'Topic :: Utilities',
     ],
     entry_points={
-        'console_scripts': [
+        'gui_scripts': [
             'wallverse=wallverse.main:run',
         ],
     }

@@ -4,37 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Worked around GIL with a que&#10;- All tray icon functions work">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallverse/ui_resources/custom.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Fortune's Window.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fortune's Window.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- App can be installed with pip from wheel&#10;- Startup with OS will not work">
+      <change afterPath="$PROJECT_DIR$/wallverse/wallverse-startup.vbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/com.wallverse.app.plist" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/com.wallverse.app.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/font_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/font_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/font_preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/font_preview_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/home_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/preferences_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/quote_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/quote_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/quotes_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/settings_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/style_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/background_images/dark-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/background_images/dark-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/background_images/light-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/background_images/light-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/dark-mode-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/dark-mode-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/fonts/NotoSans-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/fonts/NotoSans-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/icon-linux.png" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/icon-linux.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/icon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/light-mode-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/light-mode-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui_resources/transparent.ico" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/ui_resources/transparent.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallpaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/wallpaper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/com.wallverse.app.plist" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/com.wallverse.app.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/preferences_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/style_tab.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +30,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,6 +98,34 @@
       <recent name="C:\Users\Aref\PycharmProjects\fortune-2023\Windows Application\ui_resources\wallpaper_images" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Fortune's Window" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wallverse" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wallverse/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -126,14 +134,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693507207607</updated>
-    </task>
-    <task id="LOCAL-00006" summary="- Added additional fonts and font for title">
-      <option name="closed" value="true" />
-      <created>1695516344845</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1695516344845</updated>
     </task>
     <task id="LOCAL-00007" summary="- User can set different text-color, background color or image for dark-mode and light mode.">
       <option name="closed" value="true" />
@@ -519,8 +519,19 @@
       <option name="project" value="LOCAL" />
       <updated>1699663094078</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="- App can be installed with pip from wheel&#10;- Startup with OS will not work">
+      <option name="closed" value="true" />
+      <created>1701024180340</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1701024180340</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bat" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -534,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Fixed issue with refresh timer" />
     <MESSAGE value="- Replaced font selector" />
     <MESSAGE value="- Replaced dark mode listening function" />
     <MESSAGE value="- Fixed problem with font selector" />
@@ -559,7 +569,8 @@
     <MESSAGE value="- Paths are adapted depending on the OS&#10;- Minor UI changes depending on the OS&#10;- Added function to set wallpaper using AppleScript" />
     <MESSAGE value="- Adapting tray icon for Mac with limited functionality" />
     <MESSAGE value="- Worked around GIL with a que&#10;- All tray icon functions work" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Worked around GIL with a que&#10;- All tray icon functions work" />
+    <MESSAGE value="- App can be installed with pip from wheel&#10;- Startup with OS will not work" />
+    <option name="LAST_COMMIT_MESSAGE" value="- App can be installed with pip from wheel&#10;- Startup with OS will not work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
