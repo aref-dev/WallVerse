@@ -2,12 +2,12 @@ import json
 import os
 import platform
 import sys
-import importlib
 from importlib.resources import files
 
 
 def resource_path(file_name):
     return files('wallverse').joinpath(file_name)
+
 
 class SettingsManager:
     def __init__(self):

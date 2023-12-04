@@ -8,6 +8,7 @@ from importlib.resources import files
 def resource_path(file_name):
     return files('wallverse').joinpath(file_name)
 
+
 class DataBase:
     def __init__(self):
         self.connection = sqlite3.connect(resource_path("local.db"), check_same_thread=False)
@@ -57,11 +58,9 @@ class DataBase:
         all_packs = self.cursor.fetchall()
         return all_packs
 
-
     def fetch_random_quote(self, pack_name):
         self.cursor.execute("SELECT QuoteText FROM Quotes "
                             "WHERE PackName = ? "
                             "ORDER BY RANDOM() LIMIT 1", (pack_name,))
         random_quote = self.cursor.fetchone()
         return random_quote[0]
-

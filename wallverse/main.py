@@ -60,20 +60,20 @@ class UserInterface(customtkinter.CTk):
             self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                               MenuItem("Show app", self.show_app, default=True),
                               MenuItem("Exit", self.exit_app))
-            self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
+            self.icon = pystray.Icon(name="WallVerse", title="WallVerse", icon=self.icon_img, menu=self.icon_menu)
             self.icon.remove_notification()
             self.icon.run_detached()
         elif platform.system() == "Darwin":
             self.icon_menu = (MenuItem("Refresh", self.que_put_set_wallpaper),
                               MenuItem("Show app", self.que_put_show_app),
                               MenuItem("Exit", self.exit_app))
-            self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
+            self.icon = pystray.Icon(name="WallVerse", title="WallVerse", icon=self.icon_img, menu=self.icon_menu)
             Process(target=self.icon.run_detached())
         elif platform.system() == "Linux":
             self.icon_menu = (MenuItem("Refresh", self.set_wallpaper),
                               MenuItem("Show app", self.show_app, default=True),
                               MenuItem("Exit", self.exit_app))
-            self.icon = pystray.Icon("WallVerse", self.icon_img, menu=self.icon_menu)
+            self.icon = pystray.Icon(name="WallVerse", title="WallVerse", icon=self.icon_img, menu=self.icon_menu)
 
         self.tabview.add("Home")
         self.tabview.add("Quotes")

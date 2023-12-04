@@ -1,7 +1,6 @@
 import customtkinter
 from PIL import Image
 import os
-import platform
 
 
 HEADING_FONT = ('Georgia', 18, 'bold')

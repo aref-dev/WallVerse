@@ -1,16 +1,10 @@
 import os.path
-import customtkinter
 import sys
+
+import customtkinter
 import platform
-import xml.dom.minidom
 from importlib.resources import files
 
-if platform.system() == "Windows":
-    import winshell
-elif platform.system() == "Darwin":
-    pass
-elif platform.system() == "Linux":
-    pass
 
 def resource_path(file_name):
     return files('wallverse').joinpath(file_name)
@@ -18,6 +12,7 @@ def resource_path(file_name):
 
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
+
 
 class PreferencesTab(customtkinter.CTkFrame):
     def __init__(self, master):
@@ -60,7 +55,7 @@ class PreferencesTab(customtkinter.CTkFrame):
         self.startup_checkbox = customtkinter.CTkSwitch(
             self.preferences_frame, text="Start with System?",
             variable=self.startup_var, onvalue=1, offvalue=0, width=390)
-        self.startup_checkbox.grid(row=2, column=0, columnspan=3, padx=20, pady=(20,410), sticky="EW")
+        self.startup_checkbox.grid(row=2, column=0, columnspan=3, padx=20, pady=(20, 410), sticky="EW")
 
         self.startup_var.trace("w", self.check_startup)
         self.time_interval_warning()
@@ -79,7 +74,7 @@ class PreferencesTab(customtkinter.CTkFrame):
 
     def handle_interval_callback(self, *args):
         self.settings.set_value("refresh_int", self.interval_period.get())
-        self.settings.set_value("refresh_unit",self.interval_by_string.get())
+        self.settings.set_value("refresh_unit", self.interval_by_string.get())
         if self.timer:
             self.after_cancel(self.timer)
         time = None
@@ -140,7 +135,7 @@ class PreferencesTab(customtkinter.CTkFrame):
                         desktop_file_content = f"""
                             [Desktop Entry]
                             Name=WallVerse
-                            Exec=pythonw {main_path}
+                            Exec=python3 {main_path}
                             Type=Application
                             Terminal=false
                             X-GNOME-Autostart-enabled=true

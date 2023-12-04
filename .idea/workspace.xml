@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- App can be installed with pip from wheel&#10;- Startup with OS will not work">
-      <change afterPath="$PROJECT_DIR$/wallverse/wallverse-startup.vbs" afterDir="false" />
+    <list default="true" id="af295761-1f76-4294-963d-16761e36c874" name="Changes" comment="- Windows startup works when installed with pip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallverse/com.wallverse.app.plist" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/com.wallverse.app.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/home_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/home_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallverse/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallverse/preferences_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/preferences_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallverse/style_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/style_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/quotes_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/quotes_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallverse/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallverse/settings_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,14 +134,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693507207607</updated>
-    </task>
-    <task id="LOCAL-00007" summary="- User can set different text-color, background color or image for dark-mode and light mode.">
-      <option name="closed" value="true" />
-      <created>1695549552537</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1695549552537</updated>
     </task>
     <task id="LOCAL-00008" summary="- Improved UI&#10;- Added cowsay option to UI">
       <option name="closed" value="true" />
@@ -527,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701024180340</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="- Windows startup works when installed with pip">
+      <option name="closed" value="true" />
+      <created>1701112935992</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1701112935992</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -545,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Replaced font selector" />
     <MESSAGE value="- Replaced dark mode listening function" />
     <MESSAGE value="- Fixed problem with font selector" />
     <MESSAGE value="- Added UI elements and function to add/ remove a shortcut of executable in startup folder&#10;- Created separate folders for Flask and Windows apps each with their own virtual environment" />
@@ -570,7 +569,8 @@
     <MESSAGE value="- Adapting tray icon for Mac with limited functionality" />
     <MESSAGE value="- Worked around GIL with a que&#10;- All tray icon functions work" />
     <MESSAGE value="- App can be installed with pip from wheel&#10;- Startup with OS will not work" />
-    <option name="LAST_COMMIT_MESSAGE" value="- App can be installed with pip from wheel&#10;- Startup with OS will not work" />
+    <MESSAGE value="- Windows startup works when installed with pip" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Windows startup works when installed with pip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -11,6 +11,7 @@ from importlib.resources import files
 def resource_path(file_name):
     return files('wallverse').joinpath(file_name)
 
+
 HEADING_FONT = ('Georgia', 18, 'bold')
 ELEMENT_FONT = ('Helvetica', 14)
 ELEMENT_FONT_BOLD = ('Helvetica', 14, 'bold')
