@@ -100,23 +100,27 @@ class PreferencesTab(customtkinter.CTkFrame):
             elif self.startup_var.get() == 1:
                 self.settings.set_value("set_as_wallpaper?", 1)
                 if not os.path.exists(startup_path):
-                    with open(resource_path("wallverse-startup.vbs")) as start_bat:
-                        start_bat = start_bat.read().replace("__MAIN_PATH__", main_path)
+                    with open(resource_path("wallverse-startup.vbs")) as start_vbs:
+                        start_vbs = start_vbs.read().replace("__MAIN_PATH__", main_path)
                         with open(startup_path, "w") as file:
-                            file.write(start_bat)
+                            file.write(start_vbs)
         elif platform.system() == "Darwin":
             launch_agents_path = os.path.expanduser("~/Library/LaunchAgents/com.wallverse.app.plist")
+
             if self.startup_var.get() == 0:
                 if os.path.exists(launch_agents_path):
                     os.remove(launch_agents_path)
+
             elif self.startup_var.get() == 1:
                 self.settings.set_value("set_as_wallpaper?", 1)
                 if not os.path.exists(launch_agents_path):
                     with open(resource_path("com.wallverse.app.plist")) as plist:
                         plist = plist.read()
                     plist = plist.replace("__MAIN_PATH__", main_path)
+                    plist = plist.replace("__PYTHON_VERSION__", f"{sys.executable}")
                     with open(launch_agents_path, "w") as file:
                         file.write(plist)
+
         elif platform.system() == "Linux":
             desktop_environment = os.environ.get("XDG_CURRENT_DESKTOP", "").lower()
             if "gnome" in desktop_environment:
@@ -135,7 +139,7 @@ class PreferencesTab(customtkinter.CTkFrame):
                         desktop_file_content = f"""
                             [Desktop Entry]
                             Name=WallVerse
-                            Exec=python3 {main_path}
+                            Exec={sys.executable} {main_path}
                             Type=Application
                             Terminal=false
                             X-GNOME-Autostart-enabled=true
