@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>WallVerse - Random Topic Based Quotations as Your Wallpaper</h1>
+    <h1>Random Topic Based Quotations as Your Wallpaper</h1>
 </div>
 With WallVerse you can set different chunks of texts as your wallpaper. There is a textbox for adding your own quotations, jokes, or poetry, or you can download and add "Quotation Packs" that cover different topics.
 <div align="center">
