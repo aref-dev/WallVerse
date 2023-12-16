@@ -2,10 +2,8 @@
     <h1>WallVerse - Random Topic Based Quotations as Your Wallpaper</h1>
 </div>
 With WallVerse you can set different chunks of texts as your wallpaper. There is a textbox for adding your own quotations, jokes, or poetry, or you can download and add "Quotation Packs" that cover different topics.
-<div align="center" width="450">
-    
-![WallVerse GUI](https://github.com/aref-dev/testing/assets/69017077/877dd42e-bb2e-4347-8951-709bd0d96085)
-    
+<div align="center">
+  <img src="https://github.com/aref-dev/WallVerse/assets/69017077/de77ca54-1088-4a48-985d-b3df50dc4cba" width="450" alt="Your Image Alt Text">
 </div>
 
 <!-- PyPI -->
@@ -16,7 +14,7 @@ With WallVerse you can set different chunks of texts as your wallpaper. There is
 </br>
 <div align="center">
     
-![Output example](https://github.com/aref-dev/testing/assets/69017077/e1b95420-f231-4ed0-8d19-0d619d1d470d)
+<img src="https://github.com/aref-dev/WallVerse/assets/69017077/650b1039-cee4-4e09-beee-716eb5b35f37" width="700" alt="Your Image Alt Text">
 
 </div>
 </br>
